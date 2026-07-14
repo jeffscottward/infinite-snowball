@@ -1,0 +1,31 @@
+# Phase 01 security, dependency, and CI contracts
+/.github/workflows/** @jeffscottward
+/.github/CODEOWNERS @jeffscottward
+/.gitignore @jeffscottward
+/.npmrc @jeffscottward
+/package.json @jeffscottward
+/pnpm-lock.yaml @jeffscottward
+/pnpm-workspace.yaml @jeffscottward
+/tests/meta/** @jeffscottward
+/tests/fixtures/meta/** @jeffscottward
+/tools/quality/** @jeffscottward
+
+# Future application, protocol, runtime, and package surfaces
+/apps/** @jeffscottward
+/packages/** @jeffscottward
+/content/** @jeffscottward
+/catalog/** @jeffscottward
+
+# License and provenance records
+/docs/licenses/** @jeffscottward
+/docs/provenance/** @jeffscottward
+/LICENSE* @jeffscottward
+/NOTICE* @jeffscottward
+/THIRD_PARTY* @jeffscottward
+
+# Future deployment and hosted-documentation configuration
+/deploy/** @jeffscottward
+/deployment/** @jeffscottward
+/wrangler.toml @jeffscottward
+/mintlify.json @jeffscottward
+/docs.json @jeffscottward

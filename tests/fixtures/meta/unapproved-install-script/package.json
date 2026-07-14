@@ -1,0 +1,13 @@
+{
+  "name": "@infinite-snowball/p01-unapproved-install-script-fixture",
+  "version": "0.0.0-private-fixture",
+  "private": true,
+  "description": "Data-only negative fixture. Tests copy this manifest into a temporary workspace and must prove its lifecycle script never executes.",
+  "scripts": {
+    "install": "node ./should-never-run.js"
+  },
+  "infiniteSnowballFixture": {
+    "purpose": "An unapproved dependency lifecycle script must make P01 install evidence fail closed.",
+    "execute": false
+  }
+}

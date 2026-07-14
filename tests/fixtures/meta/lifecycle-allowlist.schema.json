@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://infinite-snowball.local/schemas/p01-lifecycle-allowlist.schema.json",
+  "title": "Infinite Snowball P01 reviewed dependency lifecycle allowlist",
+  "description": "Reviewed dependency packages whose install/build lifecycle scripts may run under pnpm strict-dep-builds. Every entry must match the exact pnpm-lock.yaml package version and carry rationale.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "package",
+      "version",
+      "rationale",
+      "reviewedBy",
+      "reviewedOn"
+    ],
+    "properties": {
+      "package": {
+        "type": "string",
+        "pattern": "^(?:@[a-z0-9][a-z0-9._-]*\\/[a-z0-9][a-z0-9._-]*|[a-z0-9][a-z0-9._-]*)$"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      },
+      "rationale": {
+        "type": "string",
+        "minLength": 25
+      },
+      "reviewedBy": {
+        "type": "string",
+        "minLength": 3
+      },
+      "reviewedOn": {
+        "type": "string",
+        "format": "date"
+      }
+    }
+  }
+}

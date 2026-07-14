@@ -1,0 +1,6 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  sharp@0.33.5: true
+  sharp@0.34.5: true

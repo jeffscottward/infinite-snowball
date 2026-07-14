@@ -1,0 +1,57 @@
+# Local OMP state and raw agent output
+.omp-sessions/
+.omp-runs/
+.omp-workarounds/
+.omp-status.md
+**/.planning/ultra-root-output.jsonl
+
+# Dependencies, generated output, and test artifacts
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Logs and transient files
+*.log
+*.log.*
+logs/
+.logs/
+tmp/
+.tmp/
+
+# Local environment and credential files
+.env
+.env.*
+!.env.example
+!.env.schema
+.npmrc.local
+.netrc
+.pypirc
+.aws/
+.docker/
+.gnupg/
+.ssh/
+credentials/
+.credentials/
+credentials.*
+*.credentials
+
+# Private keys, certificates, and secret-bearing files
+*.pem
+*.key
+*.jks
+*.kdbx
+*.keystore
+*.p12
+*.pfx
+id_dsa*
+id_ecdsa*
+id_rsa*
+id_ed25519*
+secrets.*
+
+# Operating-system metadata
+.DS_Store

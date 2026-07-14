@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Infinite Snowball P01 approved dependency and lifecycle snapshot from the 2026-07-13 planning contract plus 2026-07-14 dependency audit pins.",
+  "packageManager": "pnpm@11.13.0",
+  "nodeFloor": ">=22.13",
+  "rootPackage": {
+    "name": "@infinite-snowball/root",
+    "private": true
+  },
+  "workspaceGlobs": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": [
+    {
+      "name": "react",
+      "version": "19.2.7",
+      "reason": "React UI runtime baseline."
+    },
+    {
+      "name": "react-dom",
+      "version": "19.2.7",
+      "reason": "React DOM runtime baseline."
+    },
+    {
+      "name": "three",
+      "version": "0.185.1",
+      "reason": "Three.js render runtime baseline."
+    },
+    {
+      "name": "@react-three/fiber",
+      "version": "9.6.1",
+      "reason": "React Three Fiber bridge for React 19 and Three."
+    },
+    {
+      "name": "@react-three/drei",
+      "version": "10.7.7",
+      "reason": "R3F helper baseline."
+    },
+    {
+      "name": "@react-three/rapier",
+      "version": "2.2.0",
+      "reason": "Rapier/R3F physics bridge baseline."
+    },
+    {
+      "name": "koota",
+      "version": "0.6.6",
+      "reason": "ECS gameplay facts baseline."
+    },
+    {
+      "name": "ecctrl",
+      "version": "2.0.0",
+      "reason": "Humanoid/touch controller reference boundary."
+    },
+    {
+      "name": "dexie",
+      "version": "4.4.4",
+      "reason": "IndexedDB persistence baseline."
+    },
+    {
+      "name": "dexie-react-hooks",
+      "version": "4.4.0",
+      "reason": "Dexie React integration baseline."
+    },
+    {
+      "name": "leva",
+      "version": "0.10.1",
+      "reason": "Audited UI/tooling pin required by the P01 dependency snapshot."
+    },
+    {
+      "name": "vite",
+      "version": "8.1.4",
+      "reason": "Build/dev server baseline."
+    },
+    {
+      "name": "vite-plugin-pwa",
+      "version": "1.3.0",
+      "reason": "PWA/service-worker build baseline."
+    },
+    {
+      "name": "workbox-build",
+      "version": "7.4.1",
+      "reason": "Workbox injectManifest/build contract baseline."
+    },
+    {
+      "name": "zod",
+      "version": "4.4.3",
+      "reason": "Schema validation baseline."
+    },
+    {
+      "name": "@gltf-transform/cli",
+      "version": "4.4.1",
+      "reason": "GLB conversion and inspection CLI baseline."
+    },
+    {
+      "name": "gltfjsx",
+      "version": "6.5.3",
+      "reason": "GLTF-to-JSX authoring helper baseline."
+    },
+    {
+      "name": "vitest",
+      "version": "4.1.10",
+      "reason": "Unit/meta test runner baseline."
+    },
+    {
+      "name": "@playwright/test",
+      "version": "1.61.1",
+      "reason": "Offline E2E check baseline."
+    },
+    {
+      "name": "typescript",
+      "version": "7.0.2",
+      "reason": "TypeScript compiler baseline."
+    },
+    {
+      "name": "@types/react",
+      "version": "19.2.7",
+      "reason": "Audited React type pin."
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "19.2.3",
+      "reason": "Audited React DOM type pin."
+    },
+    {
+      "name": "@types/node",
+      "version": "22.12.0",
+      "reason": "Audited Node type pin for the Node >=22.13 floor."
+    }
+  ],
+  "lifecycleBuildCandidates": [
+    {
+      "package": "sharp",
+      "version": "0.33.5",
+      "rationale": "gltfjsx@6.5.3 resolves sharp for local GLTF authoring and image processing; this exact prebuilt native binary version is present in pnpm-lock.yaml.",
+      "reviewedBy": "P01 dependency lifecycle audit",
+      "reviewedOn": "2026-07-14"
+    },
+    {
+      "package": "sharp",
+      "version": "0.34.5",
+      "rationale": "@gltf-transform/cli@4.4.1 resolves sharp for local asset image processing; this exact prebuilt native binary version is present in pnpm-lock.yaml.",
+      "reviewedBy": "P01 dependency lifecycle audit",
+      "reviewedOn": "2026-07-14"
+    }
+  ]
+}
