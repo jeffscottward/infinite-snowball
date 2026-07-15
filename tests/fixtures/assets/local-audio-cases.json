@@ -1,0 +1,73 @@
+{
+	"imported": {
+		"localTrackId": "local-track:3f46e3a1-cb77-4fc1-8a24-1d975b6148e2",
+		"fileName": "private-winter-mix.wav",
+		"bytesBase64": "UklGRlBSSVZBVEU=",
+		"tags": ["pvt7q", "winter mix"],
+		"artworkSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		"waveform": [0.1, -0.2, 0.3],
+		"fingerprint": "winter fingerprint 44100 private import",
+		"fileSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+		"playlist": ["personal favorites"],
+		"rights": "personal local playback only"
+	},
+	"safe": [
+		{
+			"channel": "ui",
+			"payload": { "localTrackId": "local-track:3f46e3a1-cb77-4fc1-8a24-1d975b6148e2", "state": "ready" }
+		},
+		{
+			"channel": "player",
+			"payload": { "localTrackId": "local-track:3f46e3a1-cb77-4fc1-8a24-1d975b6148e2", "state": "playing" }
+		}
+	],
+	"nonArrays": [null, {}, "not-an-emission-array"],
+	"collidingOpaqueIds": [
+		null,
+		"",
+		"private-winter-mix.wav",
+		"PRIVATE_WINTER_MIX.WAV",
+		"local-track-private-winter-mix.wav",
+		"private-winter-mix.wav-local-track",
+		"local-track-private%2Dwinter%2Dmix%2Ewav",
+		"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+		"local-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+		"local-track:bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"
+	],
+	"derivedOpaqueIds": [
+		{ "fileName": "a.wav", "localTrackId": "local-a.wav" },
+		{ "fileName": "секрет.wav", "localTrackId": "local-секрет.wav" }
+	],
+	"malformedPrivateValues": ["\ud800"],
+	"forbidden": [
+		{ "channel": "catalog", "payload": { "title": "private-winter-mix.wav" } },
+		{ "channel": "package", "payload": { "asset": "UklGRlBSSVZBVEU=" } },
+		{ "channel": "export", "payload": { "tags": ["pvt7q", "winter mix"] } },
+		{
+			"channel": "diagnostic",
+			"payload": {
+				"hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+			}
+		},
+		{ "channel": "network", "payload": { "body": "personal favorites" } },
+		{
+			"channel": "service-worker",
+			"payload": { "cacheKey": "private-winter-mix.wav" }
+		},
+		{
+			"channel": "screenshot",
+			"payload": { "caption": "personal local playback only" }
+		},
+		{ "channel": "ui", "payload": { "audioBytes": "UklGRlBSSVZBVEU=" } },
+		{ "channel": "player", "payload": { "waveform": [0.1, -0.2, 0.3] } },
+		{ "channel": "analytics", "payload": { "waveform": [0.1, -0.2, 0.3] } },
+		{
+			"channel": "ui",
+			"payload": {
+				"localTrackId": "local-track-7",
+				"state": "ready",
+				"private-winter-mix.wav": "ready"
+			}
+		}
+	]
+}

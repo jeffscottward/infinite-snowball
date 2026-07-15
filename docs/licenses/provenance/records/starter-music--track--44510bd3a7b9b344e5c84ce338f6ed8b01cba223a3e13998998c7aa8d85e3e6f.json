@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "recordId": "asset:@infinite-snowball/starter-music:1.0.0:track",
+  "id": "asset:@infinite-snowball/starter-music:1.0.0:track",
+  "packageName": "@infinite-snowball/starter-music",
+  "packageVersion": "1.0.0",
+  "packageKind": "music",
+  "packageLicense": "CC0-1.0",
+  "packagePath": "content/starter-music/manifest.json",
+  "assetId": "track",
+  "assetPath": "assets/snowdrift-signal.wav",
+  "mime": "audio/wav",
+  "bytes": 705644,
+  "sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0",
+  "role": "music-track",
+  "provider": "Infinite Snowball contributors",
+  "creator": "Infinite Snowball contributors",
+  "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+  "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+  "sourceArtifactSha256": "2635ef55500a59c1eda14d898d418af927503b34b97cb0e06da5c58b3a1f0069",
+  "acquisition": "generated deterministically from reviewed repository source on 2026-07-15",
+  "acquiredAt": "2026-07-15T00:00:00.000Z",
+  "license": {
+    "spdx": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+    "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c",
+    "grant": "Original generated Infinite Snowball starter-content asset dedicated under CC0 1.0."
+  },
+  "reviewer": "Infinite Snowball P03 provenance review",
+  "reviewedAt": "2026-07-15T00:00:00.000Z",
+  "evidenceStatus": "verified",
+  "attribution": "Infinite Snowball contributors, CC0 1.0; attribution not required.",
+  "modifications": [
+    "generated original music-track",
+    "normalized deterministic filename"
+  ],
+  "transformation": {
+    "recipe": "generate-music-track-v1",
+    "tool": {
+      "name": "@infinite-snowball/asset-pipeline",
+      "version": "1.0.0"
+    },
+    "config": {
+      "deterministic": true,
+      "format": "pcm16-stereo-wav",
+      "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+    },
+    "configSha256": "24536452f1a2f890280f5c083110c9c6f0539080a10f03c2834e97486f04c9fd"
+  },
+  "notes": "Original generated starter-content asset dedicated under CC0 1.0.",
+  "replacement": null,
+  "output": {
+    "path": "content/starter-music/assets/snowdrift-signal.wav",
+    "sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0"
+  },
+  "transformations": [
+    "generated original music-track",
+    "normalized deterministic filename",
+    "generate-music-track-v1 config 24536452f1a2f890280f5c083110c9c6f0539080a10f03c2834e97486f04c9fd"
+  ],
+  "provenanceSha256": "ad6b0b6e257c6f8a6cbdc9ea58f26cf87eb9c190533892b3d16735642c7bb354",
+  "assetRecordSha256": "d5612c96acdda3191c37d1bc7201665f0def463beffe0fe7d138efcb85cd1271"
+}

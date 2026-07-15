@@ -1,0 +1,10 @@
+{
+	"packageDirectory": "starter-character",
+	"assetId": "icon",
+	"license": "CC-BY-4.0",
+	"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+	"author": "Example Original Artist",
+	"source": "https://example.com/original-artist/starter-icon",
+	"attribution": "Starter Icon by Example Original Artist, licensed CC BY 4.0; source and modifications recorded.",
+	"licenseText": "Creative Commons Attribution 4.0 International\nRetained deterministic test evidence for the exact CC BY 4.0 grant.\n"
+}

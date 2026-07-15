@@ -8,13 +8,20 @@
   "engines": {
     "node": ">=22.13"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "22.13.1",
+      "onFail": "download"
+    }
+  },
   "scripts": {
     "lockfile": "node tools/quality/run-audited-pnpm.mjs install --frozen-lockfile && vitest run tests/meta/workspace-contract.test.ts --testNamePattern \"dependency snapshot and lifecycle policy\"",
     "types": "tsc -p packages/protocol/tsconfig.json --noEmit && tsc -p tests/meta/tsconfig.json --noEmit",
-    "unit": "vitest run",
+    "unit": "node tools/quality/run-audited-pnpm.mjs run protocol:build && vitest run",
     "build": "node packages/protocol/scripts/clean-dist.mjs && tsc -p packages/protocol/tsconfig.build.json && tsc -p tests/meta/tsconfig.json --noEmit",
     "typecheck": "tsc -p packages/protocol/tsconfig.json --noEmit && tsc -p tests/meta/tsconfig.json --noEmit",
-    "test": "vitest run",
+    "test": "node tools/quality/run-audited-pnpm.mjs run protocol:build && vitest run",
     "test:workspace": "vitest run tests/meta/workspace-contract.test.ts",
     "test:ci": "vitest run tests/meta/ci-contract.test.ts",
     "test:content-policy-contract": "vitest run tests/meta/workspace-contract.test.ts --testNamePattern \"privacy and ignore contract|dependency snapshot and lifecycle policy\"",
@@ -26,8 +33,24 @@
     "protocol:schema:check": "node packages/protocol/scripts/clean-dist.mjs && tsc -p packages/protocol/tsconfig.build.json && node packages/protocol/scripts/generate-schemas.mjs --check",
     "protocol:browser-boundary": "node packages/protocol/scripts/check-browser-boundary.mjs",
     "protocol:offline-model": "vitest run tests/protocol/offline-model.test.ts",
+    "assets:rebuild-starter": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/rebuild-starter.mjs && node tools/assets/budget-report.mjs && node tools/assets/render-smoke.mjs --generate && node tools/assets/handoff-report.mjs",
+    "assets:rebuild-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/rebuild-check.mjs",
+    "assets:verify-hashes": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/verify-hashes.mjs",
+    "assets:budget-report": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/budget-report.mjs --check",
+    "assets:handoff-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/handoff-report.mjs --check",
+    "assets:provenance-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/provenance-check.mjs && node tools/assets/withdrawal-check.mjs",
+    "assets:music-policy-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/music-check.mjs",
+    "assets:local-audio-check": "node tools/assets/local-audio-check.mjs",
+    "assets:brand-originality-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/brand-check.mjs",
+    "licenses:ledger-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/provenance-check.mjs && node tools/assets/withdrawal-check.mjs",
+    "music:policy-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/music-check.mjs",
+    "brand:originality-check": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/brand-check.mjs",
+    "local-audio:boundary-check": "node tools/assets/local-audio-check.mjs",
+    "assets:headless-smoke": "node tools/quality/run-audited-pnpm.mjs run protocol:build && node tools/assets/headless-smoke.mjs && node tools/assets/render-smoke.mjs",
+    "assets:test": "node tools/quality/run-audited-pnpm.mjs run protocol:build && vitest run tests/assets",
+    "assets:check": "node tools/quality/run-audited-pnpm.mjs run assets:test && node tools/quality/run-audited-pnpm.mjs run assets:rebuild-check && node tools/quality/run-audited-pnpm.mjs run assets:verify-hashes && node tools/quality/run-audited-pnpm.mjs run assets:budget-report && node tools/quality/run-audited-pnpm.mjs run assets:handoff-check && node tools/quality/run-audited-pnpm.mjs run licenses:ledger-check && node tools/quality/run-audited-pnpm.mjs run music:policy-check && node tools/quality/run-audited-pnpm.mjs run local-audio:boundary-check && node tools/quality/run-audited-pnpm.mjs run brand:originality-check && node tools/quality/run-audited-pnpm.mjs run assets:headless-smoke",
     "secret-scan": "node tools/quality/secret-scan.mjs --staged",
-    "quality": "tsc -p packages/protocol/tsconfig.json --noEmit && tsc -p tests/meta/tsconfig.json --noEmit && vitest run"
+    "quality": "node tools/quality/run-audited-pnpm.mjs run protocol:build && tsc -p packages/protocol/tsconfig.json --noEmit && tsc -p tests/meta/tsconfig.json --noEmit && vitest run"
   },
   "devDependencies": {
     "@gltf-transform/cli": "4.4.1",

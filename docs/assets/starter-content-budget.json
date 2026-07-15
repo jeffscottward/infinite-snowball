@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303",
+  "contentSha256": "aedd06a9c18bf50737ff0968708a17a7166dbb75eb6344c097db87df43ec9a28",
+  "limits": {
+    "maxFileBytes": 8388608,
+    "maxTriangles": 40000,
+    "maxMaterials": 8,
+    "maxTextureDimension": 4096,
+    "maxStarterFileBytes": 67108864,
+    "maxStarterEntries": 83577,
+    "maxStarterDepth": 13,
+    "maxTextureBytes": 8388608,
+    "maxDecodedTextureBytes": 83886080,
+    "maxEmbeddedImages": 64,
+    "maxStarterFiles": 6429,
+    "maxStarterBytes": 2857369600,
+    "maxStarterTriangles": 257160000
+  },
+  "totals": {
+    "files": 19,
+    "bytes": 781802,
+    "glbFiles": 7,
+    "triangles": 304,
+    "materials": 14,
+    "textureBytes": 2756
+  },
+  "files": [
+    {
+      "path": "starter-campaign/assets/icon.png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "kind": "png",
+      "role": "icon",
+      "compressedBytes": 422,
+      "texture": {
+        "width": 64,
+        "height": 64,
+        "decodedBytes": 16384,
+        "decodedScanlineBytes": 16448
+      }
+    },
+    {
+      "path": "starter-campaign/manifest.json",
+      "bytes": 7242,
+      "sha256": "d94b11552f86fd42e633dcebeb4b99b3105534114e2c87c680caa81446388b30",
+      "kind": "json"
+    },
+    {
+      "path": "starter-character/assets/icon.png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "kind": "png",
+      "role": "icon",
+      "compressedBytes": 422,
+      "texture": {
+        "width": 64,
+        "height": 64,
+        "decodedBytes": 16384,
+        "decodedScanlineBytes": 16448
+      }
+    },
+    {
+      "path": "starter-character/assets/pebble-friend-preview.png",
+      "bytes": 1061,
+      "sha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875",
+      "kind": "png",
+      "role": "screenshot",
+      "compressedBytes": 968,
+      "texture": {
+        "width": 512,
+        "height": 512,
+        "decodedBytes": 262144,
+        "decodedScanlineBytes": 262656
+      }
+    },
+    {
+      "path": "starter-character/assets/pebble-friend.glb",
+      "bytes": 3500,
+      "sha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+      "kind": "glb",
+      "role": "character-model",
+      "compressedBytes": 1487,
+      "glb": {
+        "bytes": 3500,
+        "triangles": 16,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-character/manifest.json",
+      "bytes": 8070,
+      "sha256": "ce9901e348bcfdb758852a87c3b882948fa5263b1b6036a3f8e86ea6bd3d4454",
+      "kind": "json"
+    },
+    {
+      "path": "starter-level/assets/icon.png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "kind": "png",
+      "role": "icon",
+      "compressedBytes": 422,
+      "texture": {
+        "width": 64,
+        "height": 64,
+        "decodedBytes": 16384,
+        "decodedScanlineBytes": 16448
+      }
+    },
+    {
+      "path": "starter-level/assets/snowfield-arena.glb",
+      "bytes": 5932,
+      "sha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a",
+      "kind": "glb",
+      "role": "arena",
+      "compressedBytes": 1622,
+      "glb": {
+        "bytes": 5932,
+        "triangles": 144,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-level/assets/snowfield-layout.glb",
+      "bytes": 4440,
+      "sha256": "afeb749d26bcb87ecdaabcf90bd3c29251e0937f4d8385d177a5b5cb9713c1e9",
+      "kind": "glb",
+      "role": "layout",
+      "compressedBytes": 1537,
+      "glb": {
+        "bytes": 4440,
+        "triangles": 80,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-level/manifest.json",
+      "bytes": 13010,
+      "sha256": "d704d595a44c63c71b1f2f79d0031f245e5fb706c4ffc2e30d932f14389c1e1c",
+      "kind": "json"
+    },
+    {
+      "path": "starter-music/assets/icon.png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "kind": "png",
+      "role": "icon",
+      "compressedBytes": 422,
+      "texture": {
+        "width": 64,
+        "height": 64,
+        "decodedBytes": 16384,
+        "decodedScanlineBytes": 16448
+      }
+    },
+    {
+      "path": "starter-music/assets/snowdrift-signal.wav",
+      "bytes": 705644,
+      "sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0",
+      "kind": "wav",
+      "role": "music-track",
+      "compressedBytes": 227215,
+      "audio": {
+        "durationSeconds": 4,
+        "channels": 2,
+        "sampleRate": 44100,
+        "bitsPerSample": 16,
+        "dataBytes": 705600
+      }
+    },
+    {
+      "path": "starter-music/manifest.json",
+      "bytes": 6106,
+      "sha256": "3ff81210d3d2dd4445d87e39a203893525a9def7f2c8263515a0c8cd5606d346",
+      "kind": "json"
+    },
+    {
+      "path": "starter-objects/assets/goal-stone-collider.glb",
+      "bytes": 3044,
+      "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+      "kind": "glb",
+      "role": "collider",
+      "compressedBytes": 1356,
+      "glb": {
+        "bytes": 3044,
+        "triangles": 16,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-objects/assets/goal-stone.glb",
+      "bytes": 3044,
+      "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+      "kind": "glb",
+      "role": "render-model",
+      "compressedBytes": 1348,
+      "glb": {
+        "bytes": 3044,
+        "triangles": 16,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-objects/assets/icon.png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "kind": "png",
+      "role": "icon",
+      "compressedBytes": 422,
+      "texture": {
+        "width": 64,
+        "height": 64,
+        "decodedBytes": 16384,
+        "decodedScanlineBytes": 16448
+      }
+    },
+    {
+      "path": "starter-objects/assets/rock-small-a-collider.glb",
+      "bytes": 3044,
+      "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+      "kind": "glb",
+      "role": "collider",
+      "compressedBytes": 1355,
+      "glb": {
+        "bytes": 3044,
+        "triangles": 16,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-objects/assets/rock-small-a.glb",
+      "bytes": 3044,
+      "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+      "kind": "glb",
+      "role": "render-model",
+      "compressedBytes": 1348,
+      "glb": {
+        "bytes": 3044,
+        "triangles": 16,
+        "materials": 2,
+        "textures": 0,
+        "textureSets": 0,
+        "textureBytes": 0,
+        "decodedTextureBytes": 0,
+        "maxTextureDimension": 0
+      }
+    },
+    {
+      "path": "starter-objects/manifest.json",
+      "bytes": 12926,
+      "sha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed",
+      "kind": "json"
+    }
+  ],
+  "issues": []
+}

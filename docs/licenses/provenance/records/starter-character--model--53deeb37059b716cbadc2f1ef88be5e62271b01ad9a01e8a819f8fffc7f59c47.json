@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "recordId": "asset:@infinite-snowball/starter-character:1.0.0:model",
+  "id": "asset:@infinite-snowball/starter-character:1.0.0:model",
+  "packageName": "@infinite-snowball/starter-character",
+  "packageVersion": "1.0.0",
+  "packageKind": "character",
+  "packageLicense": "CC0-1.0",
+  "packagePath": "content/starter-character/manifest.json",
+  "assetId": "model",
+  "assetPath": "assets/pebble-friend.glb",
+  "mime": "model/gltf-binary",
+  "bytes": 3500,
+  "sha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+  "role": "character-model",
+  "provider": "Kenney",
+  "creator": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/nature-kit",
+  "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+  "sourceArtifactSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+  "acquisition": "exact retained member Models/GLTF format/rock_smallA.glb; archive SHA-256 fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+  "acquiredAt": "2026-07-15T00:00:00.000Z",
+  "license": {
+    "spdx": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+    "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+    "grant": "Captured CC0 1.0 dedication from the exact downloaded Kenney Nature Kit archive."
+  },
+  "reviewer": "Infinite Snowball P03 provenance review",
+  "reviewedAt": "2026-07-15T00:00:00.000Z",
+  "evidenceStatus": "verified",
+  "attribution": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+  "modifications": [
+    "added embedded Idle rotation animation with three deterministic keyframes",
+    "normalized deterministic filename"
+  ],
+  "transformation": {
+    "recipe": "add-decorative-idle-animation-v1",
+    "tool": {
+      "name": "@infinite-snowball/asset-pipeline",
+      "version": "1.0.0"
+    },
+    "config": {
+      "deterministic": true,
+      "format": "glb",
+      "sourceMember": "Models/GLTF format/rock_smallA.glb",
+      "animationClip": "Idle",
+      "animationKeyframes": 3,
+      "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+    },
+    "configSha256": "27f6828bebc11ac8a6a19393ca9dc9f4e4153bd7e2c067efcfd416389538fda4"
+  },
+  "notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+  "replacement": null,
+  "output": {
+    "path": "content/starter-character/assets/pebble-friend.glb",
+    "sha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987"
+  },
+  "transformations": [
+    "added embedded Idle rotation animation with three deterministic keyframes",
+    "normalized deterministic filename",
+    "add-decorative-idle-animation-v1 config 27f6828bebc11ac8a6a19393ca9dc9f4e4153bd7e2c067efcfd416389538fda4"
+  ],
+  "provenanceSha256": "1ebcd2061370fdc914928087582361eb0254b021d3afa317c0e8df27b69f4638",
+  "assetRecordSha256": "a5785760add30354379afbe0067c402d47717bc3686a4cced6336314c54977ee"
+}

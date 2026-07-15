@@ -1,0 +1,126 @@
+{
+	"valid": {
+		"schemaVersion": 1,
+		"recordId": "withdrawal:f64aed7f739ed380f80081fad1fbe593e386de6632829d586b803a2011c43f0e",
+		"package": {
+			"name": "@infinite-snowball/starter-objects",
+			"version": "1.0.0",
+			"integrity": "sha512-5ISb6Agv8pTir+JTISW2Y1jm0n9r0LurWbj4Eip3QFaNvdb9aYhr8Rd6nIZPytlZn9vJj0pgiwFRJBAnXNnnFw==",
+			"manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed"
+		},
+		"affectedObjectIds": ["starter-rock"],
+		"affectedAssetIds": ["render", "collider"],
+		"evidenceStatus": "withdrawn",
+		"installEligibility": "withdrawn",
+		"allowNewInstalls": false,
+		"preserveReferences": ["save", "history"],
+		"reason": "Simulated provenance dispute fixture",
+		"replacement": {
+			"package": {
+				"name": "@infinite-snowball/starter-objects",
+				"version": "2.0.0",
+				"integrity": "sha512-4/zaDey9Kuh5Vj1K660snMxcLrSLrKOP5NOrGvq/IpGjKGTZpcJ1HiEC76LSMyWc/YHFbezhdBNNLd9q2R+8gA==",
+				"manifestSha256": "4956a66788a38afed63349738dcc842da20d8b198a5c4454eae18ed3a0057114"
+			},
+			"objectIdMap": { "starter-rock": "starter-rock-v2" },
+			"assetIdMap": {
+				"render": "render-v2",
+				"collider": "collider-v2"
+			}
+		},
+		"simulationOnly": true
+	},
+	"invalid": [
+		{
+			"name": "simulation marker missing",
+			"delete": ["simulationOnly"],
+			"expected": "E_WITHDRAWAL_SIMULATION"
+		},
+		{
+			"name": "simulation marker false",
+			"patch": { "simulationOnly": false },
+			"expected": "E_WITHDRAWAL_SIMULATION"
+		},
+		{
+			"name": "new installs allowed",
+			"patch": { "allowNewInstalls": true },
+			"expected": "E_WITHDRAWAL_INSTALL"
+		},
+		{
+			"name": "save reference missing",
+			"patch": { "preserveReferences": ["history"] },
+			"expected": "E_WITHDRAWAL_HISTORY"
+		},
+		{
+			"name": "history reference missing",
+			"patch": { "preserveReferences": ["save"] },
+			"expected": "E_WITHDRAWAL_HISTORY"
+		},
+		{
+			"name": "valid but different package integrity",
+			"patch": {
+				"package.integrity": "sha512-4/zaDey9Kuh5Vj1K660snMxcLrSLrKOP5NOrGvq/IpGjKGTZpcJ1HiEC76LSMyWc/YHFbezhdBNNLd9q2R+8gA=="
+			},
+			"expected": "E_WITHDRAWAL_IDENTITY"
+		},
+		{
+			"name": "package integrity missing",
+			"delete": ["package.integrity"],
+			"expected": "E_WITHDRAWAL_IDENTITY"
+		},
+		{
+			"name": "package manifest hash missing",
+			"delete": ["package.manifestSha256"],
+			"expected": "E_WITHDRAWAL_IDENTITY"
+		},
+		{
+			"name": "affected object IDs missing",
+			"delete": ["affectedObjectIds"],
+			"expected": "E_WITHDRAWAL_AFFECTED"
+		},
+		{
+			"name": "affected asset IDs missing",
+			"delete": ["affectedAssetIds"],
+			"expected": "E_WITHDRAWAL_AFFECTED"
+		},
+		{
+			"name": "replacement mapping incomplete",
+			"delete": ["replacement.assetIdMap.collider"],
+			"expected": "E_WITHDRAWAL_REPLACEMENT"
+		},
+		{
+			"name": "replacement missing",
+			"delete": ["replacement"],
+			"expected": "E_WITHDRAWAL_REPLACEMENT"
+		},
+		{
+			"name": "replacement reuses withdrawn package name and version with different hashes",
+			"patch": { "replacement.package.version": "1.0.0" },
+			"expected": "E_WITHDRAWAL_REPLACEMENT"
+		},
+		{
+			"name": "replacement reuses withdrawn artifact integrity at a new package key",
+			"patch": {
+				"replacement.package.integrity": "sha512-5ISb6Agv8pTir+JTISW2Y1jm0n9r0LurWbj4Eip3QFaNvdb9aYhr8Rd6nIZPytlZn9vJj0pgiwFRJBAnXNnnFw=="
+			},
+			"expected": "E_WITHDRAWAL_REPLACEMENT"
+		},
+		{
+			"name": "replacement reuses withdrawn manifest hash at a new package key",
+			"patch": {
+				"replacement.package.manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed"
+			},
+			"expected": "E_WITHDRAWAL_REPLACEMENT"
+		},
+		{
+			"name": "affected object IDs are not an array",
+			"patch": { "affectedObjectIds": 1 },
+			"expected": "E_WITHDRAWAL_AFFECTED"
+		},
+		{
+			"name": "affected asset IDs are not an array",
+			"patch": { "affectedAssetIds": {} },
+			"expected": "E_WITHDRAWAL_AFFECTED"
+		}
+	]
+}

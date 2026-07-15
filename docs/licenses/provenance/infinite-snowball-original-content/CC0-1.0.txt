@@ -1,0 +1,8 @@
+Infinite Snowball original starter-content assets
+
+To the extent possible under law, the Infinite Snowball contributors have waived all copyright and related or neighboring rights to the original generated starter-content assets identified by the accompanying provenance records.
+
+This work is published from the United States under the Creative Commons CC0 1.0 Universal Public Domain Dedication:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+This dedication applies only to assets explicitly identified as original Infinite Snowball content. It does not relicense third-party assets, trademarks, or code.

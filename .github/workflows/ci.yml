@@ -69,8 +69,14 @@ jobs:
           run_install: false
       - name: Install exact dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build the protocol test prerequisite
+        run: pnpm run protocol:build
+      - name: Install the pinned Playwright Chromium runtime
+        run: pnpm exec playwright install --with-deps chromium
       - name: Run the unit and meta contracts
         run: pnpm run unit
+      - name: Run fail-closed aggregate asset checks
+        run: pnpm run assets:check
 
   build:
     name: build

@@ -1,0 +1,892 @@
+{
+  "schemaVersion": 2,
+  "phase": "P03",
+  "status": "verified",
+  "reviewedOn": "2026-07-15",
+  "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303",
+  "contentSha256": "aedd06a9c18bf50737ff0968708a17a7166dbb75eb6344c097db87df43ec9a28",
+  "consumers": [
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P09",
+    "P10"
+  ],
+  "packages": [
+    {
+      "directory": "content/starter-level",
+      "manifestPath": "content/starter-level/manifest.json",
+      "name": "@infinite-snowball/starter-level",
+      "version": "1.0.0",
+      "kind": "level",
+      "license": "CC0-1.0",
+      "manifestSha256": "d704d595a44c63c71b1f2f79d0031f245e5fb706c4ffc2e30d932f14389c1e1c",
+      "integrity": "sha512-t214lGjODWOcXHZz+uCWCOCS7E9mHDCQsD+m6IY51O0EmVOZlgD9d4oFzOhUYeOBqIJTizdiIluuqYH3NQBGDg==",
+      "artifactBytes": 11155,
+      "artifactSha256": "e9787e987f16d8e3d1c99807e9ab2ab84572fc298e4224bc20007a9b8120b314",
+      "archive": {
+        "compressedBytes": 11155,
+        "uncompressedBytes": 10711,
+        "fileCount": 3,
+        "maxDepth": 2
+      },
+      "totals": {
+        "bytes": 11155,
+        "uncompressedBytes": 10711,
+        "fileCount": 3,
+        "maxDepth": 2,
+        "maxCompressionRatio": 3.996928
+      },
+      "assets": [
+        {
+          "assetId": "icon",
+          "path": "content/starter-level/assets/icon.png",
+          "role": "icon",
+          "mime": "image/png",
+          "bytes": 339,
+          "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6"
+        },
+        {
+          "assetId": "arena",
+          "path": "content/starter-level/assets/snowfield-arena.glb",
+          "role": "arena",
+          "mime": "model/gltf-binary",
+          "bytes": 5932,
+          "sha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a"
+        },
+        {
+          "assetId": "layout",
+          "path": "content/starter-level/assets/snowfield-layout.glb",
+          "role": "layout",
+          "mime": "model/gltf-binary",
+          "bytes": 4440,
+          "sha256": "afeb749d26bcb87ecdaabcf90bd3c29251e0937f4d8385d177a5b5cb9713c1e9"
+        }
+      ]
+    },
+    {
+      "directory": "content/starter-objects",
+      "manifestPath": "content/starter-objects/manifest.json",
+      "name": "@infinite-snowball/starter-objects",
+      "version": "1.0.0",
+      "kind": "object-pack",
+      "license": "CC0-1.0",
+      "manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed",
+      "integrity": "sha512-5ISb6Agv8pTir+JTISW2Y1jm0n9r0LurWbj4Eip3QFaNvdb9aYhr8Rd6nIZPytlZn9vJj0pgiwFRJBAnXNnnFw==",
+      "artifactBytes": 12314,
+      "artifactSha256": "9bf536eaead121e5b4b9a33fdcdd606a1a14e4ac7b0ccd34eab85ea7ab7469a3",
+      "archive": {
+        "compressedBytes": 12314,
+        "uncompressedBytes": 12515,
+        "fileCount": 5,
+        "maxDepth": 2
+      },
+      "totals": {
+        "bytes": 12314,
+        "uncompressedBytes": 12515,
+        "fileCount": 5,
+        "maxDepth": 2,
+        "maxCompressionRatio": 5.964928
+      },
+      "assets": [
+        {
+          "assetId": "icon",
+          "path": "content/starter-objects/assets/icon.png",
+          "role": "icon",
+          "mime": "image/png",
+          "bytes": 339,
+          "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6"
+        },
+        {
+          "assetId": "render",
+          "path": "content/starter-objects/assets/rock-small-a.glb",
+          "role": "render-model",
+          "mime": "model/gltf-binary",
+          "bytes": 3044,
+          "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+        },
+        {
+          "assetId": "collider",
+          "path": "content/starter-objects/assets/rock-small-a-collider.glb",
+          "role": "collider",
+          "mime": "model/gltf-binary",
+          "bytes": 3044,
+          "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+        },
+        {
+          "assetId": "goal-render",
+          "path": "content/starter-objects/assets/goal-stone.glb",
+          "role": "render-model",
+          "mime": "model/gltf-binary",
+          "bytes": 3044,
+          "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+        },
+        {
+          "assetId": "goal-collider",
+          "path": "content/starter-objects/assets/goal-stone-collider.glb",
+          "role": "collider",
+          "mime": "model/gltf-binary",
+          "bytes": 3044,
+          "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+        }
+      ]
+    },
+    {
+      "directory": "content/starter-character",
+      "manifestPath": "content/starter-character/manifest.json",
+      "name": "@infinite-snowball/starter-character",
+      "version": "1.0.0",
+      "kind": "character",
+      "license": "CC0-1.0",
+      "manifestSha256": "ce9901e348bcfdb758852a87c3b882948fa5263b1b6036a3f8e86ea6bd3d4454",
+      "integrity": "sha512-hXrHVIDQ3zvSJ7Zf4Bn6DN/YsBA+i5+EMHVe+71meQeIC6dx9sJcyC+DUox2zMPXl4txs41/eofzz21rZe/O4g==",
+      "artifactBytes": 9394,
+      "artifactSha256": "be95099b0de4fe9653d30ffb5b8bc4f85e692205d6ada1172e8c7fcc4eb89119",
+      "archive": {
+        "compressedBytes": 9394,
+        "uncompressedBytes": 4900,
+        "fileCount": 3,
+        "maxDepth": 2
+      },
+      "totals": {
+        "bytes": 9394,
+        "uncompressedBytes": 4900,
+        "fileCount": 3,
+        "maxDepth": 2,
+        "maxCompressionRatio": 3.668182
+      },
+      "assets": [
+        {
+          "assetId": "icon",
+          "path": "content/starter-character/assets/icon.png",
+          "role": "icon",
+          "mime": "image/png",
+          "bytes": 339,
+          "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6"
+        },
+        {
+          "assetId": "model",
+          "path": "content/starter-character/assets/pebble-friend.glb",
+          "role": "character-model",
+          "mime": "model/gltf-binary",
+          "bytes": 3500,
+          "sha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987"
+        },
+        {
+          "assetId": "shot",
+          "path": "content/starter-character/assets/pebble-friend-preview.png",
+          "role": "screenshot",
+          "mime": "image/png",
+          "bytes": 1061,
+          "sha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875"
+        }
+      ]
+    },
+    {
+      "directory": "content/starter-campaign",
+      "manifestPath": "content/starter-campaign/manifest.json",
+      "name": "@infinite-snowball/starter-campaign",
+      "version": "1.0.0",
+      "kind": "campaign",
+      "license": "CC0-1.0",
+      "manifestSha256": "d94b11552f86fd42e633dcebeb4b99b3105534114e2c87c680caa81446388b30",
+      "integrity": "sha512-tT6VwWjslMVOwMoIjj612NmCbS/siYSv01APGuBhjGoVM/cosj9Y5ctQ2DDrqQvbsCzVAjO7Ti+vWcBcwZNbrQ==",
+      "artifactBytes": 6954,
+      "artifactSha256": "ff638ffb3fe705e5eb9add860658c16d953c87613736fbba41389d459c3a0c19",
+      "archive": {
+        "compressedBytes": 6954,
+        "uncompressedBytes": 339,
+        "fileCount": 1,
+        "maxDepth": 2
+      },
+      "totals": {
+        "bytes": 6954,
+        "uncompressedBytes": 339,
+        "fileCount": 1,
+        "maxDepth": 2,
+        "maxCompressionRatio": 3.265104
+      },
+      "assets": [
+        {
+          "assetId": "icon",
+          "path": "content/starter-campaign/assets/icon.png",
+          "role": "icon",
+          "mime": "image/png",
+          "bytes": 339,
+          "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6"
+        }
+      ]
+    },
+    {
+      "directory": "content/starter-music",
+      "manifestPath": "content/starter-music/manifest.json",
+      "name": "@infinite-snowball/starter-music",
+      "version": "1.0.0",
+      "kind": "music",
+      "license": "CC0-1.0",
+      "manifestSha256": "3ff81210d3d2dd4445d87e39a203893525a9def7f2c8263515a0c8cd5606d346",
+      "integrity": "sha512-+sqkA171GYz38gq6749dS7EvEoWW+jdwfC0/yDTHgmfanc7fKtfYou5OZaV1mDwgqH8zUslKkRXXwWHAhVzIkw==",
+      "artifactBytes": 233639,
+      "artifactSha256": "8f564b61cdf94310b16eda5ce26a41327055eeb2356efe502aaeb04a29555f7c",
+      "archive": {
+        "compressedBytes": 233639,
+        "uncompressedBytes": 705983,
+        "fileCount": 2,
+        "maxDepth": 2
+      },
+      "totals": {
+        "bytes": 233639,
+        "uncompressedBytes": 705983,
+        "fileCount": 2,
+        "maxDepth": 2,
+        "maxCompressionRatio": 3.619443
+      },
+      "assets": [
+        {
+          "assetId": "icon",
+          "path": "content/starter-music/assets/icon.png",
+          "role": "icon",
+          "mime": "image/png",
+          "bytes": 339,
+          "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6"
+        },
+        {
+          "assetId": "track",
+          "path": "content/starter-music/assets/snowdrift-signal.wav",
+          "role": "music-track",
+          "mime": "audio/wav",
+          "bytes": 705644,
+          "sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0"
+        }
+      ]
+    }
+  ],
+  "runtimeHints": {
+    "objects": [
+      {
+        "objectId": "starter-rock",
+        "radius": 0.35,
+        "volume": 0.18,
+        "points": 25,
+        "category": "stone",
+        "colliderAssetId": "collider",
+        "renderAssetId": "render",
+        "attachPolicy": "surface",
+        "material": {
+          "roughness": 0.7,
+          "metalness": 0
+        },
+        "lodAssetIds": [],
+        "budgets": {
+          "maxTriangles": 16,
+          "maxBytes": 3044
+        },
+        "sizeClass": "small"
+      },
+      {
+        "objectId": "goal-stone",
+        "radius": 0.75,
+        "volume": 1.75,
+        "points": 0,
+        "category": "goal",
+        "colliderAssetId": "goal-collider",
+        "renderAssetId": "goal-render",
+        "attachPolicy": "never",
+        "material": {
+          "roughness": 0.7,
+          "metalness": 0
+        },
+        "lodAssetIds": [],
+        "budgets": {
+          "maxTriangles": 16,
+          "maxBytes": 3044
+        },
+        "sizeClass": "goal"
+      }
+    ],
+    "levels": [
+      {
+        "levelId": "starter-snowfield",
+        "arenaAssetId": "arena",
+        "layoutAssetId": "layout",
+        "collectibleGroups": [
+          {
+            "id": "starter-stones",
+            "objectPack": {
+              "name": "@infinite-snowball/starter-objects",
+              "version": "1.0.0",
+              "kind": "object-pack",
+              "engine": ">=1.0.0 <2.0.0",
+              "integrity": "sha512-5ISb6Agv8pTir+JTISW2Y1jm0n9r0LurWbj4Eip3QFaNvdb9aYhr8Rd6nIZPytlZn9vJj0pgiwFRJBAnXNnnFw==",
+              "manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed",
+              "catalogEntryId": "catalog:starter-objects:1.0.0"
+            },
+            "objectIds": [
+              "starter-rock"
+            ]
+          }
+        ],
+        "finalGoal": {
+          "objectId": "goal-stone",
+          "position": [
+            0,
+            0,
+            12
+          ]
+        },
+        "sizeBands": [
+          {
+            "id": "starter",
+            "minRadius": 0.5,
+            "maxRadius": 2
+          }
+        ],
+        "cameraBounds": {
+          "min": [
+            -20,
+            -5,
+            -20
+          ],
+          "max": [
+            20,
+            20,
+            20
+          ]
+        },
+        "budgets": {
+          "maxTriangles": 224,
+          "maxDrawCalls": 16,
+          "maxPhysicsBodies": 128,
+          "maxBytes": 10711
+        }
+      }
+    ],
+    "characters": [
+      {
+        "characterId": "pebble-friend",
+        "modelAssetId": "model",
+        "scale": 1,
+        "animationClips": [
+          {
+            "id": "idle",
+            "clip": "Idle"
+          }
+        ],
+        "bounds": {
+          "radius": 0.5,
+          "height": 0.5
+        },
+        "controllerPreset": "decorative-only"
+      }
+    ],
+    "music": [
+      {
+        "trackId": "snowdrift-signal",
+        "assetId": "track",
+        "durationSeconds": 4,
+        "channels": 2,
+        "sampleRate": 44100
+      }
+    ],
+    "referenceRenders": [
+      {
+        "renderId": "starter-level-scene",
+        "kind": "level-scene",
+        "representativeReuseOf": null,
+        "verifiedAssetUrl": "/verified-assets/2d365f88b307de07c15bba05d7b78e5c137045b48a7f4910e32858c059848396.glb",
+        "path": "docs/assets/reference-renders/starter-level-scene.png",
+        "pngSha256": "d0758a27b508d834af942241b33850d4db7c1325f7d9c9990f2982b318d30d6a",
+        "caption": "Starter Snowfield level arena rendered directly from the current packaged arena GLB.",
+        "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+        "renderBindingSha256": "44decb32dbeef726d11237137aeaae686401d391517596c3d98d7c8966a26752",
+        "bindings": [
+          {
+            "packageDirectory": "content/starter-level",
+            "packageName": "@infinite-snowball/starter-level",
+            "packageVersion": "1.0.0",
+            "manifestPath": "content/starter-level/manifest.json",
+            "manifestSha256": "d704d595a44c63c71b1f2f79d0031f245e5fb706c4ffc2e30d932f14389c1e1c",
+            "assetId": "arena",
+            "assetPath": "content/starter-level/assets/snowfield-arena.glb",
+            "assetRole": "arena",
+            "assetBytes": 5932,
+            "assetSha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a",
+            "mime": "model/gltf-binary"
+          }
+        ]
+      },
+      {
+        "renderId": "starter-object-rock",
+        "kind": "object",
+        "representativeReuseOf": null,
+        "verifiedAssetUrl": "/verified-assets/8a6ed81f57c2465948eab1e094f7e9e712d93f0f64030a36e146e16ed2dcd14f.glb",
+        "path": "docs/assets/reference-renders/starter-object-rock.png",
+        "pngSha256": "23383fcec496c3ae6b1ac6f43516b4b859d1ca3b2450ada35582fb9411c5baf9",
+        "caption": "Starter Rock object rendered directly from the current packaged render-model GLB.",
+        "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+        "renderBindingSha256": "3933efc08576956140721cb839b2ade29975b9aa9fc78245eda3b4de5c8d8bd7",
+        "bindings": [
+          {
+            "packageDirectory": "content/starter-objects",
+            "packageName": "@infinite-snowball/starter-objects",
+            "packageVersion": "1.0.0",
+            "manifestPath": "content/starter-objects/manifest.json",
+            "manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed",
+            "assetId": "render",
+            "assetPath": "content/starter-objects/assets/rock-small-a.glb",
+            "assetRole": "render-model",
+            "assetBytes": 3044,
+            "assetSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+            "mime": "model/gltf-binary"
+          }
+        ]
+      },
+      {
+        "renderId": "starter-character-pebble-friend",
+        "kind": "character",
+        "representativeReuseOf": null,
+        "verifiedAssetUrl": "/verified-assets/8d84c17336a90047fb602fe2ace73ac0e6ae0a94996d8fc4360845f0b96b7ba7.glb",
+        "path": "docs/assets/reference-renders/starter-character-pebble-friend.png",
+        "pngSha256": "c962b32c987617c945aebcdd685107eacc3db0bd9274af1e328bf26234098a69",
+        "caption": "Pebble Friend character rendered directly from the current packaged character-model GLB at the deterministic Idle sample.",
+        "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+        "renderBindingSha256": "9d87c66731dd56f4f7afdd8b75a990c19911a7cbe3baa2418e4989c354764d38",
+        "bindings": [
+          {
+            "packageDirectory": "content/starter-character",
+            "packageName": "@infinite-snowball/starter-character",
+            "packageVersion": "1.0.0",
+            "manifestPath": "content/starter-character/manifest.json",
+            "manifestSha256": "ce9901e348bcfdb758852a87c3b882948fa5263b1b6036a3f8e86ea6bd3d4454",
+            "assetId": "model",
+            "assetPath": "content/starter-character/assets/pebble-friend.glb",
+            "assetRole": "character-model",
+            "assetBytes": 3500,
+            "assetSha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+            "mime": "model/gltf-binary"
+          }
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "licenseEvidence": [
+      {
+        "packageName": "@infinite-snowball/starter-campaign",
+        "assetId": "icon",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-character",
+        "assetId": "icon",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-character",
+        "assetId": "model",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-character",
+        "assetId": "shot",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Isometric/rock_smallA_NE.png",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-level",
+        "assetId": "arena",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-level",
+        "assetId": "icon",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-level",
+        "assetId": "layout",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-music",
+        "assetId": "icon",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-music",
+        "assetId": "track",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-objects",
+        "assetId": "collider",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-objects",
+        "assetId": "goal-collider",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-objects",
+        "assetId": "goal-render",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-objects",
+        "assetId": "icon",
+        "kind": "project-original",
+        "provider": "Infinite Snowball contributors",
+        "sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "sourceArtifact": "tools/assets/lib/asset-pipeline.mjs",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "packageName": "@infinite-snowball/starter-objects",
+        "assetId": "render",
+        "kind": "retained",
+        "provider": "Kenney",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit",
+        "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      }
+    ],
+    "withdrawalBoundary": {
+      "simulationOnly": true,
+      "allowNewInstalls": false,
+      "package": {
+        "name": "@infinite-snowball/starter-objects",
+        "version": "1.0.0",
+        "integrity": "sha512-5ISb6Agv8pTir+JTISW2Y1jm0n9r0LurWbj4Eip3QFaNvdb9aYhr8Rd6nIZPytlZn9vJj0pgiwFRJBAnXNnnFw==",
+        "manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed"
+      },
+      "replacement": {
+        "name": "@infinite-snowball/starter-objects",
+        "version": "2.0.0",
+        "integrity": "sha512-4/zaDey9Kuh5Vj1K660snMxcLrSLrKOP5NOrGvq/IpGjKGTZpcJ1HiEC76LSMyWc/YHFbezhdBNNLd9q2R+8gA==",
+        "manifestSha256": "4956a66788a38afed63349738dcc842da20d8b198a5c4454eae18ed3a0057114"
+      },
+      "recordId": "withdrawal:f64aed7f739ed380f80081fad1fbe593e386de6632829d586b803a2011c43f0e"
+    },
+    "localAudioBoundary": {
+      "path": "tests/fixtures/assets/local-audio-cases.json",
+      "fixtureSha256": "3f5a5f337214cfc271f0a44993f0eebc19b28c0feb9b997ac5e265bd2983adb0",
+      "safeFlows": 2,
+      "blockedFlows": 11,
+      "malformedSets": 3
+    },
+    "inventory": [
+      {
+        "category": "render-metadata",
+        "path": "docs/assets/reference-renders/index.json",
+        "bytes": 6118,
+        "sha256": "474d8bb1f0b3043b05d319dd3985b6a0b0261795ae57814b4d1b78ece0eab613"
+      },
+      {
+        "category": "reference-render",
+        "path": "docs/assets/reference-renders/starter-character-pebble-friend.png",
+        "bytes": 13289,
+        "sha256": "c962b32c987617c945aebcdd685107eacc3db0bd9274af1e328bf26234098a69"
+      },
+      {
+        "category": "reference-render",
+        "path": "docs/assets/reference-renders/starter-level-scene.png",
+        "bytes": 9120,
+        "sha256": "d0758a27b508d834af942241b33850d4db7c1325f7d9c9990f2982b318d30d6a"
+      },
+      {
+        "category": "reference-render",
+        "path": "docs/assets/reference-renders/starter-object-rock.png",
+        "bytes": 13790,
+        "sha256": "23383fcec496c3ae6b1ac6f43516b4b859d1ca3b2450ada35582fb9411c5baf9"
+      },
+      {
+        "category": "asset-budget",
+        "path": "docs/assets/starter-content-budget.json",
+        "bytes": 7934,
+        "sha256": "8fa6df140954f7ef5ea42f8801a1ba2461ea372cc1934c45a4e756f2ec220534"
+      },
+      {
+        "category": "brand-review",
+        "path": "docs/brand/original-content-review.json",
+        "bytes": 1017,
+        "sha256": "07ce2e33e04d33b47508348197d7840c1ff95f40c33d919595fbb3a98cdf7f8e"
+      },
+      {
+        "category": "brand-review",
+        "path": "docs/brand/original-content-review.md",
+        "bytes": 4007,
+        "sha256": "aaa30f81fc6c5c4784cbbc1ef79ea723a38a503c67feb69541b1378ec5117630"
+      },
+      {
+        "category": "provenance-policy",
+        "path": "docs/licenses/asset-policy.md",
+        "bytes": 2734,
+        "sha256": "3a56d2e113c8c657874e56dce5149bbb154d35f1db138c11b3f0f280abef1648"
+      },
+      {
+        "category": "captured-license",
+        "path": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+        "bytes": 613,
+        "sha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-campaign--icon--d1e0d8c6bfdf11d79bc294df5d4af519f15c9a1f9225b97ccf918f8b7f2d6d44.json",
+        "bytes": 2814,
+        "sha256": "ab7b1cdc0d64040bb58f3704033f1a2d24546ed78e0415275e3fc5f82c609954"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-character--icon--c48ac2dcf9b43908e369bbe389fb6cd3b8c610a487631a5790593dcb25f69cd5.json",
+        "bytes": 2820,
+        "sha256": "ddc51386f18dd18e8c294c106451200651df3e7cf51446eed4ed37f6fff46c99"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-character--model--53deeb37059b716cbadc2f1ef88be5e62271b01ad9a01e8a819f8fffc7f59c47.json",
+        "bytes": 3129,
+        "sha256": "d73b5b2dd96cf8ad2c374e5fcec0c8d9695b6c3701483ce6d581e9c2fd8a3710"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-character--shot--a5d2f8092d805fdf3e540c2cfd990ab1a0930a4d41d2e59cca37e20b0109801c.json",
+        "bytes": 3034,
+        "sha256": "ff82284eed5f8ecb82928a376be3ad5ef68297505620f2e56a7dbdc81b66e2cd"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-level--arena--2c7ee9b7470bd44b99156ee1ce4bb8c05db3713e9b5bb9c2c1ffd4b0b075c311.json",
+        "bytes": 4447,
+        "sha256": "08cdef5b0861a3e77e95e67048cae64dc73516363687fefaad2ae4d2c956cf32"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-level--icon--0c85e4f42d5eb31c2b9e5875090edf8d7651d1c51257f2e53df345d742fae815.json",
+        "bytes": 2796,
+        "sha256": "e5a69f5bc4481d6503d88cc5ff6408d181d5c46256a50d9a53f23b5bae6609b1"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-level--layout--86f33d0b508f345b198d90462d5a4c4cf498f7c0a3e0a910d3159a33248941eb.json",
+        "bytes": 3969,
+        "sha256": "581011ca3df11c6562000ee718e44402d62f5a4fc7e3a8107a10581adb1325ff"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-music--icon--924a1f5978e9307f438897e905996e0fc808fdbfe4314d60ed92b36936799c93.json",
+        "bytes": 2796,
+        "sha256": "d351e6c2dd0d708b47d5314efee50793bb146550bb9e1ba9eaf7e8a9c8c7d869"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-music--track--44510bd3a7b9b344e5c84ce338f6ed8b01cba223a3e13998998c7aa8d85e3e6f.json",
+        "bytes": 2869,
+        "sha256": "c193ab35b85fe3b779fa5fefce2c1b656ccf9528cdc5689e53718d736dcc2d6a"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-objects--collider--e16fa4d4d48c82ae503859732ef7f1c767134d141ddbe0a5c7dd8cbf8c0d5e65.json",
+        "bytes": 3057,
+        "sha256": "eee37797bf4f8a4a799e375809f3d7ec9311e95fc20cc2de5c4a39539ef2d076"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-objects--goal-collider--5a10db364af0ea9f183f3616bf1e8357251ba5cf97907257d728dfe2b94bdf0b.json",
+        "bytes": 3068,
+        "sha256": "b4512e5b28afc180920b2118e05a8a1892c3a599030c8b1531fa69f35cd0d65b"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-objects--goal-render--2b53c651f19bc714585391934f0f23d872c6f3da73f0430ca46678dc431fbf17.json",
+        "bytes": 3048,
+        "sha256": "206de4d0664fda5f0bc04f6c33cb292fc26306e777617d4a5712748e510a0e65"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-objects--icon--d588a3b0232f26348243647fe93fd32d74b29235b81f26b42470021dc827a574.json",
+        "bytes": 2812,
+        "sha256": "28a3d7ae41d23365ebd5f778fb6852113ca9bada126642d9ac63157e70e80176"
+      },
+      {
+        "category": "machine-provenance",
+        "path": "docs/licenses/provenance/records/starter-objects--render--a356e951063f67630f9958607bc22512588997a17eb8aa9f6b1b326ec68a179d.json",
+        "bytes": 3037,
+        "sha256": "bd57072f4e2f7a39e8f92bcaa540adc10c48e194860b9563d8291af226302947"
+      },
+      {
+        "category": "human-ledger",
+        "path": "docs/licenses/third-party-ledger.md",
+        "bytes": 26637,
+        "sha256": "ff638abaec35ce2fbe9b6da6e701f59ab99678ce49a66781b42f29341484487c"
+      },
+      {
+        "category": "withdrawal-policy",
+        "path": "docs/licenses/withdrawal-policy.md",
+        "bytes": 1537,
+        "sha256": "d832d8fbd52cc3f4af958afcc4b35552edb24111895d5dd54d507f295fe21203"
+      },
+      {
+        "category": "withdrawal-registry",
+        "path": "docs/licenses/withdrawals/starter-rock-simulated.json",
+        "bytes": 1251,
+        "sha256": "eb3aa97d262da6c1364bd27a1083693979f1e0ea03716ab98a4ab59edb0487c4"
+      },
+      {
+        "category": "local-audio-policy",
+        "path": "docs/music/local-import-boundary.md",
+        "bytes": 1740,
+        "sha256": "fb40f8e4ba5f9c083321f9cbc7988c6a6ee45ffc7b183f385573cda4499b42bc"
+      },
+      {
+        "category": "music-policy",
+        "path": "docs/music/original-music-policy.md",
+        "bytes": 2092,
+        "sha256": "68825177316101c158f7abada5354335ddc81d54f3ae51719bab5cad0359524e"
+      },
+      {
+        "category": "source-evidence",
+        "path": "tools/assets/sources/kenney-nature-kit/License.txt",
+        "bytes": 611,
+        "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+      },
+      {
+        "category": "source-evidence",
+        "path": "tools/assets/sources/kenney-nature-kit/rock_smallA-preview.png",
+        "bytes": 1061,
+        "sha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875"
+      },
+      {
+        "category": "source-evidence",
+        "path": "tools/assets/sources/kenney-nature-kit/rock_smallA.glb",
+        "bytes": 3044,
+        "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+      },
+      {
+        "category": "source-evidence",
+        "path": "tools/assets/sources/kenney-nature-kit/source-evidence.json",
+        "bytes": 1219,
+        "sha256": "0ea677a538076bc6bb09c465b8dfc37a4ae1bb02bdf52824fcbc3a23b0e8dcd7"
+      }
+    ],
+    "budget": {
+      "path": "docs/assets/starter-content-budget.json",
+      "sha256": "8fa6df140954f7ef5ea42f8801a1ba2461ea372cc1934c45a4e756f2ec220534",
+      "totals": {
+        "files": 19,
+        "bytes": 781802,
+        "glbFiles": 7,
+        "triangles": 304,
+        "materials": 14,
+        "textureBytes": 2756
+      }
+    },
+    "credits": {
+      "path": "docs/licenses/third-party-ledger.md",
+      "sha256": "ff638abaec35ce2fbe9b6da6e701f59ab99678ce49a66781b42f29341484487c"
+    },
+    "commands": [
+      "corepack pnpm vitest run tests/assets tests/fixtures/assets",
+      "corepack pnpm run assets:rebuild-starter && corepack pnpm run assets:verify-hashes",
+      "corepack pnpm run assets:budget-report && node tools/assets/render-smoke.mjs --check && corepack pnpm run assets:headless-smoke",
+      "corepack pnpm run licenses:ledger-check && corepack pnpm run music:policy-check && corepack pnpm run brand:originality-check",
+      "corepack pnpm run local-audio:boundary-check"
+    ]
+  },
+  "caveats": [
+    "The cleared Kenney rock is intentionally reused as placeholder arena, layout, collectible, and goal geometry; P04 must not present it as production art.",
+    "Pebble Friend is a decorative prototype with one deterministic embedded Idle rotation clip, not a humanoid rig.",
+    "P03 defines local-audio privacy policy only; P05/P07 own browser storage, playback, catalog, and deletion behavior.",
+    "No catalog ratings, reviews, install counts, commercial soundtrack assets, or store badges are approved."
+  ]
+}

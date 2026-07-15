@@ -987,6 +987,61 @@ describe("IS-01-003 CI check contract", () => {
     const scannerCommands = secretScan.runs.map((run) => commandWithoutComments(run.command)).filter((command) => SCANNER_COMMAND.test(command));
     assertPolicy(scannerActions.length + scannerCommands.length > 0, "secret-scan must run a recognized secret scanner, not a placeholder command.");
   });
+
+  it("builds protocol and provisions pinned Chromium before browser-backed unit tests", () => {
+    const unit = loadCiContract().jobs.get("unit");
+    assertPolicy(unit !== undefined, "unit job must exist.");
+    const commands = unit.runs.map((run) => commandWithoutComments(run.command));
+    const protocolBuild = commands.findIndex((command) =>
+      /\bpnpm\s+run\s+protocol:build\b/.test(command),
+    );
+    const browserInstall = commands.findIndex((command) =>
+      /\bpnpm\s+exec\s+playwright\s+install\s+--with-deps\s+chromium\b/.test(command),
+    );
+    const unitTests = commands.findIndex((command) =>
+      /\bpnpm\s+run\s+unit\b/.test(command),
+    );
+
+    expect(
+      protocolBuild,
+      "unit must build its protocol dist prerequisite before tests.",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      browserInstall,
+      "unit must install its pinned Chromium before tests.",
+    ).toBeGreaterThanOrEqual(0);
+    expect(unitTests, "unit must run after the protocol build.").toBeGreaterThan(
+      protocolBuild,
+    );
+    expect(unitTests, "unit must run the unit suite.").toBeGreaterThan(
+      browserInstall,
+    );
+  });
+
+  it("runs the fail-closed aggregate asset gate after unit", () => {
+    const unit = loadCiContract().jobs.get("unit");
+    assertPolicy(unit !== undefined, "unit job must exist.");
+    const unitStep = unit.steps.findIndex(
+      (step) =>
+        step.name === "Run the unit and meta contracts" &&
+        step.run === "pnpm run unit",
+    );
+    const aggregateAssetsStep = unit.steps.findIndex(
+      (step) =>
+        step.name === "Run fail-closed aggregate asset checks" &&
+        step.run === "pnpm run assets:check",
+    );
+
+    expect(unitStep, "unit job must contain its exact unit step.").toBeGreaterThanOrEqual(0);
+    expect(
+      aggregateAssetsStep,
+      "unit job must contain the named aggregate asset gate.",
+    ).toBeGreaterThan(unitStep);
+    expect(
+      unit.body,
+      "unit aggregate asset gate must fail the job instead of continuing on error.",
+    ).not.toMatch(/\bcontinue-on-error:\s*true\b/i);
+  });
 });
 
 describe("IS-01-004 CI security policy", () => {

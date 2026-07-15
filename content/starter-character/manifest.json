@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "@infinite-snowball/starter-character",
+  "version": "1.0.0",
+  "kind": "character",
+  "engine": ">=1.0.0 <2.0.0",
+  "metadata": {
+    "title": {
+      "default": "Pebble Friend",
+      "translations": {}
+    },
+    "description": {
+      "default": "A decorative CC0 rock companion for the first prototype.",
+      "translations": {}
+    },
+    "author": {
+      "name": "Infinite Snowball contributors",
+      "url": "https://github.com/jeffscottward/infinite-snowball"
+    },
+    "homepage": "https://github.com/jeffscottward/infinite-snowball",
+    "repository": "https://github.com/jeffscottward/infinite-snowball",
+    "screenshots": [
+      "assets/pebble-friend-preview.png"
+    ],
+    "icon": "assets/icon.png",
+    "tags": [
+      "infinite-snowball",
+      "starter",
+      "original-web-game"
+    ]
+  },
+  "license": "CC0-1.0",
+  "entries": [
+    {
+      "characterId": "pebble-friend",
+      "display": {
+        "title": {
+          "default": "Pebble Friend",
+          "translations": {}
+        },
+        "description": {
+          "default": "A quiet decorative snowfield companion.",
+          "translations": {}
+        }
+      },
+      "modelAssetId": "model",
+      "animationClips": [
+        {
+          "id": "idle",
+          "clip": "Idle"
+        }
+      ],
+      "scale": 1,
+      "bounds": {
+        "radius": 0.5,
+        "height": 0.5
+      },
+      "controllerPreset": "decorative-only",
+      "iconAssetId": "icon",
+      "screenshotAssetIds": [
+        "shot"
+      ],
+      "license": "CC0-1.0",
+      "provenanceAssetIds": [
+        "model",
+        "shot"
+      ]
+    }
+  ],
+  "dependencies": [],
+  "optionalPeers": [],
+  "assets": [
+    {
+      "assetId": "icon",
+      "path": "assets/icon.png",
+      "mime": "image/png",
+      "bytes": 339,
+      "sha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+      "role": "icon",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "capturedLicenseSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c",
+      "provenance": {
+        "creator": "Infinite Snowball contributors",
+        "source": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+        "acquisition": "generated deterministically from reviewed repository source on 2026-07-15",
+        "sourceArtifactSha256": "2635ef55500a59c1eda14d898d418af927503b34b97cb0e06da5c58b3a1f0069",
+        "modifications": [
+          "generated original icon",
+          "normalized deterministic filename"
+        ],
+        "outputSha256": "99878d6c3c69531ac51e2ea1a041e516bb8e39cc9436641dabc25ac7b1a873d6",
+        "reviewer": "Infinite Snowball P03 provenance review",
+        "reviewedAt": "2026-07-15T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Original generated starter-content asset dedicated under CC0 1.0.",
+        "attribution": "Infinite Snowball contributors, CC0 1.0; attribution not required.",
+        "transformation": {
+          "recipe": "generate-icon-v1",
+          "tool": {
+            "name": "@infinite-snowball/asset-pipeline",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "rgba-png",
+            "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+          },
+          "configSha256": "2607740b4afac861bf7c2ab32e72a88798a7ed5ff955376d622e65f571f8f9f6"
+        },
+        "replacement": null
+      }
+    },
+    {
+      "assetId": "model",
+      "path": "assets/pebble-friend.glb",
+      "mime": "model/gltf-binary",
+      "bytes": 3500,
+      "sha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+      "role": "character-model",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "capturedLicenseSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+      "provenance": {
+        "creator": "Kenney",
+        "source": "https://kenney.nl/assets/nature-kit",
+        "acquisition": "exact retained member Models/GLTF format/rock_smallA.glb; archive SHA-256 fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+        "sourceArtifactSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+        "modifications": [
+          "added embedded Idle rotation animation with three deterministic keyframes",
+          "normalized deterministic filename"
+        ],
+        "outputSha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+        "reviewer": "Infinite Snowball P03 provenance review",
+        "reviewedAt": "2026-07-15T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+        "attribution": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+        "transformation": {
+          "recipe": "add-decorative-idle-animation-v1",
+          "tool": {
+            "name": "@infinite-snowball/asset-pipeline",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "glb",
+            "sourceMember": "Models/GLTF format/rock_smallA.glb",
+            "animationClip": "Idle",
+            "animationKeyframes": 3,
+            "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+          },
+          "configSha256": "27f6828bebc11ac8a6a19393ca9dc9f4e4153bd7e2c067efcfd416389538fda4"
+        },
+        "replacement": null
+      }
+    },
+    {
+      "assetId": "shot",
+      "path": "assets/pebble-friend-preview.png",
+      "mime": "image/png",
+      "bytes": 1061,
+      "sha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875",
+      "role": "screenshot",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "capturedLicenseSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+      "provenance": {
+        "creator": "Kenney",
+        "source": "https://kenney.nl/assets/nature-kit",
+        "acquisition": "exact retained member Isometric/rock_smallA_NE.png; archive SHA-256 fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+        "sourceArtifactSha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875",
+        "modifications": [
+          "retained exact source bytes",
+          "normalized deterministic filename"
+        ],
+        "outputSha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875",
+        "reviewer": "Infinite Snowball P03 provenance review",
+        "reviewedAt": "2026-07-15T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+        "attribution": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+        "transformation": {
+          "recipe": "copy-self-contained-glb-or-preview-v1",
+          "tool": {
+            "name": "@infinite-snowball/asset-pipeline",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "rgba-png",
+            "sourceMember": "Isometric/rock_smallA_NE.png",
+            "animationClip": "none",
+            "animationKeyframes": 0,
+            "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+          },
+          "configSha256": "10d1bb83b7cc64f459e98c92b1dfab9d470b8ec2c1d3cd398bc59d105b8f099d"
+        },
+        "replacement": null
+      }
+    }
+  ],
+  "totals": {
+    "bytes": 9394,
+    "fileCount": 3,
+    "uncompressedBytes": 4900,
+    "maxDepth": 2,
+    "maxCompressionRatio": 100
+  },
+  "capabilities": {}
+}

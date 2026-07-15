@@ -1,0 +1,58 @@
+{
+	"accepted": {
+		"productName": "Infinite Snowball",
+		"tagline": "Roll a tiny snowball into a joyful winter world.",
+		"description": "An original open-source rolling collection game built for the web.",
+		"claims": ["Open source", "Offline-capable prototype"]
+	},
+	"rejected": [
+		{
+			"name": "affiliation",
+			"value": {
+				"description": "The official Katamari successor endorsed by the original publisher."
+			},
+			"expected": "E_BRAND_AFFILIATION"
+		},
+		{
+			"name": "franchise name",
+			"value": { "description": "A Katamari Damacy web remake." },
+			"expected": "E_BRAND_FRANCHISE"
+		},
+		{
+			"name": "copied trade dress",
+			"value": {
+				"description": "Uses the same prince, rainbow cosmos, logo lettering, and exact visual style."
+			},
+			"expected": "E_BRAND_TRADE_DRESS"
+		},
+		{
+			"name": "fake rating",
+			"value": { "rating": "Katamari — 5 stars from 10,000 players" },
+			"expected": "E_BRAND_FAKE_RATING"
+		},
+		{
+			"name": "fake review",
+			"value": { "review": "Katamari: Best game of the year — Major Magazine" },
+			"expected": "E_BRAND_FAKE_RATING"
+		},
+		{
+			"name": "unreleased store badge",
+			"value": { "badges": ["Download on the App Store"] },
+			"expected": "E_BRAND_STORE_BADGE"
+		},
+		{
+			"name": "soundtrack suggestion",
+			"value": {
+				"instructions": "Download and play the Katamari soundtrack in-game."
+			},
+			"expected": "E_SOUNDTRACK_PROHIBITED"
+		},
+		{
+			"name": "direct comparison marketing",
+			"value": {
+				"tagline": "Better than Katamari and exactly like the original."
+			},
+			"expected": "E_BRAND_DIRECT_COMPARISON"
+		}
+	]
+}

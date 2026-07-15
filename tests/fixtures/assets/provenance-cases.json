@@ -1,0 +1,225 @@
+{
+	"baseline": {
+		"schemaVersion": 1,
+		"recordId": "asset:@infinite-snowball/starter-objects:1.0.0:render",
+		"packageName": "@infinite-snowball/starter-objects",
+		"packageVersion": "1.0.0",
+		"packageKind": "object-pack",
+		"packageLicense": "CC0-1.0",
+		"packagePath": "content/starter-objects/manifest.json",
+		"assetId": "render",
+		"assetPath": "assets/rock-small-a.glb",
+		"mime": "model/gltf-binary",
+		"bytes": 3044,
+		"sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+		"role": "render-model",
+		"id": "kenney-nature-kit-rock-small-a",
+		"provider": "Kenney",
+		"creator": "Kenney",
+		"sourceUrl": "https://kenney.nl/assets/nature-kit",
+		"sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+		"sourceArtifactSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		"acquiredAt": "2026-07-15T00:00:00.000Z",
+		"acquisition": "exact retained archive member with immutable archive and member hashes",
+		"license": {
+			"spdx": "CC0-1.0",
+			"url": "https://creativecommons.org/publicdomain/zero/1.0/",
+			"textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+			"textSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+			"grant": "Captured CC0 1.0 dedication from the exact downloaded archive."
+		},
+		"reviewer": "Infinite Snowball P03 provenance review",
+		"reviewedAt": "2026-07-15T00:00:00.000Z",
+		"evidenceStatus": "verified",
+		"attribution": "Kenney Nature Kit, CC0 1.0; attribution not required.",
+		"modifications": [
+			"retained exact self-contained GLB",
+			"normalized deterministic filename"
+		],
+		"transformation": {
+			"recipe": "copy-self-contained-glb-or-preview-v1",
+			"tool": {
+				"name": "@infinite-snowball/asset-pipeline",
+				"version": "1.0.0"
+			},
+			"config": {
+				"deterministic": true,
+				"sourceMember": "Models/GLTF format/rock_smallA.glb"
+			},
+			"configSha256": "979512994ae86ec782a7073ae4848cfb0aa93f945b1a8a1d5d3aa634111212ea"
+		},
+		"notes": "Exact Kenney Nature Kit artifact used as a starter render model.",
+		"replacement": null,
+		"output": {
+			"path": "content/starter-objects/assets/rock-small-a.glb",
+			"sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+		},
+		"transformations": [
+			"retained exact self-contained GLB",
+			"normalized deterministic filename"
+		]
+	},
+	"cases": [
+		{
+			"name": "missing source",
+			"delete": ["sourceUrl"],
+			"expected": ["E_PROVENANCE_SOURCE"]
+		},
+		{
+			"name": "missing source hash",
+			"delete": ["sourceArtifactSha256"],
+			"expected": ["E_PROVENANCE_SOURCE_HASH"]
+		},
+		{
+			"name": "credential-bearing source URL",
+			"patch": {
+				"sourceUrl": "https://reviewer:secret@example.com/original-source"
+			},
+			"expected": ["E_PROVENANCE_SOURCE"]
+		},
+		{
+			"name": "missing license text path",
+			"delete": ["license.textPath"],
+			"expected": ["E_PROVENANCE_LICENSE_TEXT"]
+		},
+		{
+			"name": "missing license text hash",
+			"delete": ["license.textSha256"],
+			"expected": ["E_PROVENANCE_LICENSE_HASH"]
+		},
+		{
+			"name": "missing creator",
+			"delete": ["creator"],
+			"expected": ["E_PROVENANCE_CREATOR"]
+		},
+		{
+			"name": "provider differs from creator",
+			"patch": { "provider": "False provider" },
+			"expected": ["E_PROVENANCE_PROVIDER"]
+		},
+		{
+			"name": "missing reviewer",
+			"delete": ["reviewer"],
+			"expected": ["E_PROVENANCE_REVIEWER"]
+		},
+		{
+			"name": "missing acquisition",
+			"delete": ["acquisition"],
+			"expected": ["E_PROVENANCE_ACQUISITION"]
+		},
+		{
+			"name": "missing modifications",
+			"delete": ["modifications"],
+			"expected": ["E_PROVENANCE_MODIFICATIONS"]
+		},
+		{
+			"name": "missing structured transformation",
+			"delete": ["transformation.recipe"],
+			"expected": ["E_PROVENANCE_TRANSFORM"]
+		},
+		{
+			"name": "non-protocol nested transformation config",
+			"patch": {
+				"transformation.config": {
+					"nested": { "not": "a canonical protocol value" }
+				}
+			},
+			"expected": ["E_PROVENANCE_TRANSFORM"]
+		},
+		{
+			"name": "missing notes",
+			"delete": ["notes"],
+			"expected": ["E_PROVENANCE_NOTES"]
+		},
+		{
+			"name": "missing replacement state",
+			"delete": ["replacement"],
+			"expected": ["E_PROVENANCE_REPLACEMENT"]
+		},
+		{
+			"name": "output hash differs from runtime hash",
+			"patch": {
+				"output.sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+			},
+			"expected": ["E_PROVENANCE_OUTPUT"]
+		},
+		{
+			"name": "incomplete evidence",
+			"patch": { "evidenceStatus": "incomplete" },
+			"expected": ["E_PROVENANCE_STATUS"]
+		},
+		{
+			"name": "disputed evidence",
+			"patch": { "evidenceStatus": "disputed" },
+			"expected": ["E_PROVENANCE_STATUS"]
+		},
+		{
+			"name": "withdrawn evidence",
+			"patch": { "evidenceStatus": "withdrawn" },
+			"expected": ["E_PROVENANCE_STATUS"]
+		},
+		{
+			"name": "noncommercial license",
+			"patch": { "license.spdx": "CC-BY-NC-4.0" },
+			"expected": ["E_LICENSE_NC"]
+		},
+		{
+			"name": "no-derivatives license",
+			"patch": { "license.spdx": "CC-BY-ND-4.0" },
+			"expected": ["E_LICENSE_ND"]
+		},
+		{
+			"name": "ambiguous license",
+			"patch": { "license.spdx": "Custom-Free-License" },
+			"expected": ["E_LICENSE_AMBIGUOUS"]
+		},
+		{
+			"name": "SPDX and license URL mismatch",
+			"patch": {
+				"license.url": "https://creativecommons.org/licenses/by/4.0/"
+			},
+			"expected": ["E_LICENSE_EVIDENCE"]
+		},
+		{
+			"name": "unsupported package license",
+			"patch": { "packageLicense": "MIT" },
+			"expected": ["E_PACKAGE_LICENSE"]
+		},
+		{
+			"name": "CC0 package contains a CC BY asset",
+			"patch": { "license.spdx": "CC-BY-4.0" },
+			"expected": ["E_PACKAGE_LICENSE"]
+		},
+		{
+			"name": "unsupported royalty free without grant",
+			"patch": {
+				"license.spdx": "LicenseRef-Royalty-Free",
+				"license.grant": ""
+			},
+			"expected": ["E_LICENSE_AMBIGUOUS", "E_LICENSE_GRANT_MISSING"]
+		},
+		{
+			"name": "OS3A-only evidence",
+			"patch": {
+				"provider": "OS3A",
+				"sourceUrl": "https://os3a.example/assets/rock"
+			},
+			"expected": ["E_SOURCE_ORIGIN_UNVERIFIED"]
+		},
+		{
+			"name": "Pelican generator",
+			"patch": {
+				"provider": "Pelican",
+				"sourceUrl": "https://github.com/meshula/Labyrinth"
+			},
+			"expected": ["E_SOURCE_PROHIBITED"]
+		},
+		{
+			"name": "Katamari soundtrack source",
+			"patch": {
+				"sourceUrl": "https://archive.org/details/katamari-damacy-original-soundtrack"
+			},
+			"expected": ["E_SOUNDTRACK_PROHIBITED"]
+		}
+	]
+}

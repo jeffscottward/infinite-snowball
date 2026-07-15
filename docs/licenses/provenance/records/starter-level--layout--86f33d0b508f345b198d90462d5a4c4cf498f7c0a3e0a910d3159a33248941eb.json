@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "recordId": "asset:@infinite-snowball/starter-level:1.0.0:layout",
+  "id": "asset:@infinite-snowball/starter-level:1.0.0:layout",
+  "packageName": "@infinite-snowball/starter-level",
+  "packageVersion": "1.0.0",
+  "packageKind": "level",
+  "packageLicense": "CC0-1.0",
+  "packagePath": "content/starter-level/manifest.json",
+  "assetId": "layout",
+  "assetPath": "assets/snowfield-layout.glb",
+  "mime": "model/gltf-binary",
+  "bytes": 4440,
+  "sha256": "afeb749d26bcb87ecdaabcf90bd3c29251e0937f4d8385d177a5b5cb9713c1e9",
+  "role": "layout",
+  "provider": "Kenney",
+  "creator": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/nature-kit",
+  "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+  "sourceArtifactSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+  "acquisition": "derived deterministically from retained member Models/GLTF format/rock_smallA.glb; archive SHA-256 fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+  "acquiredAt": "2026-07-15T00:00:00.000Z",
+  "license": {
+    "spdx": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+    "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+    "grant": "Captured CC0 1.0 dedication from the exact downloaded Kenney Nature Kit archive."
+  },
+  "reviewer": "Infinite Snowball P03 provenance review",
+  "reviewedAt": "2026-07-15T00:00:00.000Z",
+  "evidenceStatus": "verified",
+  "attribution": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+  "modifications": [
+    "composed five compact transformed placement markers from the retained rock mesh",
+    "encoded spawn, collectible, and goal marker spacing in node transforms",
+    "normalized deterministic filename"
+  ],
+  "transformation": {
+    "recipe": "compose-snowfield-layout-v1",
+    "tool": {
+      "name": "@infinite-snowball/asset-pipeline",
+      "version": "1.0.0"
+    },
+    "config": {
+      "deterministic": true,
+      "format": "glb",
+      "sourceMember": "Models/GLTF format/rock_smallA.glb",
+      "variant": "snowfield-layout",
+      "sceneName": "Starter Snowfield Layout",
+      "composition": "compact spawn, collectible, turn, and goal markers",
+      "instanceCount": 5,
+      "placement00": "spawn|translation=0,0,0|rotation=0,0,0,1|scale=0.35,0.12,0.35",
+      "placement01": "collectible-left|translation=-1.5,0,1|rotation=0,-0.3826834323650898,0,0.9238795325112867|scale=0.22,0.45,0.22",
+      "placement02": "collectible-right|translation=1.5,0,1|rotation=0,0.3826834323650898,0,0.9238795325112867|scale=0.22,0.45,0.22",
+      "placement03": "turn|translation=0,0,2|rotation=0,0.7071067811865476,0,0.7071067811865476|scale=0.25,0.25,0.55",
+      "placement04": "goal|translation=0,0,3|rotation=0,0,0,1|scale=0.45,0.9,0.45",
+      "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+    },
+    "configSha256": "25398ba316bed5ff3f31983cc5ae7207c5df384f653a496543da901023fbc1d6"
+  },
+  "notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+  "replacement": null,
+  "output": {
+    "path": "content/starter-level/assets/snowfield-layout.glb",
+    "sha256": "afeb749d26bcb87ecdaabcf90bd3c29251e0937f4d8385d177a5b5cb9713c1e9"
+  },
+  "transformations": [
+    "composed five compact transformed placement markers from the retained rock mesh",
+    "encoded spawn, collectible, and goal marker spacing in node transforms",
+    "normalized deterministic filename",
+    "compose-snowfield-layout-v1 config 25398ba316bed5ff3f31983cc5ae7207c5df384f653a496543da901023fbc1d6"
+  ],
+  "provenanceSha256": "0667f6819337f6e65ca198b7589601889bc8b86925b8468b1a043e74d580c279",
+  "assetRecordSha256": "0fb8eee9a385a58fc7119eaf699d1f74b87cc7939731e6269da8ada1c5f91871"
+}

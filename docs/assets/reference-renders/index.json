@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "kind": "p03-reference-renders",
+  "reviewedOn": "2026-07-15",
+  "contentSha256": "aedd06a9c18bf50737ff0968708a17a7166dbb75eb6344c097db87df43ec9a28",
+  "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303",
+  "captureConfigSha256": "32714b88cd9a396c41f2a2f4f1741e1b61792edbddb09ab1a13ad3014a1e1868",
+  "renderer": {
+    "engine": "Three.js",
+    "engineVersion": "0.185.1",
+    "engineRevision": "185",
+    "loader": "GLTFLoader",
+    "browserEngine": "Chromium",
+    "browserVersion": "149.0.7827.55",
+    "playwrightVersion": "1.61.1",
+    "webglVersion": 2,
+    "webglRenderer": "WebKit WebGL",
+    "webglVendor": "WebKit",
+    "softwareRasterizer": "ANGLE SwiftShader requested",
+    "requestFailures": [],
+    "config": {
+      "width": 512,
+      "height": 512,
+      "pixelRatio": 1,
+      "antialias": false,
+      "clearColor": "#101827",
+      "camera": {
+        "algorithm": "bounds-perspective-v1",
+        "fovDegrees": 45,
+        "direction": [
+          1,
+          0.7,
+          1
+        ],
+        "padding": 1.55
+      },
+      "lighting": {
+        "hemisphere": {
+          "sky": "#ffffff",
+          "ground": "#334455",
+          "intensity": 2
+        },
+        "directional": {
+          "color": "#ffffff",
+          "intensity": 3,
+          "position": [
+            4,
+            8,
+            6
+          ]
+        }
+      },
+      "animationSampleSeconds": 0.5
+    }
+  },
+  "renders": [
+    {
+      "renderId": "starter-level-scene",
+      "kind": "level-scene",
+      "representativeReuseOf": null,
+      "verifiedAssetUrl": "/verified-assets/2d365f88b307de07c15bba05d7b78e5c137045b48a7f4910e32858c059848396.glb",
+      "path": "docs/assets/reference-renders/starter-level-scene.png",
+      "pngSha256": "d0758a27b508d834af942241b33850d4db7c1325f7d9c9990f2982b318d30d6a",
+      "bytes": 9120,
+      "width": 512,
+      "height": 512,
+      "changedPixels": 2832,
+      "changedPixelRatio": 0.010803,
+      "meshes": 18,
+      "animationClips": [],
+      "caption": "Starter Snowfield level arena rendered directly from the current packaged arena GLB.",
+      "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+      "renderBindingSha256": "44decb32dbeef726d11237137aeaae686401d391517596c3d98d7c8966a26752",
+      "bindings": [
+        {
+          "packageDirectory": "content/starter-level",
+          "packageName": "@infinite-snowball/starter-level",
+          "packageVersion": "1.0.0",
+          "manifestPath": "content/starter-level/manifest.json",
+          "manifestSha256": "d704d595a44c63c71b1f2f79d0031f245e5fb706c4ffc2e30d932f14389c1e1c",
+          "assetId": "arena",
+          "assetPath": "content/starter-level/assets/snowfield-arena.glb",
+          "assetRole": "arena",
+          "assetBytes": 5932,
+          "assetSha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a",
+          "mime": "model/gltf-binary"
+        }
+      ]
+    },
+    {
+      "renderId": "starter-object-rock",
+      "kind": "object",
+      "representativeReuseOf": null,
+      "verifiedAssetUrl": "/verified-assets/8a6ed81f57c2465948eab1e094f7e9e712d93f0f64030a36e146e16ed2dcd14f.glb",
+      "path": "docs/assets/reference-renders/starter-object-rock.png",
+      "pngSha256": "23383fcec496c3ae6b1ac6f43516b4b859d1ca3b2450ada35582fb9411c5baf9",
+      "bytes": 13790,
+      "width": 512,
+      "height": 512,
+      "changedPixels": 60348,
+      "changedPixelRatio": 0.230209,
+      "meshes": 2,
+      "animationClips": [],
+      "caption": "Starter Rock object rendered directly from the current packaged render-model GLB.",
+      "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+      "renderBindingSha256": "3933efc08576956140721cb839b2ade29975b9aa9fc78245eda3b4de5c8d8bd7",
+      "bindings": [
+        {
+          "packageDirectory": "content/starter-objects",
+          "packageName": "@infinite-snowball/starter-objects",
+          "packageVersion": "1.0.0",
+          "manifestPath": "content/starter-objects/manifest.json",
+          "manifestSha256": "b5cf0e6c6431d1c5b795af22a4352119836215b86986eeef9739540ed2fc3fed",
+          "assetId": "render",
+          "assetPath": "content/starter-objects/assets/rock-small-a.glb",
+          "assetRole": "render-model",
+          "assetBytes": 3044,
+          "assetSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+          "mime": "model/gltf-binary"
+        }
+      ]
+    },
+    {
+      "renderId": "starter-character-pebble-friend",
+      "kind": "character",
+      "representativeReuseOf": null,
+      "verifiedAssetUrl": "/verified-assets/8d84c17336a90047fb602fe2ace73ac0e6ae0a94996d8fc4360845f0b96b7ba7.glb",
+      "path": "docs/assets/reference-renders/starter-character-pebble-friend.png",
+      "pngSha256": "c962b32c987617c945aebcdd685107eacc3db0bd9274af1e328bf26234098a69",
+      "bytes": 13289,
+      "width": 512,
+      "height": 512,
+      "changedPixels": 60251,
+      "changedPixelRatio": 0.229839,
+      "meshes": 2,
+      "animationClips": [
+        "Idle"
+      ],
+      "caption": "Pebble Friend character rendered directly from the current packaged character-model GLB at the deterministic Idle sample.",
+      "credit": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+      "renderBindingSha256": "9d87c66731dd56f4f7afdd8b75a990c19911a7cbe3baa2418e4989c354764d38",
+      "bindings": [
+        {
+          "packageDirectory": "content/starter-character",
+          "packageName": "@infinite-snowball/starter-character",
+          "packageVersion": "1.0.0",
+          "manifestPath": "content/starter-character/manifest.json",
+          "manifestSha256": "ce9901e348bcfdb758852a87c3b882948fa5263b1b6036a3f8e86ea6bd3d4454",
+          "assetId": "model",
+          "assetPath": "content/starter-character/assets/pebble-friend.glb",
+          "assetRole": "character-model",
+          "assetBytes": 3500,
+          "assetSha256": "dfaf83df869b0dce303952228b30f1eb1c348d480572134d53ca321ae347c987",
+          "mime": "model/gltf-binary"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+	"schemaVersion": "1.0.0",
+	"name": "@infinite-snowball/golden-object-pack",
+	"version": "1.0.0",
+	"kind": "object-pack",
+	"engine": ">=1.0.0 <2.0.0",
+	"metadata": {
+		"title": {
+			"default": "Golden object-pack",
+			"translations": {}
+		},
+		"description": {
+			"default": "Complete object-pack protocol fixture",
+			"translations": {}
+		},
+		"author": {
+			"name": "Infinite Snowball fixture authors",
+			"url": "https://example.com/authors"
+		},
+		"homepage": "https://example.com/infinite-snowball",
+		"repository": "https://github.com/example/infinite-snowball-content",
+		"screenshots": [
+			"assets/icon.png"
+		],
+		"icon": "assets/icon.png",
+		"tags": [
+			"golden",
+			"protocol"
+		]
+	},
+	"license": "CC-BY-4.0",
+	"entries": [
+		{
+			"objectPackId": "starter-objects",
+			"display": {
+				"title": {
+					"default": "Starter Objects",
+					"translations": {}
+				},
+				"description": {
+					"default": "Safe collectible definitions",
+					"translations": {}
+				}
+			},
+			"objects": [
+				{
+					"objectId": "gift-box",
+					"radius": 0.4,
+					"volume": 0.268,
+					"points": 100,
+					"category": "gift",
+					"colliderAssetId": "collider",
+					"renderAssetId": "render",
+					"attachPolicy": "surface",
+					"material": {
+						"roughness": 0.7,
+						"metalness": 0
+					},
+					"lodAssetIds": [],
+					"budgets": {
+						"maxTriangles": 2000,
+						"maxBytes": 2097152
+					}
+				}
+			]
+		}
+	],
+	"dependencies": [],
+	"optionalPeers": [],
+	"assets": [
+		{
+			"assetId": "icon",
+			"path": "assets/icon.png",
+			"mime": "image/png",
+			"bytes": 1024,
+			"sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+			"role": "icon",
+			"license": "CC-BY-4.0",
+			"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+			"capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+			"provenance": {
+				"creator": "Infinite Snowball fixture authors",
+				"source": "https://example.com/source",
+				"acquisition": "authored for protocol tests",
+				"sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"modifications": [
+					"normalized for deterministic fixture"
+				],
+				"outputSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+				"reviewer": "P02 protocol fixture review",
+				"reviewedAt": "2026-07-14T00:00:00.000Z",
+				"evidenceStatus": "verified",
+				"notes": "Synthetic golden fixture",
+				"attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+				"transformation": {
+					"recipe": "synthetic-fixture-normalization-v1",
+					"tool": {
+						"name": "infinite-snowball-fixture-writer",
+						"version": "1.0.0"
+					},
+					"config": {
+						"deterministic": true,
+						"format": "runtime-ready"
+					},
+					"configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+				},
+				"replacement": null
+			}
+		},
+		{
+			"assetId": "render",
+			"path": "assets/gift.glb",
+			"mime": "model/gltf-binary",
+			"bytes": 1024,
+			"sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+			"role": "render-model",
+			"license": "CC-BY-4.0",
+			"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+			"capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+			"provenance": {
+				"creator": "Infinite Snowball fixture authors",
+				"source": "https://example.com/source",
+				"acquisition": "authored for protocol tests",
+				"sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"modifications": [
+					"normalized for deterministic fixture"
+				],
+				"outputSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+				"reviewer": "P02 protocol fixture review",
+				"reviewedAt": "2026-07-14T00:00:00.000Z",
+				"evidenceStatus": "verified",
+				"notes": "Synthetic golden fixture",
+				"attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+				"transformation": {
+					"recipe": "synthetic-fixture-normalization-v1",
+					"tool": {
+						"name": "infinite-snowball-fixture-writer",
+						"version": "1.0.0"
+					},
+					"config": {
+						"deterministic": true,
+						"format": "runtime-ready"
+					},
+					"configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+				},
+				"replacement": null
+			}
+		},
+		{
+			"assetId": "collider",
+			"path": "assets/gift-collider.glb",
+			"mime": "model/gltf-binary",
+			"bytes": 1024,
+			"sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+			"role": "collider",
+			"license": "CC-BY-4.0",
+			"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+			"capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+			"provenance": {
+				"creator": "Infinite Snowball fixture authors",
+				"source": "https://example.com/source",
+				"acquisition": "authored for protocol tests",
+				"sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"modifications": [
+					"normalized for deterministic fixture"
+				],
+				"outputSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+				"reviewer": "P02 protocol fixture review",
+				"reviewedAt": "2026-07-14T00:00:00.000Z",
+				"evidenceStatus": "verified",
+				"notes": "Synthetic golden fixture",
+				"attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+				"transformation": {
+					"recipe": "synthetic-fixture-normalization-v1",
+					"tool": {
+						"name": "infinite-snowball-fixture-writer",
+						"version": "1.0.0"
+					},
+					"config": {
+						"deterministic": true,
+						"format": "runtime-ready"
+					},
+					"configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+				},
+				"replacement": null
+			}
+		}
+	],
+	"totals": {
+		"bytes": 3072,
+		"fileCount": 3,
+		"uncompressedBytes": 3072,
+		"maxDepth": 2,
+		"maxCompressionRatio": 1
+	},
+	"capabilities": {}
+}

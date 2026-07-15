@@ -1,0 +1,241 @@
+{
+	"baseline": {
+		"trackId": "snowdrift-signal",
+		"assetId": "track",
+		"title": "Snowdrift Signal",
+		"creator": "Infinite Snowball contributors",
+		"sourceType": "original",
+		"source": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+		"attribution": "Infinite Snowball contributors, CC0 1.0; attribution not required.",
+		"license": "CC0-1.0",
+		"grant": {
+			"textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+			"textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+		},
+		"retainedGrantSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c",
+		"codec": "audio/wav",
+		"bytes": 705644,
+		"durationSeconds": 4,
+		"channels": 2,
+		"sampleRate": 44100,
+		"packBytes": 705644,
+		"packTracks": 1,
+		"asset": {
+			"assetId": "track",
+			"path": "assets/snowdrift-signal.wav",
+			"mime": "audio/wav",
+			"bytes": 705644,
+			"sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0",
+			"license": "CC0-1.0",
+			"licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+			"capturedLicenseSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c",
+			"provenance": {
+				"creator": "Infinite Snowball contributors",
+				"source": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+				"attribution": "Infinite Snowball contributors, CC0 1.0; attribution not required."
+			}
+		},
+		"machineProvenance": {
+			"assetId": "track",
+			"assetPath": "assets/snowdrift-signal.wav",
+			"mime": "audio/wav",
+			"bytes": 705644,
+			"sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0",
+			"creator": "Infinite Snowball contributors",
+			"sourceUrl": "https://github.com/jeffscottward/infinite-snowball/tree/main/tools/assets/lib/asset-pipeline.mjs",
+			"attribution": "Infinite Snowball contributors, CC0 1.0; attribution not required.",
+			"license": {
+				"spdx": "CC0-1.0",
+				"url": "https://creativecommons.org/publicdomain/zero/1.0/",
+				"textPath": "docs/licenses/provenance/infinite-snowball-original-content/CC0-1.0.txt",
+				"textSha256": "2f96dd1453e0a4047713aa6cdb4fcdbec8666e12286012f4993ad628bc70d75c"
+			},
+			"output": {
+				"path": "content/starter-music/assets/snowdrift-signal.wav",
+				"sha256": "5112d8b144dc116597aeb89522f491c8dd62c2c6dca4b6667dce65ddd572e2e0"
+			}
+		}
+	},
+	"accepted": [
+		{ "name": "original", "patch": {} },
+		{
+			"name": "captured CC0",
+			"patch": {
+				"sourceType": "third-party"
+			}
+		},
+		{
+			"name": "attributed CC BY",
+			"patch": {
+				"sourceType": "third-party",
+				"creator": "Example Composer",
+				"source": "https://example.com/example-composer/snowdrift-signal",
+				"license": "CC-BY-4.0",
+				"attribution": "Example Composer, CC BY 4.0; source and changes recorded.",
+				"grant.textPath": "docs/licenses/provenance/cc-by-4.0/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.txt",
+				"grant.textSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"retainedGrantSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"asset.license": "CC-BY-4.0",
+				"asset.licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+				"asset.capturedLicenseSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"asset.provenance.attribution": "Example Composer, CC BY 4.0; source and changes recorded.",
+				"asset.provenance.creator": "Example Composer",
+				"asset.provenance.source": "https://example.com/example-composer/snowdrift-signal",
+				"machineProvenance.attribution": "Example Composer, CC BY 4.0; source and changes recorded.",
+				"machineProvenance.creator": "Example Composer",
+				"machineProvenance.sourceUrl": "https://example.com/example-composer/snowdrift-signal",
+				"machineProvenance.license.spdx": "CC-BY-4.0",
+				"machineProvenance.license.url": "https://creativecommons.org/licenses/by/4.0/",
+				"machineProvenance.license.textPath": "docs/licenses/provenance/cc-by-4.0/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.txt",
+				"machineProvenance.license.textSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+				"machineProvenance.license.author": "Example Composer",
+				"machineProvenance.license.source": "https://example.com/example-composer/snowdrift-signal"
+			}
+		}
+	],
+	"rejected": [
+		{
+			"name": "NC",
+			"patch": { "license": "CC-BY-NC-4.0" },
+			"expected": "E_MUSIC_LICENSE"
+		},
+		{
+			"name": "ND",
+			"patch": { "license": "CC-BY-ND-4.0" },
+			"expected": "E_MUSIC_LICENSE"
+		},
+		{
+			"name": "ambiguous",
+			"patch": { "license": "free-to-use" },
+			"expected": "E_MUSIC_LICENSE"
+		},
+		{
+			"name": "unsupported royalty free",
+			"patch": { "license": "LicenseRef-Royalty-Free" },
+			"expected": "E_MUSIC_LICENSE"
+		},
+		{
+			"name": "missing attribution",
+			"delete": ["attribution"],
+			"expected": "E_MUSIC_ATTRIBUTION"
+		},
+		{
+			"name": "missing retained grant",
+			"delete": ["grant"],
+			"expected": "E_MUSIC_GRANT"
+		},
+		{
+			"name": "free-form provenance note is not a grant",
+			"patch": { "grant": "Original deterministic PCM composition." },
+			"expected": "E_MUSIC_GRANT"
+		},
+		{
+			"name": "unhashed retained grant",
+			"patch": { "grant.textSha256": "" },
+			"expected": "E_MUSIC_GRANT"
+		},
+		{
+			"name": "retained grant bytes mismatch",
+			"patch": {
+				"retainedGrantSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+			},
+			"expected": "E_MUSIC_GRANT"
+		},
+		{
+			"name": "creator parity",
+			"patch": { "creator": "Different composer" },
+			"expected": "E_MUSIC_BINDING"
+		},
+		{
+			"name": "source parity",
+			"patch": { "source": "https://example.com/different-source" },
+			"expected": "E_MUSIC_BINDING"
+		},
+		{
+			"name": "attribution parity",
+			"patch": { "attribution": "Different complete attribution." },
+			"expected": "E_MUSIC_BINDING"
+		},
+		{
+			"name": "asset identity parity",
+			"patch": { "assetId": "other-track" },
+			"expected": "E_MUSIC_BINDING"
+		},
+		{
+			"name": "track bytes",
+			"patch": { "bytes": 8388609 },
+			"expected": "E_MUSIC_BYTES"
+		},
+		{
+			"name": "track duration",
+			"patch": { "durationSeconds": 601 },
+			"expected": "E_MUSIC_DURATION"
+		},
+		{
+			"name": "channel count",
+			"patch": { "channels": 1 },
+			"expected": "E_MUSIC_CHANNELS"
+		},
+		{
+			"name": "sample rate",
+			"patch": { "sampleRate": 96000 },
+			"expected": "E_MUSIC_SAMPLE_RATE"
+		},
+		{
+			"name": "codec",
+			"patch": { "codec": "audio/mpeg" },
+			"expected": "E_MUSIC_CODEC"
+		},
+		{
+			"name": "unsupported Ogg",
+			"patch": {
+				"codec": "audio/ogg",
+				"asset.mime": "audio/ogg",
+				"machineProvenance.mime": "audio/ogg"
+			},
+			"expected": "E_MUSIC_CODEC"
+		},
+		{
+			"name": "pack bytes",
+			"patch": { "packBytes": 33554433 },
+			"expected": "E_MUSIC_PACK_BYTES"
+		},
+		{
+			"name": "pack track count",
+			"patch": { "packTracks": 9 },
+			"expected": "E_MUSIC_TRACK_COUNT"
+		},
+		{
+			"name": "credential-bearing source",
+			"patch": {
+				"source": "https://listener:secret@example.com/private-track",
+				"asset.provenance.source": "https://listener:secret@example.com/private-track",
+				"machineProvenance.sourceUrl": "https://listener:secret@example.com/private-track"
+			},
+			"expected": "E_MUSIC_GRANT"
+		},
+		{
+			"name": "CC BY source canonically equals license URL",
+			"patch": {
+				"sourceType": "third-party",
+				"source": "https://creativecommons.org:443/licenses/by/4.0/?download=1#source",
+				"license": "CC-BY-4.0",
+				"asset.license": "CC-BY-4.0",
+				"asset.licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+				"asset.provenance.source": "https://creativecommons.org:443/licenses/by/4.0/?download=1#source",
+				"machineProvenance.sourceUrl": "https://creativecommons.org:443/licenses/by/4.0/?download=1#source",
+				"machineProvenance.license.spdx": "CC-BY-4.0",
+				"machineProvenance.license.url": "https://creativecommons.org/licenses/by/4.0/"
+			},
+			"expected": "E_MUSIC_ATTRIBUTION"
+		},
+		{
+			"name": "prohibited soundtrack",
+			"patch": {
+				"source": "https://archive.org/details/katamari-damacy-original-soundtrack",
+				"title": "Katamari Fortissimo Tribute"
+			},
+			"expected": "E_SOUNDTRACK_PROHIBITED"
+		}
+	]
+}

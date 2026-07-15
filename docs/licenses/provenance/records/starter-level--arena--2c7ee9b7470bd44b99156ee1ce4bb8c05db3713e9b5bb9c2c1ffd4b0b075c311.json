@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "recordId": "asset:@infinite-snowball/starter-level:1.0.0:arena",
+  "id": "asset:@infinite-snowball/starter-level:1.0.0:arena",
+  "packageName": "@infinite-snowball/starter-level",
+  "packageVersion": "1.0.0",
+  "packageKind": "level",
+  "packageLicense": "CC0-1.0",
+  "packagePath": "content/starter-level/manifest.json",
+  "assetId": "arena",
+  "assetPath": "assets/snowfield-arena.glb",
+  "mime": "model/gltf-binary",
+  "bytes": 5932,
+  "sha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a",
+  "role": "arena",
+  "provider": "Kenney",
+  "creator": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/nature-kit",
+  "sourceArtifact": "kenney-nature-kit.zip#Models/GLTF format/rock_smallA.glb",
+  "sourceArtifactSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+  "acquisition": "derived deterministically from retained member Models/GLTF format/rock_smallA.glb; archive SHA-256 fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+  "acquiredAt": "2026-07-15T00:00:00.000Z",
+  "license": {
+    "spdx": "CC0-1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "textPath": "tools/assets/sources/kenney-nature-kit/License.txt",
+    "textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+    "grant": "Captured CC0 1.0 dedication from the exact downloaded Kenney Nature Kit archive."
+  },
+  "reviewer": "Infinite Snowball P03 provenance review",
+  "reviewedAt": "2026-07-15T00:00:00.000Z",
+  "evidenceStatus": "verified",
+  "attribution": "Kenney Nature Kit, CC0-1.0; attribution not required.",
+  "modifications": [
+    "flattened the retained rock mesh into one broad snowfield platform instance",
+    "composed eight transformed perimeter instances from the retained mesh",
+    "normalized deterministic filename"
+  ],
+  "transformation": {
+    "recipe": "compose-snowfield-arena-v1",
+    "tool": {
+      "name": "@infinite-snowball/asset-pipeline",
+      "version": "1.0.0"
+    },
+    "config": {
+      "deterministic": true,
+      "format": "glb",
+      "sourceMember": "Models/GLTF format/rock_smallA.glb",
+      "variant": "snowfield-arena",
+      "sceneName": "Starter Snowfield Arena",
+      "composition": "flattened platform plus eight perimeter instances",
+      "instanceCount": 9,
+      "placement00": "platform|translation=0,-0.35,0|rotation=0,0,0,1|scale=9,0.2,9",
+      "placement01": "perimeter-north|translation=0,0,-6|rotation=0,0,0,1|scale=1.4,1.4,0.7",
+      "placement02": "perimeter-south|translation=0,0,6|rotation=0,1,0,0|scale=1.4,1.4,0.7",
+      "placement03": "perimeter-east|translation=6,0,0|rotation=0,0.7071067811865476,0,0.7071067811865476|scale=1.4,1.4,0.7",
+      "placement04": "perimeter-west|translation=-6,0,0|rotation=0,-0.7071067811865476,0,0.7071067811865476|scale=1.4,1.4,0.7",
+      "placement05": "perimeter-northeast|translation=5,0,-5|rotation=0,0.3826834323650898,0,0.9238795325112867|scale=0.9,1.2,0.9",
+      "placement06": "perimeter-northwest|translation=-5,0,-5|rotation=0,-0.3826834323650898,0,0.9238795325112867|scale=0.9,1.2,0.9",
+      "placement07": "perimeter-southeast|translation=5,0,5|rotation=0,0.9238795325112867,0,0.3826834323650898|scale=0.9,1.2,0.9",
+      "placement08": "perimeter-southwest|translation=-5,0,5|rotation=0,-0.9238795325112867,0,0.3826834323650898|scale=0.9,1.2,0.9",
+      "pipelineConfigSha256": "b3a856908518f8d12f46d3f8a7fe53d9856b6c5384f864bf0a2a88b0b2200303"
+    },
+    "configSha256": "a85bf70024a7cc494ee0c0172d811e594131b416669d82b076bf886dcc756036"
+  },
+  "notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+  "replacement": null,
+  "output": {
+    "path": "content/starter-level/assets/snowfield-arena.glb",
+    "sha256": "2297cde160a1e5c2bf4c67ce57214d89e3f4663272a7e321fec5b71c4ca52e5a"
+  },
+  "transformations": [
+    "flattened the retained rock mesh into one broad snowfield platform instance",
+    "composed eight transformed perimeter instances from the retained mesh",
+    "normalized deterministic filename",
+    "compose-snowfield-arena-v1 config a85bf70024a7cc494ee0c0172d811e594131b416669d82b076bf886dcc756036"
+  ],
+  "provenanceSha256": "790d3fb46b89d69591227dc7e985ca6f431399b494d49f97a640946243c439f0",
+  "assetRecordSha256": "3ef46fa507348a6823c03bf0b0122c6d9a6c571d7681de86b023db869771b69a"
+}

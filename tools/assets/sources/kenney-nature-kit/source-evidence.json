@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"provider": "Kenney",
+	"pack": "Nature Kit",
+	"sourceUrl": "https://kenney.nl/assets/nature-kit",
+	"archiveFile": "kenney-nature-kit.zip",
+	"archiveBytes": 10537521,
+	"archiveSha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+	"sourceMember": "Models/GLTF format/rock_smallA.glb",
+	"sourceArtifactSha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1",
+	"creator": "Kenney",
+	"acquiredAt": "2026-07-15T00:00:00.000Z",
+	"license": {
+		"spdx": "CC0-1.0",
+		"url": "https://creativecommons.org/publicdomain/zero/1.0/",
+		"member": "License.txt",
+		"textPath": "License.txt",
+		"textSha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+	},
+	"preview": {
+		"member": "Isometric/rock_smallA_NE.png",
+		"path": "rock_smallA-preview.png",
+		"sha256": "9ac0749d7657e4b46020e260ef0b8b09c2a829fb2950fdcc1f64b9ffcdd77875"
+	},
+	"reviewer": "Infinite Snowball P03 provenance review",
+	"reviewedAt": "2026-07-15T00:00:00.000Z",
+	"evidenceStatus": "verified",
+	"notes": "Retained exact GLB, embedded archive license text, and matching Kenney isometric preview. Full downloaded archive remains ignored and untracked.",
+	"replacement": null
+}

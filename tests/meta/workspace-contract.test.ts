@@ -12,7 +12,7 @@ const ROOT = resolve(fileURLToPath(new URL("../../", import.meta.url)));
 const META_FIXTURES = join(ROOT, "tests", "fixtures", "meta");
 
 const FORBIDDEN_LOCK_AUTHORITIES = ["package-lock.json", "npm-shrinkwrap.json", "yarn.lock", "bun.lock", "bun.lockb"] as const;
-const FORBIDDEN_P02_SCAFFOLDS = ["apps", "src", "app", "public", "catalog", "content"] as const;
+const FORBIDDEN_P03_SCAFFOLDS = ["apps", "src", "app", "public", "catalog"] as const;
 const AUDITED_PNPM_RUNNER = join(ROOT, "tools", "quality", "run-audited-pnpm.mjs");
 const FORBIDDEN_TRACKED_PATH_AUDIT = join(ROOT, "tools", "quality", "forbidden-tracked-paths.mjs");
 
@@ -73,6 +73,13 @@ type PackageJson = {
   private?: boolean;
   packageManager?: string;
   engines?: Record<string, string>;
+  devEngines?: {
+    runtime?: {
+      name?: string;
+      version?: string;
+      onFail?: string;
+    };
+  };
   scripts?: Record<string, string>;
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
@@ -421,8 +428,8 @@ describe("IS-01-001 private pnpm workspace contract", () => {
 
     expect(parseWorkspaceStringList(workspaceYaml, "packages")).toEqual(snapshot.workspaceGlobs);
 
-    for (const scaffoldPath of FORBIDDEN_P02_SCAFFOLDS) {
-      expect(existsSync(join(ROOT, scaffoldPath)), `${scaffoldPath}/ is not authorized through P02`).toBe(false);
+    for (const scaffoldPath of FORBIDDEN_P03_SCAFFOLDS) {
+      expect(existsSync(join(ROOT, scaffoldPath)), `${scaffoldPath}/ is not authorized through P03`).toBe(false);
     }
 
     const packageRoots = (await readdir(join(ROOT, "packages"), { withFileTypes: true }))
@@ -450,6 +457,61 @@ describe("IS-01-001 private pnpm workspace contract", () => {
       for (const pattern of patterns) {
         expect(command, `${scriptName} must contain real evidence matching ${pattern}.`).toMatch(pattern);
       }
+    }
+  });
+
+  it("pins the audited Node runtime and builds protocol consumers in order", async () => {
+    const packageJson = await readRootPackageJson();
+    const scripts = packageJson.scripts ?? {};
+    const npmrc = parseNpmrc(await readRootFile(".npmrc"));
+    const lockfile = await readRootFile("pnpm-lock.yaml");
+    const workflow = await readRootFile(".github/workflows/ci.yml");
+
+    expect(packageJson.devEngines?.runtime).toEqual({
+      name: "node",
+      version: "22.13.1",
+      onFail: "download",
+    });
+    expect(await readRootFile(".node-version")).toBe("22.13.1\n");
+    expect(await readRootFile(".nvmrc")).toBe("22.13.1\n");
+    expect(npmrc.get("manage-package-manager-versions")).toBe("false");
+    expect(lockfile).toMatch(/specifier:\s+runtime:22\.13\.1\s*\n\s+version:\s+runtime:22\.13\.1/u);
+    expect(workflow).toMatch(/node-version:\s*["']22\.13\.1["']/u);
+
+    for (const scriptName of [
+      "unit",
+      "test",
+      "quality",
+      "assets:test",
+      "assets:rebuild-starter",
+      "assets:rebuild-check",
+      "assets:verify-hashes",
+      "assets:budget-report",
+      "assets:handoff-check",
+      "assets:headless-smoke",
+      "assets:provenance-check",
+      "licenses:ledger-check",
+    ]) {
+      const command = scripts[scriptName] ?? "";
+      const prerequisite = command.indexOf("run protocol:build");
+      const consumer = Math.max(
+        command.indexOf("vitest run"),
+        command.indexOf("node tools/assets/"),
+      );
+      expect(prerequisite, `${scriptName} must build protocol first`).toBeGreaterThanOrEqual(0);
+      expect(consumer, `${scriptName} must contain its consumer`).toBeGreaterThan(prerequisite);
+    }
+
+    const exactP03Consumers: Record<string, string> = {
+      "assets:brand-originality-check": "node tools/assets/brand-check.mjs",
+      "assets:music-policy-check": "node tools/assets/music-check.mjs",
+      "brand:originality-check": "node tools/assets/brand-check.mjs",
+      "music:policy-check": "node tools/assets/music-check.mjs",
+    };
+    for (const [scriptName, consumer] of Object.entries(exactP03Consumers)) {
+      expect(scripts[scriptName], `${scriptName} must build P02 before its P03 consumer`).toBe(
+        `node tools/quality/run-audited-pnpm.mjs run protocol:build && ${consumer}`,
+      );
     }
   });
 

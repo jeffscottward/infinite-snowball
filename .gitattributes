@@ -1,0 +1,2 @@
+# Preserve upstream license evidence bytes and its legacy formatting.
+tools/assets/sources/kenney-nature-kit/License.txt -text -diff

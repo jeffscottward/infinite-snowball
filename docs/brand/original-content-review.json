@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"productName": "Infinite Snowball",
+	"tagline": "Roll a tiny snowball into a joyful winter world.",
+	"description": "An original open-source rolling collection game built for the web.",
+	"claims": [
+		"Open source",
+		"Offline-capable prototype"
+	],
+	"reviewedOn": "2026-07-15",
+	"reviewedBy": "P03 original-content review",
+	"contentSha256": "aedd06a9c18bf50737ff0968708a17a7166dbb75eb6344c097db87df43ec9a28",
+	"renderIndexSha256": "474d8bb1f0b3043b05d319dd3985b6a0b0261795ae57814b4d1b78ece0eab613",
+	"prohibitedVocabulary": {
+		"franchise": [
+			"katamari",
+			"katamari damacy",
+			"beautiful katamari",
+			"we love katamari"
+		],
+		"tradeDress": [
+			"same prince",
+			"rainbow cosmos",
+			"logo lettering",
+			"exact visual style",
+			"king of all cosmos"
+		]
+	},
+	"prohibited": {
+		"affiliationClaims": true,
+		"franchiseNamesInMarketing": true,
+		"copiedCharactersLogosAndTradeDress": true,
+		"unverifiedRatingsReviewsAndStoreBadges": true,
+		"commercialSoundtrackPackaging": true
+	}
+}
