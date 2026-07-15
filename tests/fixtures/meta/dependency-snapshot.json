@@ -88,6 +88,16 @@
       "reason": "Schema validation baseline."
     },
     {
+      "name": "unicode-case-folding",
+      "version": "1.1.1",
+      "importer": "packages/protocol",
+      "license": "MIT",
+      "repository": "https://github.com/avivkeller/unicode-case-folding",
+      "integrity": "sha512-ZAYziAnMTBisO2dT5tyGvBFMNsIfonOS/BZTd3UZaKWtXMOZqK8s8HRUCrlKxGCTeCxCuCjS/6HW+4a6G+rbzw==",
+      "reason": "Full Unicode case folding for deterministic archive path collision keys in protocol validation.",
+      "provenance": "Pinned browser-safe ESM utility generated from the official Unicode Character Database CaseFolding.txt; MIT license and no runtime dependencies reviewed for protocol validation use."
+    },
+    {
       "name": "@gltf-transform/cli",
       "version": "4.4.1",
       "reason": "GLB conversion and inspection CLI baseline."

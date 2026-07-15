@@ -1,0 +1,327 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/catalog-entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 13,
+  "properties": {
+    "display": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "properties": {
+        "description": {
+          "additionalProperties": false,
+          "maxProperties": 2,
+          "properties": {
+            "default": {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "translations": {
+              "additionalProperties": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxProperties": 100,
+              "propertyNames": {
+                "maxLength": 35,
+                "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$",
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "default",
+            "translations"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "additionalProperties": false,
+          "maxProperties": 2,
+          "properties": {
+            "default": {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "translations": {
+              "additionalProperties": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxProperties": 100,
+              "propertyNames": {
+                "maxLength": 35,
+                "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$",
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "default",
+            "translations"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ],
+      "type": "object"
+    },
+    "entryId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "icon": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "^(?![\\s\\S]*[^A-Za-z0-9._@+\\/-])(?!.*(?:^|\\/)\\.{1,2}(?:\\/|$))[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*(?:\\/[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*)*$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "level",
+        "character",
+        "object-pack",
+        "campaign",
+        "music",
+        "bundle"
+      ],
+      "type": "string"
+    },
+    "npm": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "properties": {
+        "integrity": {
+          "maxLength": 95,
+          "minLength": 95,
+          "pattern": "^sha512-[A-Za-z0-9+/]{85}[AQgw]==$",
+          "type": "string"
+        },
+        "provenanceVerified": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "integrity",
+        "provenanceVerified"
+      ],
+      "type": "object"
+    },
+    "package": {
+      "additionalProperties": false,
+      "maxProperties": 7,
+      "properties": {
+        "catalogEntryId": {
+          "maxLength": 128,
+          "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+          "type": "string"
+        },
+        "engine": {
+          "maxLength": 512,
+          "pattern": "^(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\s+(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?)*$",
+          "type": "string"
+        },
+        "integrity": {
+          "maxLength": 95,
+          "minLength": 95,
+          "pattern": "^sha512-[A-Za-z0-9+/]{85}[AQgw]==$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "level",
+            "character",
+            "object-pack",
+            "campaign",
+            "music",
+            "bundle"
+          ],
+          "type": "string"
+        },
+        "manifestSha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 214,
+          "pattern": "^(?:@[a-z0-9][a-z0-9._-]*\\/)?[a-z0-9][a-z0-9._-]*$",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "kind",
+        "engine",
+        "integrity",
+        "manifestSha256",
+        "catalogEntryId"
+      ],
+      "type": "object"
+    },
+    "packageKey": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "packageRecordPath": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "^(?![\\s\\S]*[^A-Za-z0-9._@+\\/-])(?!.*(?:^|\\/)\\.{1,2}(?:\\/|$))[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*(?:\\/[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*)*$",
+      "type": "string"
+    },
+    "replacement": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "maxProperties": 7,
+          "properties": {
+            "catalogEntryId": {
+              "maxLength": 128,
+              "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+              "type": "string"
+            },
+            "engine": {
+              "maxLength": 512,
+              "pattern": "^(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\s+(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?)*$",
+              "type": "string"
+            },
+            "integrity": {
+              "maxLength": 95,
+              "minLength": 95,
+              "pattern": "^sha512-[A-Za-z0-9+/]{85}[AQgw]==$",
+              "type": "string"
+            },
+            "kind": {
+              "enum": [
+                "level",
+                "character",
+                "object-pack",
+                "campaign",
+                "music",
+                "bundle"
+              ],
+              "type": "string"
+            },
+            "manifestSha256": {
+              "maxLength": 64,
+              "minLength": 64,
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 214,
+              "pattern": "^(?:@[a-z0-9][a-z0-9._-]*\\/)?[a-z0-9][a-z0-9._-]*$",
+              "type": "string"
+            },
+            "version": {
+              "maxLength": 256,
+              "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "kind",
+            "engine",
+            "integrity",
+            "manifestSha256",
+            "catalogEntryId"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "review": {
+      "additionalProperties": false,
+      "maxProperties": 3,
+      "properties": {
+        "evidenceSha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "reviewedAt": {
+          "maxLength": 24,
+          "minLength": 20,
+          "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+          "type": "string"
+        },
+        "reviewer": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "reviewer",
+        "reviewedAt",
+        "evidenceSha256"
+      ],
+      "type": "object"
+    },
+    "screenshots": {
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "pattern": "^(?![\\s\\S]*[^A-Za-z0-9._@+\\/-])(?!.*(?:^|\\/)\\.{1,2}(?:\\/|$))[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*(?:\\/[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*)*$",
+        "type": "string"
+      },
+      "maxItems": 12,
+      "type": "array"
+    },
+    "snapshotId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "withdrawn",
+        "replaced"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "entryId",
+    "snapshotId",
+    "package",
+    "kind",
+    "display",
+    "screenshots",
+    "icon",
+    "packageRecordPath",
+    "npm",
+    "review",
+    "status",
+    "replacement",
+    "packageKey"
+  ],
+  "title": "Infinite Snowball catalog-entry protocol 1.0.0",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "strict-unknown-field",
+  "expectedRuleId": "E_SCHEMA_STRICT",
+  "mutation": {
+    "type": "manifest-unknown-field",
+    "key": "script",
+    "value": "run-me"
+  }
+}

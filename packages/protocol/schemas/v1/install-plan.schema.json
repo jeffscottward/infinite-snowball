@@ -1,0 +1,211 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/install-plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 8,
+  "properties": {
+    "dependencyOrder": {
+      "items": {
+        "maxLength": 300,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 1024,
+      "minItems": 1,
+      "type": "array"
+    },
+    "expectedBytes": {
+      "maximum": 268435456,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "maxProperties": 5,
+        "properties": {
+          "bytes": {
+            "maximum": 67108864,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "mime": {
+            "enum": [
+              "application/json",
+              "audio/ogg",
+              "audio/wav",
+              "image/avif",
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "model/gltf-binary"
+            ],
+            "type": "string"
+          },
+          "path": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^(?!\\/)(?![A-Za-z]:)(?!\\\\\\\\)(?!\\.{1,2}(?:\\/|$))(?![\\s\\S]*\\/\\.{1,2}(?:\\/|$))(?![\\s\\S]*[<>:\"|?*\\u0000-\\u001F])(?![\\s\\S]*%)[^/\\\\]+(?:\\/[^/\\\\]+)*$",
+            "type": "string"
+          },
+          "resourcePath": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^(?![\\s\\S]*[^A-Za-z0-9._@+\\/-])(?!.*(?:^|\\/)\\.{1,2}(?:\\/|$))[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*(?:\\/[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*)*$",
+            "type": "string"
+          },
+          "sha256": {
+            "maxLength": 64,
+            "minLength": 64,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "resourcePath",
+          "mime",
+          "bytes",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2048,
+      "type": "array"
+    },
+    "offline": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "missingFiles": {
+          "items": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^(?!\\/)(?![A-Za-z]:)(?!\\\\\\\\)(?!\\.{1,2}(?:\\/|$))(?![\\s\\S]*\\/\\.{1,2}(?:\\/|$))(?![\\s\\S]*[<>:\"|?*\\u0000-\\u001F])(?![\\s\\S]*%)[^/\\\\]+(?:\\/[^/\\\\]+)*$",
+            "type": "string"
+          },
+          "maxItems": 2048,
+          "type": "array"
+        }
+      },
+      "required": [
+        "available",
+        "missingFiles"
+      ],
+      "type": "object"
+    },
+    "packages": {
+      "items": {
+        "additionalProperties": false,
+        "maxProperties": 7,
+        "properties": {
+          "catalogEntryId": {
+            "maxLength": 128,
+            "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+            "type": "string"
+          },
+          "engine": {
+            "maxLength": 512,
+            "pattern": "^(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\s+(?:<=|>=|<|>|=|~|\\^)?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?)*$",
+            "type": "string"
+          },
+          "integrity": {
+            "maxLength": 95,
+            "minLength": 95,
+            "pattern": "^sha512-[A-Za-z0-9+/]{85}[AQgw]==$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "level",
+              "character",
+              "object-pack",
+              "campaign",
+              "music",
+              "bundle"
+            ],
+            "type": "string"
+          },
+          "manifestSha256": {
+            "maxLength": 64,
+            "minLength": 64,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 214,
+            "pattern": "^(?:@[a-z0-9][a-z0-9._-]*\\/)?[a-z0-9][a-z0-9._-]*$",
+            "type": "string"
+          },
+          "version": {
+            "maxLength": 256,
+            "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "kind",
+          "engine",
+          "integrity",
+          "manifestSha256",
+          "catalogEntryId"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1024,
+      "minItems": 1,
+      "type": "array"
+    },
+    "planId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "quota": {
+      "additionalProperties": false,
+      "maxProperties": 3,
+      "properties": {
+        "availableBytes": {
+          "maximum": 9007199254740991,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "persistenceRequested": {
+          "type": "boolean"
+        },
+        "requiredBytes": {
+          "maximum": 9007199254740991,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requiredBytes",
+        "availableBytes",
+        "persistenceRequested"
+      ],
+      "type": "object"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "planId",
+    "schemaVersion",
+    "packages",
+    "dependencyOrder",
+    "files",
+    "expectedBytes",
+    "quota",
+    "offline"
+  ],
+  "title": "Infinite Snowball install-plan protocol 1.0.0",
+  "type": "object"
+}

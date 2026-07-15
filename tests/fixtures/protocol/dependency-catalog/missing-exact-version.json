@@ -1,0 +1,19 @@
+{
+  "id": "missing-exact-version",
+  "expectedRuleId": "E_DEPENDENCY_EXACT",
+  "input": {
+    "root": "@test/a@1.0.0",
+    "packages": [
+      {
+        "name": "@test/a",
+        "version": "1.0.0",
+        "dependencies": [
+          {
+            "name": "@test/b",
+            "version": "^1.0.0"
+          }
+        ]
+      }
+    ]
+  }
+}

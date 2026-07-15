@@ -12,7 +12,7 @@ const ROOT = resolve(fileURLToPath(new URL("../../", import.meta.url)));
 const META_FIXTURES = join(ROOT, "tests", "fixtures", "meta");
 
 const FORBIDDEN_LOCK_AUTHORITIES = ["package-lock.json", "npm-shrinkwrap.json", "yarn.lock", "bun.lock", "bun.lockb"] as const;
-const FORBIDDEN_P01_SCAFFOLDS = ["apps", "packages", "src", "app", "public", "catalog", "content"] as const;
+const FORBIDDEN_P02_SCAFFOLDS = ["apps", "src", "app", "public", "catalog", "content"] as const;
 const AUDITED_PNPM_RUNNER = join(ROOT, "tools", "quality", "run-audited-pnpm.mjs");
 const FORBIDDEN_TRACKED_PATH_AUDIT = join(ROOT, "tools", "quality", "forbidden-tracked-paths.mjs");
 
@@ -51,6 +51,11 @@ type DependencySnapshot = {
     name: string;
     version: string;
     reason: string;
+    importer?: string;
+    license?: string;
+    repository?: string;
+    integrity?: string;
+    provenance?: string;
   }>;
   lifecycleBuildCandidates: LifecycleAllowlistEntry[];
 };
@@ -98,6 +103,12 @@ async function readFixtureJson<T>(path: string): Promise<T> {
 
 async function readRootPackageJson() {
   return JSON.parse(await readRootFile("package.json")) as PackageJson;
+}
+
+async function readPackageJsonForImporter(importer: string | undefined) {
+  const importerPath = importer ?? ".";
+  const manifestPath = importerPath === "." ? "package.json" : `${importerPath}/package.json`;
+  return JSON.parse(await readRootFile(manifestPath)) as PackageJson;
 }
 
 function assertProbePathIsSafe(probePath: string) {
@@ -248,10 +259,19 @@ function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function lockHasImporterPin(lockfile: string, dependencyName: string, version: string) {
+function lockHasImporterPin(lockfile: string, dependencyName: string, version: string, importer = ".") {
+  const importers = /(?:^|\n)importers:\s*\n([\s\S]*?)(?=\npackages:\s*\n|$)/.exec(lockfile)?.[1];
+  if (importers === undefined) return false;
+
+  const importerKey = escapeRegExp(importer);
+  const importerBlock = new RegExp(`(?:^|\\n)  '?${importerKey}'?:\\s*\\n([\\s\\S]*?)(?=\\n  \\S|$)`).exec(
+    importers,
+  )?.[1];
+  if (importerBlock === undefined) return false;
+
   const dependency = escapeRegExp(dependencyName);
   const exactVersion = escapeRegExp(version);
-  return new RegExp(`'?${dependency}'?:\\s*\\n\\s+specifier:\\s+${exactVersion}\\s*\\n\\s+version:\\s+${exactVersion}(?:\\(|\\s|$)`, "m").test(lockfile);
+  return new RegExp(`(?:^|\\n)\\s+'?${dependency}'?:\\s*\\n\\s+specifier:\\s+${exactVersion}\\s*\\n\\s+version:\\s+${exactVersion}(?:\\(|\\s|$)`, "m").test(importerBlock);
 }
 
 function lockHasPackageResolution(lockfile: string, packageName: string, version: string) {
@@ -401,9 +421,15 @@ describe("IS-01-001 private pnpm workspace contract", () => {
 
     expect(parseWorkspaceStringList(workspaceYaml, "packages")).toEqual(snapshot.workspaceGlobs);
 
-    for (const scaffoldPath of FORBIDDEN_P01_SCAFFOLDS) {
-      expect(existsSync(join(ROOT, scaffoldPath)), `${scaffoldPath}/ belongs to later phases, not P01`).toBe(false);
+    for (const scaffoldPath of FORBIDDEN_P02_SCAFFOLDS) {
+      expect(existsSync(join(ROOT, scaffoldPath)), `${scaffoldPath}/ is not authorized through P02`).toBe(false);
     }
+
+    const packageRoots = (await readdir(join(ROOT, "packages"), { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort();
+    expect(packageRoots, "P02 authorizes only the protocol package root").toEqual(["protocol"]);
   });
 
   it("exposes real root commands for the mandatory Phase 01 slice gates", async () => {
@@ -487,15 +513,62 @@ describe("IS-01-001 private pnpm workspace contract", () => {
 describe("IS-01-002 dependency snapshot and lifecycle policy", () => {
   it("pins every approved dependency exactly in package.json and pnpm-lock.yaml", async () => {
     const snapshot = await readFixtureJson<DependencySnapshot>("dependency-snapshot.json");
-    const packageJson = await readRootPackageJson();
+    const packageJsonByImporter = new Map<string, PackageJson>();
     const lockfile = await readRootFile("pnpm-lock.yaml");
 
     for (const dependency of snapshot.dependencies) {
+      const importer = dependency.importer ?? ".";
+      const packageJson =
+        packageJsonByImporter.get(importer) ?? (await readPackageJsonForImporter(dependency.importer));
+      packageJsonByImporter.set(importer, packageJson);
       expect(dependency.version, `${dependency.name} fixture version must be exact`).toMatch(/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/);
-      expect(dependencyVersion(packageJson, dependency.name), `${dependency.name} must be exactly pinned`).toBe(dependency.version);
-      expect(lockHasImporterPin(lockfile, dependency.name, dependency.version), `${dependency.name} importer pin missing`).toBe(true);
+      expect(dependencyVersion(packageJson, dependency.name), `${dependency.name} must be exactly pinned in ${importer}`).toBe(dependency.version);
+      expect(lockHasImporterPin(lockfile, dependency.name, dependency.version, importer), `${dependency.name} importer pin missing in ${importer}`).toBe(true);
       expect(lockHasPackageResolution(lockfile, dependency.name, dependency.version), `${dependency.name} lock resolution missing`).toBe(true);
     }
+  });
+
+  it("scopes approved dependency lock pins to the declared importer", () => {
+    const lockfile = [
+      "importers:",
+      "",
+      "  .:",
+      "    dependencies:",
+      "      unicode-case-folding:",
+      "        specifier: 1.1.1",
+      "        version: 1.1.1",
+      "",
+      "  packages/protocol:",
+      "    dependencies: {}",
+      "",
+      "packages:",
+      "",
+      "  unicode-case-folding@1.1.1:",
+      "    resolution: {integrity: sha512-test}",
+      "",
+    ].join("\n");
+
+    expect(lockHasImporterPin(lockfile, "unicode-case-folding", "1.1.1", ".")).toBe(true);
+    expect(lockHasImporterPin(lockfile, "unicode-case-folding", "1.1.1", "packages/protocol")).toBe(false);
+  });
+
+  it("records reviewed provenance for the Unicode case-folding dependency", async () => {
+    const snapshot = await readFixtureJson<DependencySnapshot>("dependency-snapshot.json");
+    const lockfile = await readRootFile("pnpm-lock.yaml");
+    const dependency = snapshot.dependencies.find((entry) => entry.name === "unicode-case-folding");
+    if (dependency === undefined) throw new Error("unicode-case-folding must be recorded in the dependency snapshot");
+
+    expect(dependency).toMatchObject({
+      importer: "packages/protocol",
+      version: "1.1.1",
+      license: "MIT",
+      repository: "https://github.com/avivkeller/unicode-case-folding",
+      integrity:
+        "sha512-ZAYziAnMTBisO2dT5tyGvBFMNsIfonOS/BZTd3UZaKWtXMOZqK8s8HRUCrlKxGCTeCxCuCjS/6HW+4a6G+rbzw==",
+    });
+    expect(dependency.reason).toMatch(/Unicode case folding/i);
+    expect(dependency.provenance).toMatch(/official Unicode Character Database/i);
+    expect(lockfile).toContain(`integrity: ${dependency.integrity}`);
   });
 
   it("accepts only an explicit absolute pnpm npm_execpath without ambient fallback", async () => {

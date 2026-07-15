@@ -1,0 +1,44 @@
+{
+  "name": "@infinite-snowball/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Strict data-only protocol, validators, and generated schemas for Infinite Snowball content.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "protocol-handoff.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js"
+    },
+    "./offline-model": {
+      "types": "./dist/offline/model.d.ts",
+      "import": "./dist/offline/model.js"
+    },
+    "./package-inspection": {
+      "types": "./dist/validation/package-inspection.d.ts",
+      "import": "./dist/validation/package-inspection.js"
+    },
+    "./schemas/*": "./schemas/v1/*.schema.json"
+  },
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "unicode-case-folding": "1.1.1",
+    "zod": "4.4.3"
+  }
+}

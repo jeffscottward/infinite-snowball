@@ -1,0 +1,8 @@
+{
+  "id": "underreported-totals",
+  "expectedRuleId": "E_FILE_BUDGET",
+  "mutation": {
+    "type": "manifest-total-bytes",
+    "value": 0
+  }
+}

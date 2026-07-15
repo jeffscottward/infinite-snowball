@@ -1,0 +1,16 @@
+{
+  "id": "withdrawn-package",
+  "expectedRuleId": "E_PACKAGE_WITHDRAWN",
+  "input": {
+    "package": {
+      "name": "@test/a",
+      "version": "1.0.0"
+    },
+    "status": "withdrawn",
+    "existingInstall": true,
+    "replacement": {
+      "name": "@test/a",
+      "version": "1.0.1"
+    }
+  }
+}

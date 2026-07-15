@@ -1,0 +1,8 @@
+{
+  "id": "excessive-depth",
+  "expectedRuleId": "E_FILE_BUDGET",
+  "mutation": {
+    "type": "archive-depth",
+    "value": 13
+  }
+}

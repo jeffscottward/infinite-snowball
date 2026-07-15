@@ -1,0 +1,180 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/install-transaction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 12,
+  "properties": {
+    "createdAt": {
+      "maxLength": 24,
+      "minLength": 20,
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+      "type": "string"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "maxProperties": 8,
+          "properties": {
+            "allowed": {},
+            "assetId": {
+              "maxLength": 161,
+              "minLength": 1,
+              "type": "string"
+            },
+            "observed": {},
+            "package": {
+              "maxLength": 161,
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "maxLength": 161,
+              "minLength": 1,
+              "type": "string"
+            },
+            "remediation": {
+              "maxLength": 161,
+              "minLength": 1,
+              "type": "string"
+            },
+            "ruleId": {
+              "enum": [
+                "E_CACHE_WRITE",
+                "E_CATALOG_STALE",
+                "E_CODEC_UNSUPPORTED",
+                "E_CODE_FORBIDDEN",
+                "E_DAG_CYCLE",
+                "E_DEPENDENCY_EXACT",
+                "E_ENGINE_RANGE",
+                "E_FILE_BUDGET",
+                "E_GLB_REFERENCE",
+                "E_HASH_MISMATCH",
+                "E_LICENSE_POLICY",
+                "E_LOCK_MISMATCH",
+                "E_MIGRATION",
+                "E_MIME_MISMATCH",
+                "E_NPM_PROVENANCE",
+                "E_OFFLINE_MISSING_ASSET",
+                "E_OPTIONAL_PEER_CONFLICT",
+                "E_PACKAGE_WITHDRAWN",
+                "E_PATH_POLICY",
+                "E_PRIVACY_EGRESS",
+                "E_QUOTA",
+                "E_SAVE_EXPORT_INTEGRITY",
+                "E_SAVE_EXPORT_SIZE",
+                "E_SAVE_EXPORT_VERSION",
+                "E_SCHEMA_STRICT",
+                "E_TRANSACTION_STATE"
+              ],
+              "type": "string"
+            },
+            "validatorVersion": {
+              "const": "1.0.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "ruleId",
+            "path",
+            "observed",
+            "allowed",
+            "validatorVersion",
+            "remediation"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "planId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "reconciliationStatus": {
+      "enum": [
+        "clean",
+        "required",
+        "running",
+        "reconciled"
+      ],
+      "type": "string"
+    },
+    "retentionUntil": {
+      "maxLength": 24,
+      "minLength": 20,
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+      "type": "string"
+    },
+    "rollbackActions": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 256,
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "stagingCacheNamespace": {
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "planned",
+        "staging",
+        "verifying",
+        "committing",
+        "installed",
+        "failed",
+        "canceled"
+      ],
+      "type": "string"
+    },
+    "transactionId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "updatedAt": {
+      "maxLength": 24,
+      "minLength": 20,
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+      "type": "string"
+    },
+    "verifiedFiles": {
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "pattern": "^(?!\\/)(?![A-Za-z]:)(?!\\\\\\\\)(?!\\.{1,2}(?:\\/|$))(?![\\s\\S]*\\/\\.{1,2}(?:\\/|$))(?![\\s\\S]*[<>:\"|?*\\u0000-\\u001F])(?![\\s\\S]*%)[^/\\\\]+(?:\\/[^/\\\\]+)*$",
+        "type": "string"
+      },
+      "maxItems": 2048,
+      "type": "array"
+    }
+  },
+  "required": [
+    "transactionId",
+    "schemaVersion",
+    "planId",
+    "state",
+    "stagingCacheNamespace",
+    "verifiedFiles",
+    "error",
+    "rollbackActions",
+    "reconciliationStatus",
+    "createdAt",
+    "updatedAt",
+    "retentionUntil"
+  ],
+  "title": "Infinite Snowball install-transaction protocol 1.0.0",
+  "type": "object"
+}

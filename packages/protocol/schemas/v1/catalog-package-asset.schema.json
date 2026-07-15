@@ -1,0 +1,49 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/catalog-package-asset.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 6,
+  "properties": {
+    "packageName": {
+      "maxLength": 214,
+      "pattern": "^(?:@[a-z0-9][a-z0-9._-]*\\/)?[a-z0-9][a-z0-9._-]*$",
+      "type": "string"
+    },
+    "path": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "^(?!\\/)(?![A-Za-z]:)(?!\\\\\\\\)(?!\\.{1,2}(?:\\/|$))(?![\\s\\S]*\\/\\.{1,2}(?:\\/|$))(?![\\s\\S]*[<>:\"|?*\\u0000-\\u001F])(?![\\s\\S]*%)[^/\\\\]+(?:\\/[^/\\\\]+)*$",
+      "type": "string"
+    },
+    "referenceCountEligible": {
+      "type": "boolean"
+    },
+    "resourcePath": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "^(?![\\s\\S]*[^A-Za-z0-9._@+\\/-])(?!.*(?:^|\\/)\\.{1,2}(?:\\/|$))[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*(?:\\/[A-Za-z0-9@_+-][A-Za-z0-9._@+-]*)*$",
+      "type": "string"
+    },
+    "sha256": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "maxLength": 256,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "packageName",
+    "version",
+    "path",
+    "resourcePath",
+    "sha256",
+    "referenceCountEligible"
+  ],
+  "title": "Infinite Snowball catalog-package-asset protocol 1.0.0",
+  "type": "object"
+}

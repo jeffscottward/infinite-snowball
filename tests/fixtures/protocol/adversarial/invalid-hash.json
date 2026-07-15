@@ -1,0 +1,8 @@
+{
+  "id": "invalid-hash",
+  "expectedRuleId": "E_HASH_MISMATCH",
+  "mutation": {
+    "type": "manifest-hash",
+    "value": "not-a-sha256"
+  }
+}

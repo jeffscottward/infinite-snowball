@@ -1,0 +1,8 @@
+{
+  "id": "encoded-traversal",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "file-path",
+    "value": "assets/%252e%252e/escape.glb"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "invalid-semver",
+  "expectedRuleId": "E_DEPENDENCY_EXACT",
+  "mutation": {
+    "type": "manifest-version",
+    "value": "^1.0.0"
+  }
+}

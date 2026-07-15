@@ -1,0 +1,11 @@
+{
+  "id": "unicode-collision",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "collision-paths",
+    "values": [
+      "assets/café.png",
+      "assets/café.png"
+    ]
+  }
+}

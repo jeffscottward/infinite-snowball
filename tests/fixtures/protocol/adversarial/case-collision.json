@@ -1,0 +1,11 @@
+{
+  "id": "case-collision",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "collision-paths",
+    "values": [
+      "assets/ICON.png",
+      "assets/icon.png"
+    ]
+  }
+}

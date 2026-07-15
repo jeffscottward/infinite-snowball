@@ -1,0 +1,8 @@
+{
+  "id": "oversize-file",
+  "expectedRuleId": "E_FILE_BUDGET",
+  "mutation": {
+    "type": "file-bytes",
+    "value": 67108865
+  }
+}

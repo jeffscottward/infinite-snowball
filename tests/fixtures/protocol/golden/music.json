@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "@infinite-snowball/golden-music",
+  "version": "1.0.0",
+  "kind": "music",
+  "engine": ">=1.0.0 <2.0.0",
+  "metadata": {
+    "title": {
+      "default": "Golden music",
+      "translations": {}
+    },
+    "description": {
+      "default": "Complete music protocol fixture",
+      "translations": {}
+    },
+    "author": {
+      "name": "Infinite Snowball fixture authors",
+      "url": "https://example.com/authors"
+    },
+    "homepage": "https://example.com/infinite-snowball",
+    "repository": "https://github.com/example/infinite-snowball-content",
+    "screenshots": [
+      "assets/icon.png"
+    ],
+    "icon": "assets/icon.png",
+    "tags": [
+      "golden",
+      "protocol"
+    ]
+  },
+  "license": "CC-BY-4.0",
+  "entries": [
+    {
+      "musicPackId": "starter-music",
+      "display": {
+        "title": {
+          "default": "Starter Music",
+          "translations": {}
+        },
+        "description": {
+          "default": "A cleared looping track",
+          "translations": {}
+        }
+      },
+      "tracks": [
+        {
+          "trackId": "winter-loop",
+          "assetId": "track",
+          "title": "Winter Loop",
+          "creator": "Infinite Snowball fixture authors",
+          "source": "https://example.com/music-source",
+          "attribution": "Winter Loop by Infinite Snowball fixture authors, CC BY 4.0",
+          "license": "CC-BY-4.0",
+          "durationSeconds": 90,
+          "loop": {
+            "startSeconds": 0,
+            "endSeconds": 89
+          },
+          "cues": [
+            {
+              "id": "goal",
+              "atSeconds": 60
+            }
+          ],
+          "bus": "music",
+          "channels": 2,
+          "sampleRate": 48000
+        }
+      ],
+      "maxBytes": 16777216,
+      "maxTracks": 8
+    }
+  ],
+  "dependencies": [],
+  "optionalPeers": [],
+  "assets": [
+    {
+      "assetId": "icon",
+      "path": "assets/icon.png",
+      "mime": "image/png",
+      "bytes": 1024,
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "role": "icon",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provenance": {
+        "creator": "Infinite Snowball fixture authors",
+        "source": "https://example.com/source",
+        "acquisition": "authored for protocol tests",
+        "sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "modifications": [
+          "normalized for deterministic fixture"
+        ],
+        "outputSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "reviewer": "P02 protocol fixture review",
+        "reviewedAt": "2026-07-14T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Synthetic golden fixture",
+        "attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+        "transformation": {
+          "recipe": "synthetic-fixture-normalization-v1",
+          "tool": {
+            "name": "infinite-snowball-fixture-writer",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "runtime-ready"
+          },
+          "configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "replacement": null
+      }
+    },
+    {
+      "assetId": "track",
+      "path": "assets/winter-loop.ogg",
+      "mime": "audio/ogg",
+      "bytes": 1024,
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "role": "music-track",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provenance": {
+        "creator": "Infinite Snowball fixture authors",
+        "source": "https://example.com/source",
+        "acquisition": "authored for protocol tests",
+        "sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "modifications": [
+          "normalized for deterministic fixture"
+        ],
+        "outputSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "reviewer": "P02 protocol fixture review",
+        "reviewedAt": "2026-07-14T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Synthetic golden fixture",
+        "attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+        "transformation": {
+          "recipe": "synthetic-fixture-normalization-v1",
+          "tool": {
+            "name": "infinite-snowball-fixture-writer",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "runtime-ready"
+          },
+          "configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "replacement": null
+      }
+    }
+  ],
+  "totals": {
+    "bytes": 2048,
+    "fileCount": 2,
+    "uncompressedBytes": 2048,
+    "maxDepth": 2,
+    "maxCompressionRatio": 1
+  },
+  "capabilities": {}
+}

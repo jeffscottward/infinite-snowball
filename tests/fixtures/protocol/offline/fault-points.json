@@ -1,0 +1,14 @@
+[
+  "quota-preflight",
+  "persistence-request",
+  "stage-write",
+  "stage-readback",
+  "verify-hash",
+  "verify-mime",
+  "verify-size",
+  "verify-policy",
+  "commit-lock",
+  "commit-refs",
+  "commit-pointer",
+  "commit-finalize"
+]

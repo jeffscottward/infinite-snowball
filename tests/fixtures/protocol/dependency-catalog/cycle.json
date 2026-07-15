@@ -1,0 +1,29 @@
+{
+  "id": "cycle",
+  "expectedRuleId": "E_DAG_CYCLE",
+  "input": {
+    "root": "@test/a@1.0.0",
+    "packages": [
+      {
+        "name": "@test/a",
+        "version": "1.0.0",
+        "dependencies": [
+          {
+            "name": "@test/b",
+            "version": "1.0.0"
+          }
+        ]
+      },
+      {
+        "name": "@test/b",
+        "version": "1.0.0",
+        "dependencies": [
+          {
+            "name": "@test/a",
+            "version": "1.0.0"
+          }
+        ]
+      }
+    ]
+  }
+}

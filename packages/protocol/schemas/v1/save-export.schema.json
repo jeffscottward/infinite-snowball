@@ -1,0 +1,208 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/save-export.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 13,
+  "properties": {
+    "activePackageLockIds": {
+      "items": {
+        "maxLength": 128,
+        "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+        "type": "string"
+      },
+      "maxItems": 1024,
+      "type": "array"
+    },
+    "campaignProgress": {
+      "items": {
+        "additionalProperties": false,
+        "maxProperties": 2,
+        "properties": {
+          "campaignId": {
+            "maxLength": 128,
+            "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+            "type": "string"
+          },
+          "unlockedLevelIds": {
+            "items": {
+              "maxLength": 128,
+              "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+              "type": "string"
+            },
+            "maxItems": 1024,
+            "type": "array"
+          }
+        },
+        "required": [
+          "campaignId",
+          "unlockedLevelIds"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1024,
+      "type": "array"
+    },
+    "checksum": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "checksumAlgorithm": {
+      "const": "sha256",
+      "type": "string"
+    },
+    "createdAt": {
+      "maxLength": 24,
+      "minLength": 20,
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+      "type": "string"
+    },
+    "gameVersion": {
+      "maxLength": 256,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+      "type": "string"
+    },
+    "levelProgress": {
+      "items": {
+        "additionalProperties": false,
+        "maxProperties": 5,
+        "properties": {
+          "levelId": {
+            "maxLength": 128,
+            "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+            "type": "string"
+          },
+          "levelVersion": {
+            "maxLength": 256,
+            "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+            "type": "string"
+          },
+          "objectives": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "maxProperties": 1024,
+            "propertyNames": {
+              "maxLength": 128,
+              "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "score": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "seed": {
+            "maxLength": 128,
+            "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "levelId",
+          "levelVersion",
+          "seed",
+          "score",
+          "objectives"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1024,
+      "type": "array"
+    },
+    "localProfileId": {
+      "maxLength": 128,
+      "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+      "type": "string"
+    },
+    "migrationVersion": {
+      "maxLength": 32,
+      "pattern": "^\\d+$",
+      "type": "string"
+    },
+    "payloadBytes": {
+      "maximum": 16777216,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "sectionChecksums": {
+      "additionalProperties": false,
+      "maxProperties": 3,
+      "properties": {
+        "locks": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "progress": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "settings": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "progress",
+        "settings",
+        "locks"
+      ],
+      "type": "object"
+    },
+    "settings": {
+      "additionalProperties": false,
+      "maxProperties": 3,
+      "properties": {
+        "audioVolume": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "inputPreset": {
+          "maxLength": 128,
+          "pattern": "^(?!__proto__$)[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$",
+          "type": "string"
+        },
+        "reducedMotion": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "audioVolume",
+        "reducedMotion",
+        "inputPreset"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "gameVersion",
+    "createdAt",
+    "localProfileId",
+    "campaignProgress",
+    "levelProgress",
+    "settings",
+    "activePackageLockIds",
+    "migrationVersion",
+    "payloadBytes",
+    "checksumAlgorithm",
+    "sectionChecksums",
+    "checksum"
+  ],
+  "title": "Infinite Snowball save-export protocol 1.0.0",
+  "type": "object"
+}

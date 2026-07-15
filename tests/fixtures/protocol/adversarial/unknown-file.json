@@ -1,0 +1,8 @@
+{
+  "id": "unknown-file",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "add-file",
+    "value": "assets/undeclared.png"
+  }
+}

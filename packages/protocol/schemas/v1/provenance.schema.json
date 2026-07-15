@@ -1,0 +1,175 @@
+{
+  "$id": "https://schemas.infinite-snowball.local/protocol/1.0.0/provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "maxProperties": 13,
+  "properties": {
+    "acquisition": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string"
+    },
+    "attribution": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "creator": {
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidenceStatus": {
+      "enum": [
+        "verified",
+        "incomplete",
+        "disputed",
+        "withdrawn"
+      ],
+      "type": "string"
+    },
+    "modifications": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "notes": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "outputSha256": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "replacement": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reviewedAt": {
+      "maxLength": 24,
+      "minLength": 20,
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(?:\\.000)?Z$",
+      "type": "string"
+    },
+    "reviewer": {
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "source": {
+      "format": "uri",
+      "maxLength": 2048,
+      "pattern": "^[Hh][Tt][Tt][Pp][Ss]?:\\/\\/(?![^/?#]*@)",
+      "type": "string"
+    },
+    "sourceArtifactSha256": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "transformation": {
+      "additionalProperties": false,
+      "maxProperties": 4,
+      "properties": {
+        "config": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxProperties": 256,
+          "propertyNames": {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^(?!__proto__$)",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "configSha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "recipe": {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        "tool": {
+          "additionalProperties": false,
+          "maxProperties": 2,
+          "properties": {
+            "name": {
+              "maxLength": 120,
+              "minLength": 1,
+              "type": "string"
+            },
+            "version": {
+              "maxLength": 256,
+              "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "version"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "recipe",
+        "tool",
+        "config",
+        "configSha256"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "creator",
+    "source",
+    "acquisition",
+    "sourceArtifactSha256",
+    "attribution",
+    "modifications",
+    "transformation",
+    "outputSha256",
+    "reviewer",
+    "reviewedAt",
+    "evidenceStatus",
+    "notes",
+    "replacement"
+  ],
+  "title": "Infinite Snowball provenance protocol 1.0.0",
+  "type": "object"
+}

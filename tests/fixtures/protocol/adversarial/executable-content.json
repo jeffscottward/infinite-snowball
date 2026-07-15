@@ -1,0 +1,8 @@
+{
+  "id": "executable-content",
+  "expectedRuleId": "E_CODE_FORBIDDEN",
+  "mutation": {
+    "type": "executable",
+    "value": true
+  }
+}

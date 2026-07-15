@@ -1,0 +1,8 @@
+{
+  "id": "symlink",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "file-kind",
+    "value": "symlink"
+  }
+}

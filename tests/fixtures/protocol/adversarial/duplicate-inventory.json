@@ -1,0 +1,7 @@
+{
+  "id": "duplicate-inventory",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "duplicate-asset"
+  }
+}

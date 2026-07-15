@@ -1,0 +1,8 @@
+{
+  "id": "provenance-disputed",
+  "expectedRuleId": "E_LICENSE_POLICY",
+  "mutation": {
+    "type": "provenance-state",
+    "value": "disputed"
+  }
+}

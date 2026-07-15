@@ -1,0 +1,8 @@
+{
+  "id": "unc-path",
+  "expectedRuleId": "E_PATH_POLICY",
+  "mutation": {
+    "type": "file-path",
+    "value": "\\\\server\\share\\escape.glb"
+  }
+}

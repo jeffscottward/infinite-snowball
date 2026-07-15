@@ -1,0 +1,8 @@
+{
+  "id": "hash-mismatch",
+  "expectedRuleId": "E_HASH_MISMATCH",
+  "mutation": {
+    "type": "actual-hash",
+    "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  }
+}

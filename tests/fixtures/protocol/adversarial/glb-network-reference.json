@@ -1,0 +1,10 @@
+{
+  "id": "glb-network-reference",
+  "expectedRuleId": "E_GLB_REFERENCE",
+  "mutation": {
+    "type": "glb-references",
+    "value": [
+      "https://evil.example/texture.png"
+    ]
+  }
+}

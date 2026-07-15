@@ -1,0 +1,8 @@
+{
+  "id": "css-content",
+  "expectedRuleId": "E_CODE_FORBIDDEN",
+  "mutation": {
+    "type": "file-path",
+    "value": "assets/plugin.css"
+  }
+}

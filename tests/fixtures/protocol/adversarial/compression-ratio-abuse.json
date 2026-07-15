@@ -1,0 +1,8 @@
+{
+  "id": "compression-ratio-abuse",
+  "expectedRuleId": "E_FILE_BUDGET",
+  "mutation": {
+    "type": "archive-compression-ratio",
+    "value": 101
+  }
+}

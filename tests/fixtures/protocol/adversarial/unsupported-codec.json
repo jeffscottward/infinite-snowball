@@ -1,0 +1,8 @@
+{
+  "id": "unsupported-codec",
+  "expectedRuleId": "E_CODEC_UNSUPPORTED",
+  "mutation": {
+    "type": "codec",
+    "value": "audio/mpeg"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "invalid-license",
+  "expectedRuleId": "E_LICENSE_POLICY",
+  "mutation": {
+    "type": "manifest-license",
+    "value": "CC-BY-NC-4.0"
+  }
+}

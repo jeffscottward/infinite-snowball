@@ -1,0 +1,28 @@
+{
+  "id": "exact-lock-mismatch",
+  "expectedRuleId": "E_LOCK_MISMATCH",
+  "input": {
+    "planned": [
+      {
+        "name": "@test/a",
+        "version": "1.0.0",
+        "kind": "level",
+        "engine": ">=1.0.0 <2.0.0",
+        "integrity": "sha512-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "manifestSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "catalogEntryId": "catalog:test-a:1.0.0"
+      }
+    ],
+    "locked": [
+      {
+        "name": "@test/a",
+        "version": "1.0.1",
+        "kind": "level",
+        "engine": ">=1.0.0 <2.0.0",
+        "integrity": "sha512-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "manifestSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "catalogEntryId": "catalog:test-a:1.0.1"
+      }
+    ]
+  }
+}

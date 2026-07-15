@@ -1,0 +1,8 @@
+{
+  "id": "provenance-incomplete",
+  "expectedRuleId": "E_LICENSE_POLICY",
+  "mutation": {
+    "type": "provenance-state",
+    "value": "incomplete"
+  }
+}

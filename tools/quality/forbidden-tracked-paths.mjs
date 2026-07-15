@@ -8,6 +8,8 @@ const nonEnvironmentPathspecs = [
   ":(glob)**/.omp-workarounds/**",
   ":(glob).omp-status.md",
   ":(glob)**/.planning/ultra-root-output.jsonl",
+  ":(glob)**/.planning/ultra-root-prompt.md",
+  ":(glob)**/.planning/ultra-root-exit.json",
   ":(glob)**/node_modules/**",
   ":(glob)**/.pnpm-store/**",
   ":(glob)**/dist/**",

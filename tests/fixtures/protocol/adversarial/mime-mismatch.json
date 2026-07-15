@@ -1,0 +1,8 @@
+{
+  "id": "mime-mismatch",
+  "expectedRuleId": "E_MIME_MISMATCH",
+  "mutation": {
+    "type": "sniffed-mime",
+    "value": "application/javascript"
+  }
+}

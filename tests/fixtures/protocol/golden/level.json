@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "@infinite-snowball/golden-level",
+  "version": "1.0.0",
+  "kind": "level",
+  "engine": ">=1.0.0 <2.0.0",
+  "metadata": {
+    "title": {
+      "default": "Golden level",
+      "translations": {}
+    },
+    "description": {
+      "default": "Complete level protocol fixture",
+      "translations": {}
+    },
+    "author": {
+      "name": "Infinite Snowball fixture authors",
+      "url": "https://example.com/authors"
+    },
+    "homepage": "https://example.com/infinite-snowball",
+    "repository": "https://github.com/example/infinite-snowball-content",
+    "screenshots": [
+      "assets/icon.png"
+    ],
+    "icon": "assets/icon.png",
+    "tags": [
+      "golden",
+      "protocol"
+    ]
+  },
+  "license": "CC-BY-4.0",
+  "entries": [
+    {
+      "levelId": "winter-garden",
+      "display": {
+        "title": {
+          "default": "Winter Garden",
+          "translations": {}
+        },
+        "description": {
+          "default": "A compact ninety-second arena",
+          "translations": {}
+        }
+      },
+      "arenaAssetId": "arena",
+      "layoutAssetId": "layout",
+      "spawnPose": {
+        "position": [
+          0,
+          1,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "finalGoal": {
+        "objectId": "goal-arch",
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "timer": {
+        "seconds": 90,
+        "timeoutRule": "end-run"
+      },
+      "sizeBands": [
+        {
+          "id": "starter",
+          "minRadius": 0.5,
+          "maxRadius": 2
+        }
+      ],
+      "collectibleGroups": [
+        {
+          "id": "garden-items",
+          "objectPack": {
+            "name": "@infinite-snowball/starter-objects",
+            "version": "1.0.0",
+            "kind": "object-pack",
+            "engine": ">=1.0.0 <2.0.0",
+            "integrity": "sha512-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+            "manifestSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "catalogEntryId": "catalog:starter-objects:1.0.0"
+          },
+          "objectIds": [
+            "gift-box"
+          ]
+        }
+      ],
+      "objectiveRules": [
+        {
+          "id": "collect-ten",
+          "type": "collect-count",
+          "target": 10
+        }
+      ],
+      "winRules": [
+        {
+          "type": "reach-goal"
+        }
+      ],
+      "timeoutRules": [
+        {
+          "type": "end-run"
+        }
+      ],
+      "musicRefs": [
+        {
+          "name": "@infinite-snowball/starter-music",
+          "version": "1.0.0",
+          "kind": "music",
+          "engine": ">=1.0.0 <2.0.0",
+          "integrity": "sha512-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+          "manifestSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "catalogEntryId": "catalog:starter-music:1.0.0"
+        }
+      ],
+      "cameraBounds": {
+        "min": [
+          -20,
+          -5,
+          -20
+        ],
+        "max": [
+          20,
+          20,
+          20
+        ]
+      },
+      "budgets": {
+        "maxTriangles": 100000,
+        "maxDrawCalls": 100,
+        "maxPhysicsBodies": 500,
+        "maxBytes": 16777216
+      }
+    }
+  ],
+  "dependencies": [],
+  "optionalPeers": [],
+  "assets": [
+    {
+      "assetId": "icon",
+      "path": "assets/icon.png",
+      "mime": "image/png",
+      "bytes": 1024,
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "role": "icon",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provenance": {
+        "creator": "Infinite Snowball fixture authors",
+        "source": "https://example.com/source",
+        "acquisition": "authored for protocol tests",
+        "sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "modifications": [
+          "normalized for deterministic fixture"
+        ],
+        "outputSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "reviewer": "P02 protocol fixture review",
+        "reviewedAt": "2026-07-14T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Synthetic golden fixture",
+        "attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+        "transformation": {
+          "recipe": "synthetic-fixture-normalization-v1",
+          "tool": {
+            "name": "infinite-snowball-fixture-writer",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "runtime-ready"
+          },
+          "configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "replacement": null
+      }
+    },
+    {
+      "assetId": "arena",
+      "path": "assets/arena.glb",
+      "mime": "model/gltf-binary",
+      "bytes": 1024,
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "role": "arena",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provenance": {
+        "creator": "Infinite Snowball fixture authors",
+        "source": "https://example.com/source",
+        "acquisition": "authored for protocol tests",
+        "sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "modifications": [
+          "normalized for deterministic fixture"
+        ],
+        "outputSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "reviewer": "P02 protocol fixture review",
+        "reviewedAt": "2026-07-14T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Synthetic golden fixture",
+        "attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+        "transformation": {
+          "recipe": "synthetic-fixture-normalization-v1",
+          "tool": {
+            "name": "infinite-snowball-fixture-writer",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "runtime-ready"
+          },
+          "configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "replacement": null
+      }
+    },
+    {
+      "assetId": "layout",
+      "path": "assets/layout.glb",
+      "mime": "model/gltf-binary",
+      "bytes": 1024,
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "role": "layout",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "capturedLicenseSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provenance": {
+        "creator": "Infinite Snowball fixture authors",
+        "source": "https://example.com/source",
+        "acquisition": "authored for protocol tests",
+        "sourceArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "modifications": [
+          "normalized for deterministic fixture"
+        ],
+        "outputSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "reviewer": "P02 protocol fixture review",
+        "reviewedAt": "2026-07-14T00:00:00.000Z",
+        "evidenceStatus": "verified",
+        "notes": "Synthetic golden fixture",
+        "attribution": "Infinite Snowball fixture authors; CC-BY-4.0",
+        "transformation": {
+          "recipe": "synthetic-fixture-normalization-v1",
+          "tool": {
+            "name": "infinite-snowball-fixture-writer",
+            "version": "1.0.0"
+          },
+          "config": {
+            "deterministic": true,
+            "format": "runtime-ready"
+          },
+          "configSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "replacement": null
+      }
+    }
+  ],
+  "totals": {
+    "bytes": 3072,
+    "fileCount": 3,
+    "uncompressedBytes": 3072,
+    "maxDepth": 2,
+    "maxCompressionRatio": 1
+  },
+  "capabilities": {}
+}
