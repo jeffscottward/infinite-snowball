@@ -1,0 +1,130 @@
+# Infinite Snowball Phase 10 — Cross-device QA, Performance, Mandatory Reviews
+
+Phase ID: P10
+Status: Planned
+Owner role: Release-candidate QA, performance, and review lead
+Depends on: P09
+
+## Goal and user value
+
+Qualify a release candidate across browsers, devices, inputs, offline/PWA behavior, performance tiers, accessibility, security, licensing, and code quality before any public release action. Players, creators, and contributors should see a stable, reviewed, original, offline-capable product rather than a demo that works only on the developer machine.
+
+## Prerequisites and dependencies
+
+- P09 must provide release-ready docs, README, screenshots, badge mapping, clean-machine creator evidence, appeal/dispute docs, and collateral checks.
+- P08 must have complete UI/PWA/accessibility evidence and no unresolved P0/P1 UI defects.
+- P07 must have secure offline installer/store recovery evidence and known-good shell/cache behavior.
+- P05 must have the vertical-slice stop-gate evidence: 90-second starter run; cross-prefix manifest-contract/SW/cache/persistent-profile offline evidence plus its Chromium-specific installability signal (not an OS-installed-app lifecycle); input parity; no P0/P1 gameplay/input/accessibility/offline defects; and five fresh playtesters where at least four finish within three attempts and median fun/control ratings are at least 4/5.
+- P01 required checks must exist: `lockfile`, `types`, `unit`, `build`, `content-policy`, `license-provenance`, `package-pack`, `e2e-offline`, `dependency-review`, `codeql`, and `secret-scan`.
+- The candidate SHA and build artifact must be frozen before this phase records final evidence.
+
+## In scope
+
+- VG-10-DEVICES: consume the latest post-P08 manifest/offline/CSP proof, define `reports/qa/phase-10-device-matrix.schema.json`, freeze `reports/qa/phase-10-device-matrix.json` before execution, then run automated Chromium, Firefox, Playwright-WebKit, `mobile-chromium`, and `mobile-webkit` rows plus distinct manual shipping macOS Safari and real-iPhone Safari rows. Chromium rows prove browser-native installability signals only; Playwright WebKit supports automation but is not Safari/iOS proof. Supported shipping lifecycle rows separately prove real install -> full app/browser quit -> network-off relaunch; unsupported rows name the absent capability and reason.
+- The executable matrix keeps distinct rows for keyboard-only; touch; standard/Xbox gamepad; orientation change; disconnect; `pointercancel`; visibility loss; reduced motion; 375px landscape-safe gameplay; corrupt Save Data import rejection; export -> reinstall -> offline restore; private/local-audio exclusion with no network, catalog, analytics, diagnostics, or crash-report egress; latest CSP/probe/WASM hash proof; shipping macOS Safari; and real-iPhone Safari. These are never collapsed into a generic “device edge,” “save,” “privacy,” or “Safari/WebKit” pass.
+- VG-10-PERF: profiling the starter run and representative 60-second device scenarios against low/mobile, mid, and high gates for frame p95, draw calls, visible triangles, active bodies, heap, input-to-simulation latency, physics p95, long tasks, and three-run heap stability.
+- VG-10-REVIEWS: mandatory code review, security review, license/provenance review, brand/trade-dress review, and accessibility review with recorded sign-off or blocking defects.
+- Targeted release-candidate defect triage, with fixes routed to the original owning phase/file area and rechecked by the smallest affected gate.
+
+## Non-goals
+
+- No deployment, public repository conversion, npm publication, Mintlify production release, Cloudflare/GitHub Pages release, package dist-tag changes, or credential setup.
+- No new feature scope, backend/accounts/cloud saves/leaderboards, speculative workers, visual redesign, asset substitutions, or performance-budget weakening.
+- No source changes by this phase except narrowly scoped release-candidate fixes coordinated with the owning area and backed by a failing check.
+
+## File and directory ownership boundaries
+
+Own future QA and evidence paths only for this phase:
+
+- `apps/web/playwright.release-candidate.config.ts` defining the P10-owned `chromium`, `firefox`, `playwright-webkit`, `mobile-chromium`, and `mobile-webkit` automated projects. It must not label Playwright WebKit as shipping Safari or iPhone Safari.
+- `apps/web/tests/e2e/release-candidate/**` for release-candidate browser, device, offline, input, docs, store, and `csp-wasm.spec.ts` journeys against the frozen production artifact.
+- `reports/qa/phase-10-device-matrix.schema.json`, `reports/qa/phase-10-device-matrix.json`, `reports/qa/chromium-installability-matrix.json`, `reports/qa/pwa-lifecycle-matrix.json`, `reports/qa/save-portability-device-matrix.json`, and `reports/qa/csp-wasm-browser-matrix.json` for frozen matrix and row evidence.
+- `tools/qa/release-candidate/validate-manual-matrix.mjs`, `tools/qa/release-candidate/profile-performance.mjs`, and `tools/qa/release-candidate/run-review-checks.mjs` for P10-owned matrix validation, profiling, and mandatory review orchestration tools.
+- `apps/web/tests/performance/**`, `reports/qa/**`, `reports/performance/**`, `reports/reviews/**`, `reports/accessibility/**`, `reports/release-candidate/**`, and `docs/release-candidate/**` for release-candidate evidence, defect triage, review sign-offs, and notes.
+
+Do not modify deployment workflows, package publication config, public repo settings, docs/collateral except by P09 handoff, app logic except approved targeted fixes, `.omp-status.md`, or P11 release artifacts.
+
+## Stable inputs and contracts
+
+- Performance gates: low/mobile 30 fps with p95 frame no more than 33.3 ms, no more than 80 draw calls, 150k visible triangles, 150 active bodies, 250 MB heap; mid 60 fps with p95 no more than 20 ms, 140 calls, 350k triangles, 350 bodies, 400 MB heap; high 60 fps with p95 no more than 16.7 ms, 220 calls, 750k triangles, 750 bodies, 700 MB heap.
+- All tiers require p95 input-to-simulation no more than one tick plus one presented frame, physics p95 no more than 25 percent of the frame budget, no steady-state long task over 50 ms, and no monotonic heap growth across three runs.
+- Representative profiles must include cold load, dense collection, max growth, streaming boundary, and offline replay for 60 seconds each on representative devices, plus the 90-second starter run.
+- OffscreenCanvas remains rejected unless reproducible renderer-dominant traces show at least 20 percent frame-budget recovery, transfer overhead under 25 percent of saved time, parity tests, and fallback.
+- Accessibility review uses WCAG 2.2 AA plus Infinite Snowball-specific reduced-motion, touch, focus, and no-color-only requirements.
+- Security review must check the no-backend-v1 boundary, no browser package execution, validation, cache/install recovery, credentials, fail-closed SaveExport, no payload/audio-metadata egress, and no arbitrary community JS/WASM/HTML/CSS execution. Repeat the latest post-P08 document-policy probe on Chromium, Firefox, Playwright WebKit, shipping macOS Safari, and real iPhone Safari: `script-src 'self' 'wasm-unsafe-eval'`, no JS `'unsafe-eval'`, pinned same-origin Rapier `.wasm` as `application/wasm`, successful physics step, build-emitted external probe `new Function` failure plus violation, separately blocked nonce-less inline script, no community WASM, and artifact/policy/probe/WASM hashes. Record browser/OS versions and policy/artifact hashes; no automation-world eval evidence and no substitution of Playwright WebKit for Safari/iPhone rows.
+- Automated Chromium reuses P05/P08 exactly: each `{candidate hash, project, origin}` gets a fresh/proven-empty normal persistent profile for frozen manifest/icon, document/SW/cache/probe/WASM response binding, then real page-session Browser/empty installability CDP and same-run same-profile offline relaunch. Record key/options, Playwright version, full responses, origin/hashes/time. Cross-project/origin/hash/rerun reuse, private browser lookup, synthetic/mock/manifest-only/unavailable/nonempty evidence fails. Automation is not native installation.
+- Manual PWA lifecycle is a separate platform row. `supported` requires native browser/OS install UI from the frozen secure-origin candidate; launch from the OS surface; full termination of the standalone app and source browser (or the documented platform-equivalent force-quit action); network disabled outside page automation with a failed live-network probe; relaunch from the OS surface; standalone display plus offline-ready starter play/save. Record platform/browser/OS/device versions, operator/time, install source, manifest id/start/scope, worker scope, candidate/artifact hash, exact termination/network actions, probe result, and capture paths. `unsupported` must name the absent install/relaunch capability and reason; “not tested,” profile reopening, bookmarks, history, Playwright contexts, or WebKit substitution cannot pass.
+- Every supported manual lifecycle row revalidates that same frozen manifest criteria and records the 192/512 icon response hashes/MIME/dimensions before native install; native UI evidence cannot waive or replace a failed manifest/installability row.
+- Every Chromium row starts with a fresh/proven-empty normal profile keyed to `{candidate-or-pre/post hash, project, origin}` with project options and no incognito. Hash/validate the manifest criteria plus online document, SW, real icon responses, required cache, CSP probe, and Rapier WASM against artifact/per-file records. Use real page CDP, then only that profile for offline relaunch. Never reuse across stage/hash/origin/rerun; ephemeral/stale/mismatch/`IN_INCOGNITO` fails. Reports use logical keys, never machine paths.
+- Frozen P08 manifest floor is exact: `name: "Infinite Snowball"`, `short_name: "Snowball"`, `display: "standalone"`, `id: "./"`, `start_url: "./#/start"`, `scope: "./"`, `prefer_related_applications` absent, and real relative 192x192/512x512 PNG icons with exact sizes/type/purpose-any. Any changed/missing field or required absence, bad URL/response/MIME/dimensions/hash, or SW fetch failure blocks release.
+- License review must check shipped assets, screenshots, docs, music, fonts, package metadata, SPDX identifiers, provenance ledger, attribution, appeal/dispute records, and soundtrack prohibition.
+
+## Outputs and handoffs
+
+- Handoff to P11: approved candidate SHA/artifact/checks; frozen matrix schema and matrix JSON; latest post-P08 CSP proof; frozen manifest criteria/icon response evidence; QA/performance/Save Data/installability/native-lifecycle/CSP matrices with Playwright version, full Browser/installability response references, artifact/cache/policy/probe/WASM hashes and exact platform versions; sign-offs, risks, rollback, decision.
+- Handoff to owning implementation areas: defects with reproduction, severity, owner, gate ID, affected files, smallest recheck, and stop/rollback recommendation.
+- Evidence artifacts include `reports/release-candidate/phase-10-summary.md`, performance profiles, mandatory review reports, `reports/qa/phase-10-device-matrix.schema.json`, `reports/qa/phase-10-device-matrix.json`, `reports/qa/chromium-installability-matrix.json`, `reports/qa/pwa-lifecycle-matrix.json`, `reports/qa/save-portability-device-matrix.json`, and `reports/qa/csp-wasm-browser-matrix.json`.
+
+## Ordered checklist
+
+The Chromium portions of IS-10-001, IS-10-002, and IS-10-005 MUST use their own normal persistent contexts and same-profile offline relaunches; ephemeral Playwright fixtures cannot satisfy any of those items.
+1. [ ] **IS-10-001 — Freeze candidate, schema, and QA matrices first.** Record SHA/artifact/policy/probe/WASM hashes, exact versions, the exact manifest/icon criteria, device/input/offline/CSP expectations, Chromium CDP fields/blockers, automated project names, and per-platform native lifecycle steps plus reasoned unsupported rows before QA.
+2. [ ] **IS-10-002 — Add failing or pending release-candidate checks first.** Cover cross-engine product/input/save/privacy and exact frozen manifest/icon/SW/CSP behavior. Each required Chromium `{candidate hash, project, origin}` row starts fresh/proven-empty, alone executes real versioned installability CDP, and same-run relaunches offline; separate supported native lifecycle and unsupported rows. Synthetic prompts, profile reuse/reopen-as-install, manifest-only passes, and WebKit-as-Safari substitution fail.
+3. [ ] **IS-10-003 — Add performance assertions first.** Encode low/mobile, mid, high thresholds plus heap-growth, long-task, 90-second starter, cold-load, dense-collection, max-growth, streaming-boundary, and offline-replay assertions before profiling or tuning.
+4. [ ] **IS-10-004 — Validate the frozen matrix before execution.** Run the P10-owned manual matrix validator against `reports/qa/phase-10-device-matrix.schema.json` and `reports/qa/phase-10-device-matrix.json`; require automated rows for Chromium/Firefox/Playwright-WebKit/`mobile-chromium`/`mobile-webkit`, distinct manual shipping macOS Safari and real-iPhone Safari rows, unsupported reasons, and VG-10-REVIEWS matrix signoff.
+5. [ ] **IS-10-005 — Run VG-10-DEVICES row by row.** Execute cross-engine automation including exact manifest/icon response checks; real Chromium installability CDP; input/device/save/privacy edges; shipping platforms; supported native install/full termination/external network-off/OS relaunch/offline play-save; reasoned unsupported rows; and frozen CSP/Rapier probes. Never substitute Playwright WebKit or add JS `unsafe-eval`.
+6. [ ] **IS-10-006 — Run VG-10-PERF profiling.** Capture three runs per tier for the 90-second starter scenario and 60-second cold load, dense collection, max growth, streaming boundary, and offline replay scenarios; record draw calls, triangles, bodies, heap, frame p95, physics p95, input latency, long tasks, and profile traces.
+7. [ ] **IS-10-007 — Run mandatory code review.** Obtain review focused on architecture boundaries, maintainability, source ownership, test quality, no unnecessary abstractions, and release-risk defects.
+8. [ ] **IS-10-008 — Run mandatory security review.** Review package/content execution boundaries, validation, service-worker/cache behavior, secrets, offline recovery, fail-closed save import/export, no-backend-v1, local-only audio privacy, and no-JS-`unsafe-eval`/pinned-WASM CSP evidence including valid document-realm probes, MIME, latest post-P08 hashes, shipping macOS Safari, and real iPhone Safari.
+9. [ ] **IS-10-009 — Run mandatory license/provenance and brand review.** Verify every shipped asset, screenshot, font, package, music track, attribution, SPDX value, provenance record, appeal/dispute artifact, and original identity; reject NC/ND/ambiguous grants and the Katamari soundtrack.
+10. [ ] **IS-10-010 — Run mandatory accessibility review.** Verify WCAG 2.2 AA, focus order/visibility, screen-reader semantics, reduced motion, touch targets, color independence, and no-flash requirements with automated and manual evidence.
+11. [ ] **IS-10-011 — Triage, coordinate fixes, and approve/reject the release candidate.** Route every defect to the original owner, require a failing repro, apply only minimal approved fixes, rerun the smallest affected check plus dependent review, then produce the phase summary with pass/fail status for VG-10-DEVICES, VG-10-PERF, VG-10-REVIEWS and an explicit proceed/block recommendation for P11.
+
+## Test-first acceptance criteria
+
+- Release-candidate E2E checks, performance assertions, manual device matrix, and review checklists exist before final QA execution.
+- VG-10-DEVICES passes only when frozen cross-engine checks validate the exact manifest criteria/icons; every Chromium project uses a fresh candidate-bound normal profile proving manifest/document/SW/icon/cache bytes, records Playwright plus full Browser/empty installability responses, and same-profile offline relaunches. Every capable shipping platform separately passes the native lifecycle. Unsupported rows give capability/reason; named CSP rows pass without substitution.
+- Chromium acceptance requires a fresh `{candidate hash, project, origin}` logical profile key/device options, exact manifest criteria and candidate/per-file document/SW/icon/cache binding, Playwright version, full Browser/empty installability responses, and same-run same-profile offline relaunch. Cross-stage/project/origin/hash/rerun reuse, stale bytes, private lookup, ephemeral/off-record, or incognito evidence blocks.
+- VG-10-PERF passes only when all required metrics meet the initial gates for the 90-second starter and representative 60-second scenarios, or a documented stop decision blocks release; budgets are not weakened to pass.
+- VG-10-REVIEWS passes only when code, security, license/provenance, brand/trade-dress, and accessibility reviews are complete and every blocker is fixed and rechecked or the release is stopped.
+- Any targeted fix must have a reproduction, owner, patch, and smallest recheck; unowned release fixes are not accepted.
+
+## Smallest meaningful verification
+
+Future implementation must run the focused release-candidate gates before P11:
+
+```bash
+pnpm --filter @infinite-snowball/web build
+pnpm --filter @infinite-snowball/web exec playwright test -c playwright.release-candidate.config.ts tests/e2e/release-candidate --project=chromium --project=firefox --project=playwright-webkit --project=mobile-chromium --project=mobile-webkit
+pnpm --filter @infinite-snowball/web exec playwright test -c playwright.release-candidate.config.ts tests/e2e/release-candidate/csp-wasm.spec.ts --project=chromium --project=firefox --project=playwright-webkit
+node tools/qa/release-candidate/validate-manual-matrix.mjs --schema reports/qa/phase-10-device-matrix.schema.json --matrix reports/qa/phase-10-device-matrix.json --require "shipping-macos-safari,real-iphone-safari"
+pnpm --filter @infinite-snowball/web exec playwright test -c playwright.release-candidate.config.ts tests/e2e/release-candidate/save-portability.spec.ts --project=chromium --project=playwright-webkit --grep "@device-save|@reinstall-restore|@corrupt-import|@local-audio-private"
+node tools/qa/release-candidate/profile-performance.mjs --scenario starter-90s --tiers low,mid,high --runs 3 --output reports/performance/starter-90s-profile.json
+node tools/qa/release-candidate/profile-performance.mjs --scenario cold-load,dense-collection,max-growth,streaming-boundary,offline-replay --duration-seconds 60 --tiers low,mid,high --runs 3 --output reports/performance/representative-60s-profiles.json
+node tools/qa/release-candidate/run-review-checks.mjs --code --security --license --brand --accessibility --matrix reports/qa/phase-10-device-matrix.json --output reports/reviews
+```
+
+Expected result: one frozen SHA passes. Chromium reports exact manifest/icon criteria, fresh `{candidate hash, project, origin}` normal profiles, manifest/document/SW/icon/cache/probe/WASM binding, Playwright version, full Browser/empty installability responses, and same-run same-profile offline result; frozen matrix schema and manual rows cover shipping macOS Safari and real iPhone Safari; supported native lifecycles/reasoned unsupported rows are signed; non-substituted CSP/WASM; and all required reviews pass.
+No Chromium profile is reused across candidate/pre-post hashes, projects, origins, or reruns; `Browser.getVersion`, not `context.browser()`, supplies browser/protocol evidence.
+
+## Quality gates
+
+| Area | Gate ID | Required evidence | Stop or rollback trigger |
+|---|---|---|---|
+| Performance | VG-10-PERF | Three-run tier profiles meet frame, draw-call, triangle, body, heap, input latency, physics, long-task, and heap-stability gates for starter and representative scenarios without hiding work, adding speculative OffscreenCanvas, or lowering quality after the fact. | Any tier misses a required gate without an approved release-blocking decision and owner fix plan. |
+| Accessibility | VG-10-REVIEWS | Automated and manual WCAG 2.2 AA review, reduced-motion review, focus/touch/screen-reader evidence, keyboard-only path, and no P0/P1 accessibility issues. | Any keyboard trap, low contrast, missing semantic state, touch target violation, unreviewed motion, screen-reader blocker, or orientation blocker. |
+| Security | VG-10-REVIEWS | Reviewer signs off on content/cache/save/privacy boundaries and frozen production CSP/Rapier evidence on Chromium, Firefox, Playwright WebKit, shipping macOS Safari, and real iPhone Safari with exact OS/browser versions, candidate/policy/probe/WASM hashes, only `'wasm-unsafe-eval'`, correct MIME, successful step, and valid document-realm probes. | Any execution/privacy leak, weakened validation, missing real-Safari row, automated-WebKit substitution, JS `'unsafe-eval'`, bad MIME/fallback, failed step, CDP-world false probe, community WASM, or undocumented incompatibility. |
+| Licensing | VG-10-REVIEWS | License/provenance and brand reviewers sign off on assets, music, screenshots, fonts, SPDX metadata, attribution, appeal/dispute history, withdrawal process, and original identity. | Any missing grant, NC/ND asset, ambiguous “royalty-free” claim, soundtrack violation, copied trade dress, missing provenance, or unreviewed screenshot. |
+| Offline/recovery | VG-10-DEVICES | Manifest contract, prefix-correct worker/cache control, and persistent-profile close/reopen/offline completion pass across automated engines; only Chromium automation is required to expose the browser-native installability signal. Each lifecycle-capable shipping platform separately records headed/manual real install -> full app/browser quit -> network-off relaunch; unsupported rows are explicit. Store/install recovery, real-device Save Data portability/reinstall restore, corrupt-import rejection, privacy, known-good shell, device-edge recovery, and saves/history pass. | Any cross-engine manifest/SW/cache/profile regression, Chromium installability-signal failure, supported real-install lifecycle failure, missing unsupported row, offline/store/install/save/privacy/device-edge failure, or claim that Playwright profile reopening proves OS installation. |
+| Manifest floor | VG-10-DEVICES | Exact frozen name/short_name/standalone/192+512 purpose-any PNG icons/id/start/scope, absent `prefer_related_applications`, valid relative URLs, icon response hashes/MIME/dimensions, working SW fetch, no manifest-only waiver. | Any field/absence/icon/response/MIME/dimension/hash/URL/SW mismatch. |
+| Chromium installability | VG-10-DEVICES | Per project, a fresh normal profile keyed by candidate hash/project/origin; exact manifest criteria; verified document/SW/icon/cache hashes and icon MIME/dimensions; Playwright version; full Browser response; real empty installability response; same-profile offline relaunch. | Any required field/icon/response failure, reuse/stale/hash mismatch, ephemeral/incognito, impossible lookup, missing/nonempty/mocked/unsupported response, or native-install claim. |
+
+## Completion and stop condition
+
+P10 completes only when every gate ties to the frozen SHA with exact manifest/icon/CSP/probe/WASM evidence, a reviewed and frozen device matrix schema/data file, fresh `{candidate hash, project, origin}` Chromium profiles, full Browser/empty installability CDP and same-run offline proof, automated Chromium/Firefox/Playwright-WebKit/`mobile-chromium`/`mobile-webkit` rows, supported native lifecycles, distinct shipping macOS Safari and real-iPhone Safari manual rows, reasoned unsupported rows, save/privacy/performance/reviews, and no undefined command/project/config references. Any cross-project/origin/hash/rerun reuse, mismatch, stale/off-record/nonempty/mocked/unsupported Chromium, synthetic/profile-install claim, substitution, missing review, stale capture, unchecked license, or softened gate blocks.
+
+P10 cannot complete if any required Chromium installability row used the default off-the-record Playwright fixture instead of a dedicated normal persistent profile, or if that profile was not reused for the offline relaunch.
+
+## Rollback and recovery notes
+
+P10 does not publish or deploy. If QA fails, invalidate the release-candidate approval, preserve evidence, route defects to the owning phase, and require a new candidate SHA after fixes. If a targeted fix regresses another gate, revert that fix or block release until the owner provides a smaller correct patch. If review evidence is later found incomplete, reopen P10 and withhold P11 release authority.

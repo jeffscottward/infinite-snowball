@@ -4,6 +4,10 @@
 .omp-workarounds/
 .omp-status.md
 **/.planning/ultra-root-output.jsonl
+.planning/ultra-root-exit.json
+.planning/ultra-root-prompt.md
+.planning/resume-planning-validation.md
+research/downloads/
 
 # Dependencies, generated output, and test artifacts
 node_modules/

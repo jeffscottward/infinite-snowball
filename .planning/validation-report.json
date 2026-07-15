@@ -1,0 +1,1060 @@
+{
+  "schemaVersion": 3,
+  "generatedByCommand": "node tools/planning/validate-contracts.mjs --write .planning/validation-report.json",
+  "overallPass": true,
+  "counts": {
+    "phases": 11,
+    "expectedPhases": 11,
+    "primaryGates": 42,
+    "expectedPrimaryGates": 42,
+    "supplementalGates": 1,
+    "expectedSupplementalGates": 1,
+    "deliverables": 42,
+    "expectedDeliverables": 42,
+    "orphanGateRefs": 0,
+    "forbiddenPathspecs": 48,
+    "expectedForbiddenPathspecs": 48,
+    "gateDefinitions": 43,
+    "expectedGateDefinitions": 43
+  },
+  "errors": [],
+  "deliverables": {
+    "rows": [
+      {
+        "id": "D001",
+        "title": "pnpm monorepo/tooling baseline",
+        "owner": "P01",
+        "gate": "VG-01-WORKSPACE"
+      },
+      {
+        "id": "D002",
+        "title": "CI/security check contract",
+        "owner": "P01",
+        "gate": "VG-01-CI-CONTRACT"
+      },
+      {
+        "id": "D003",
+        "title": "strict manifest and six content kinds",
+        "owner": "P02",
+        "gate": "VG-02-SCHEMA"
+      },
+      {
+        "id": "D004",
+        "title": "no arbitrary browser package execution",
+        "owner": "P02",
+        "gate": "VG-02-NO-CODE"
+      },
+      {
+        "id": "D005",
+        "title": "threat model/provenance/security rules",
+        "owner": "P02",
+        "gate": "VG-02-THREATS"
+      },
+      {
+        "id": "D006",
+        "title": "offline/install transaction designed with protocol",
+        "owner": "P02",
+        "gate": "VG-02-OFFLINE-DESIGN"
+      },
+      {
+        "id": "D007",
+        "title": "no-backend-v1 and later-D1 boundary",
+        "owner": "P02",
+        "gate": "VG-02-D1-BOUNDARY"
+      },
+      {
+        "id": "D008",
+        "title": "CC0 prototype and GLB-first pipeline",
+        "owner": "P03",
+        "gate": "VG-03-ASSETS"
+      },
+      {
+        "id": "D009",
+        "title": "asset license/provenance ledgers",
+        "owner": "P03",
+        "gate": "VG-03-LICENSES"
+      },
+      {
+        "id": "D010",
+        "title": "original/compatible music and soundtrack prohibition",
+        "owner": "P03",
+        "gate": "VG-03-MUSIC"
+      },
+      {
+        "id": "D011",
+        "title": "local-only soundtrack import boundary",
+        "owner": "P03",
+        "gate": "VG-03-LOCAL-AUDIO"
+      },
+      {
+        "id": "D012",
+        "title": "R3F/Koota/Rapier ownership and custom sphere",
+        "owner": "P04",
+        "gate": "VG-04-RUNTIME"
+      },
+      {
+        "id": "D013",
+        "title": "Ecctrl limited boundary",
+        "owner": "P04",
+        "gate": "VG-04-ECCTRL"
+      },
+      {
+        "id": "D014",
+        "title": "normalized keyboard/gamepad/touch contract",
+        "owner": "P04",
+        "gate": "VG-04-INPUT-CONTRACT"
+      },
+      {
+        "id": "D015",
+        "title": "performance budgets/profile-first worker policy",
+        "owner": "P04",
+        "gate": "VG-04-PERFORMANCE"
+      },
+      {
+        "id": "D016",
+        "title": "playable growth/collection/scoring/camera/restart",
+        "owner": "P05",
+        "gate": "VG-05-PLAYABLE"
+      },
+      {
+        "id": "D017",
+        "title": "keyboard/gamepad/touch playable parity",
+        "owner": "P05",
+        "gate": "VG-05-INPUT-PARITY"
+      },
+      {
+        "id": "D018",
+        "title": "closed/reopened PWA offline starter run with persisted saves/settings",
+        "owner": "P05",
+        "gate": "VG-05-OFFLINE-RUN"
+      },
+      {
+        "id": "D019",
+        "title": "`npx` and `pnpm dlx` authoring/validation CLI",
+        "owner": "P06",
+        "gate": "VG-06-CLI"
+      },
+      {
+        "id": "D020",
+        "title": "package author/contributor workflow and examples",
+        "owner": "P06",
+        "gate": "VG-06-AUTHOR-JOURNEY"
+      },
+      {
+        "id": "D021",
+        "title": "curated catalog submission lifecycle",
+        "owner": "P06",
+        "gate": "VG-06-SUBMISSION"
+      },
+      {
+        "id": "D022",
+        "title": "Dexie instant catalog rehydration",
+        "owner": "P07",
+        "gate": "VG-07-REHYDRATE"
+      },
+      {
+        "id": "D023",
+        "title": "immutable Cache Storage asset install",
+        "owner": "P07",
+        "gate": "VG-07-INSTALL"
+      },
+      {
+        "id": "D024",
+        "title": "rollback/quota/migration/offline store behavior and save portability",
+        "owner": "P07",
+        "gate": "VG-07-RECOVERY"
+      },
+      {
+        "id": "D025",
+        "title": "colorful original logo/splash/Press Start",
+        "owner": "P08",
+        "gate": "VG-08-SPLASH"
+      },
+      {
+        "id": "D026",
+        "title": "HUD/pause/store/settings Save Data UI states",
+        "owner": "P08",
+        "gate": "VG-08-GAME-UI"
+      },
+      {
+        "id": "D027",
+        "title": "original responsive landing and three CTAs",
+        "owner": "P08",
+        "gate": "VG-08-LANDING"
+      },
+      {
+        "id": "D028",
+        "title": "responsive/mobile/WCAG/reduced-motion behavior",
+        "owner": "P08",
+        "gate": "VG-08-A11Y"
+      },
+      {
+        "id": "D029",
+        "title": "Mintlify docs information architecture",
+        "owner": "P09",
+        "gate": "VG-09-DOCS"
+      },
+      {
+        "id": "D030",
+        "title": "contributor contracts, policies, and examples",
+        "owner": "P09",
+        "gate": "VG-09-CONTRIBUTING"
+      },
+      {
+        "id": "D031",
+        "title": "README screenshots, badges, instructions",
+        "owner": "P09",
+        "gate": "VG-09-README"
+      },
+      {
+        "id": "D032",
+        "title": "truthful screenshot set",
+        "owner": "P09",
+        "gate": "VG-09-SCREENSHOTS"
+      },
+      {
+        "id": "D033",
+        "title": "browser/device QA including save export/import and restore",
+        "owner": "P10",
+        "gate": "VG-10-DEVICES"
+      },
+      {
+        "id": "D034",
+        "title": "performance profiling",
+        "owner": "P10",
+        "gate": "VG-10-PERF"
+      },
+      {
+        "id": "D035",
+        "title": "mandatory code/security/license/accessibility review",
+        "owner": "P10",
+        "gate": "VG-10-REVIEWS"
+      },
+      {
+        "id": "D036",
+        "title": "public repository",
+        "owner": "P11",
+        "gate": "VG-11-PUBLIC-REPO"
+      },
+      {
+        "id": "D037",
+        "title": "public npm packages and CLI clean-room use",
+        "owner": "P11",
+        "gate": "VG-11-NPM"
+      },
+      {
+        "id": "D038",
+        "title": "Cloudflare Pages site plus GitHub Pages fallback",
+        "owner": "P11",
+        "gate": "VG-11-WEB"
+      },
+      {
+        "id": "D039",
+        "title": "Mintlify deployment",
+        "owner": "P11",
+        "gate": "VG-11-DOCS-LIVE"
+      },
+      {
+        "id": "D040",
+        "title": "release CI/check monitoring and rollback",
+        "owner": "P11",
+        "gate": "VG-11-CHECKS"
+      },
+      {
+        "id": "D041",
+        "title": "live README image/link/badge verification",
+        "owner": "P11",
+        "gate": "VG-11-README-LIVE"
+      },
+      {
+        "id": "D042",
+        "title": "final requested-deliverable audit",
+        "owner": "P11",
+        "gate": "VG-11-AUDIT"
+      }
+    ],
+    "primaryGateIds": [
+      "VG-01-CI-CONTRACT",
+      "VG-01-WORKSPACE",
+      "VG-02-D1-BOUNDARY",
+      "VG-02-NO-CODE",
+      "VG-02-OFFLINE-DESIGN",
+      "VG-02-SCHEMA",
+      "VG-02-THREATS",
+      "VG-03-ASSETS",
+      "VG-03-LICENSES",
+      "VG-03-LOCAL-AUDIO",
+      "VG-03-MUSIC",
+      "VG-04-ECCTRL",
+      "VG-04-INPUT-CONTRACT",
+      "VG-04-PERFORMANCE",
+      "VG-04-RUNTIME",
+      "VG-05-INPUT-PARITY",
+      "VG-05-OFFLINE-RUN",
+      "VG-05-PLAYABLE",
+      "VG-06-AUTHOR-JOURNEY",
+      "VG-06-CLI",
+      "VG-06-SUBMISSION",
+      "VG-07-INSTALL",
+      "VG-07-RECOVERY",
+      "VG-07-REHYDRATE",
+      "VG-08-A11Y",
+      "VG-08-GAME-UI",
+      "VG-08-LANDING",
+      "VG-08-SPLASH",
+      "VG-09-CONTRIBUTING",
+      "VG-09-DOCS",
+      "VG-09-README",
+      "VG-09-SCREENSHOTS",
+      "VG-10-DEVICES",
+      "VG-10-PERF",
+      "VG-10-REVIEWS",
+      "VG-11-AUDIT",
+      "VG-11-CHECKS",
+      "VG-11-DOCS-LIVE",
+      "VG-11-NPM",
+      "VG-11-PUBLIC-REPO",
+      "VG-11-README-LIVE",
+      "VG-11-WEB"
+    ],
+    "supplementalGateIds": [
+      "VG-05-CSP-WASM"
+    ]
+  },
+  "gates": {
+    "defined": [
+      {
+        "id": "VG-01-WORKSPACE",
+        "owner": "P01",
+        "expectedEvidence": "`package.json`, `pnpm-workspace.yaml`, `.npmrc`, `tsconfig*.json`, and private workspace package metadata are present; `pnpm install --frozen-lockfile` and `pnpm -r exec tsc --noEmit` complete in the future scaffold without creating public packages.",
+        "stopCondition": "Stop if the root is not private, the lock is not reproducible, or dependency pins were copied from the old reference project instead of resolved."
+      },
+      {
+        "id": "VG-01-CI-CONTRACT",
+        "owner": "P01",
+        "expectedEvidence": "`.github/workflows/*.yml`, CODEOWNERS, dependency-review, CodeQL, secret-scan, lockfile, types, unit, build, content-policy, license-provenance, package-pack, and e2e-offline jobs are defined with pinned action SHAs and least privilege.",
+        "stopCondition": "Stop if required checks are missing, unpinned, overprivileged, or cannot run on a fork-safe preview artifact."
+      },
+      {
+        "id": "VG-02-SCHEMA",
+        "owner": "P02",
+        "expectedEvidence": "`packages/protocol/src/**`, generated JSON Schema, and adversarial fixtures prove strict unknown-field rejection for level, character, object-pack, campaign, music, and bundle manifests.",
+        "stopCondition": "Stop if the browser cannot share the same validator/types or if any v1 capability permits executable content."
+      },
+      {
+        "id": "VG-02-NO-CODE",
+        "owner": "P02",
+        "expectedEvidence": "Threat tests and catalog policy reject JS, WASM, HTML, CSS, lifecycle scripts, dynamic `import()`, `eval`, undeclared URLs, tarball handling, and browser-side npm resolution.",
+        "stopCondition": "Stop if any community package can execute code in the browser or bypass curated exact-version catalog review."
+      },
+      {
+        "id": "VG-02-THREATS",
+        "owner": "P02",
+        "expectedEvidence": "Threat model and provenance policy cover traversal, symlink, Unicode/case collision, MIME, hash, semver, license, GLB external/data/network URI, extraction, and compression-ratio attacks.",
+        "stopCondition": "Stop if a rejection rule lacks a test fixture or if provenance cannot identify reviewer, date, source, license, and hashes."
+      },
+      {
+        "id": "VG-02-OFFLINE-DESIGN",
+        "owner": "P02",
+        "expectedEvidence": "Installer protocol spec defines planned -> staging -> verifying -> committing -> installed/failed/canceled states, transaction invariants, exact DAG resolution, preflight quota, and failure cleanup.",
+        "stopCondition": "Stop if P07 would need to invent transaction semantics or if previous locks could be destroyed by a failed install."
+      },
+      {
+        "id": "VG-02-D1-BOUNDARY",
+        "owner": "P02",
+        "expectedEvidence": "Architecture docs state v1 has no backend/account/cloud save/leaderboard/multiplayer; later D1 requires online story, auth, abuse, privacy, retention, export/deletion, migration, quota/cost, backup/restore, and load-test ADR.",
+        "stopCondition": "Stop if any Phase 01-11 task depends on Supabase, D1, accounts, or remote user data for v1 completion."
+      },
+      {
+        "id": "VG-03-ASSETS",
+        "owner": "P03",
+        "expectedEvidence": "`content/starter-*`, asset pipeline scripts, source hashes, GLB validation logs, budget reports, and reference renders show exact-artifact-cleared Quaternius, KayKit, or Kenney CC0 content only.",
+        "stopCondition": "Stop if Pelican or OS3A is treated as verified without original creator/source/license proof, or if runtime packs require generated React modules."
+      },
+      {
+        "id": "VG-03-LICENSES",
+        "owner": "P03",
+        "expectedEvidence": "Machine-readable provenance and human ledger include assetId, package/version/path, role, MIME, bytes, SHA-256, creator/source/acquisition, source artifact hash, SPDX/license URL/hash, attribution, modifications, recipe, output hash, reviewer/date, and evidence status.",
+        "stopCondition": "Stop if any runtime asset lacks provenance, a captured license, or a withdrawal/replacement path."
+      },
+      {
+        "id": "VG-03-MUSIC",
+        "owner": "P03",
+        "expectedEvidence": "Starter music evidence shows commissioned/original, CC0, or CC-BY tracks with attribution; policy rejects NC, ND, ambiguous royalty-free grants, and the linked Katamari soundtrack.",
+        "stopCondition": "Stop if any track exceeds 8 MiB/10 minutes, pack exceeds 32 MiB/8 tracks, or unverified copyrighted soundtrack material is bundled, mirrored, streamed, suggested, cataloged, or auto-installed."
+      },
+      {
+        "id": "VG-03-LOCAL-AUDIO",
+        "owner": "P03",
+        "expectedEvidence": "Future-local-import policy keeps bytes, filenames, tags, artwork, waveforms, hashes, playlists, and rights assertions local-only and out of catalog, network, analytics, diagnostics, cloud/export, screenshots, and service-worker requests.",
+        "stopCondition": "Stop if local user audio becomes a vertical-slice blocker or any design identifies famous works or implies rights."
+      },
+      {
+        "id": "VG-04-RUNTIME",
+        "owner": "P04",
+        "expectedEvidence": "Engine/gameplay/runtime-r3f tests prove tag/AoS Koota with `Function` blocked as a JS dynamic-code guard, stable-ID ordered systems/lifecycle, one paused raw Rapier step/event queue, physics-only proxies, plain poses, and one visible-transform writer. P04 explicitly hands off the pinned-WASM CSP/MIME browser gate to P05/P10/P11 rather than claiming full CSP coverage.",
+        "stopCondition": "Stop on JS `unsafe-eval`, SoA accessors, implicit query order, duplicate clocks/event queues/transform writers, visible physics children, or Ecctrl snowball authority; do not block required pinned Rapier WASM accidentally."
+      },
+      {
+        "id": "VG-04-ECCTRL",
+        "owner": "P04",
+        "expectedEvidence": "Installed-API contract and adapter tests prove Ecctrl 2.0.0 `setMovement` receives complete normalized state including releases, stays optional for humanoid/on-foot/touch modes, and never owns snowball physics or deterministic stepping.",
+        "stopCondition": "Stop if the snowball depends on an Ecctrl capsule/frame loop, incomplete sticky movement state, or undocumented/deep Ecctrl imports."
+      },
+      {
+        "id": "VG-04-INPUT-CONTRACT",
+        "owner": "P04",
+        "expectedEvidence": "`packages/input/**` tests cover movement plus semantic `up/down/left/right/pause/confirm/back`, keyboard normalization/no repeat edges, gamepad movement deadzone and UI direction activation/release hysteresis, touch direct activation/pointer cancel, one edge per transition, arbitration, and synthetic releases.",
+        "stopCondition": "Stop if UI/gameplay reads raw devices, focus navigation steals gameplay source, or device/browser repeat produces duplicate edges."
+      },
+      {
+        "id": "VG-04-PERFORMANCE",
+        "owner": "P04",
+        "expectedEvidence": "Telemetry harness records frame p95, draw calls, visible triangles, active bodies, heap, long tasks, input-to-simulation, physics p95, and worker-transfer traces before any OffscreenCanvas decision.",
+        "stopCondition": "Stop if workers are justified without two traces showing at least 20% frame-budget recovery and transfer overhead below 25% of saved time."
+      },
+      {
+        "id": "VG-05-PLAYABLE",
+        "owner": "P05",
+        "expectedEvidence": "90-second one-arena run proves three authored size bands, final goal object, authored integer score, win/time-out, pause, restart on same level version/seed, growth volume formula, collection threshold, camera reset/options, and collected-body disappearance by next tick.",
+        "stopCondition": "Stop if four of five fresh playtesters cannot finish within three attempts or median fun/control is below 4/5."
+      },
+      {
+        "id": "VG-05-INPUT-PARITY",
+        "owner": "P05",
+        "expectedEvidence": "Keyboard, standard gamepad, and touch runs complete the same starter objective with equivalent pause/restart/camera/action behavior and no P0/P1 gameplay, input parity, accessibility, or offline defects.",
+        "stopCondition": "Stop if any input source is required to finish but cannot, or if pause/confirm/back conflicts with source arbitration."
+      },
+      {
+        "id": "VG-05-OFFLINE-RUN",
+        "owner": "P05",
+        "expectedEvidence": "One checksum-identical P05 artifact passes isolated secure-context root/project-prefix checks for exact name/short_name/id/play-start/scope/standalone, absent `prefer_related_applications`, real response-backed 192/512 PNG purpose-any icons, prefix-correct fetch-capable SW/controller, exact starter precache, Dexie v1 saves/settings, fresh persistent-profile offline completion, and Chromium browser-native installability signaling. This is automated manifest/SW/cache/profile evidence, not an OS-installed-app lifecycle; P10 owns headed/manual real install -> full app/browser quit -> network-off relaunch on supported shipping platforms and explicit unsupported rows elsewhere.",
+        "stopCondition": "Stop on any required manifest field/absence/icon declaration or response mismatch, host-specific bytes/rewrite, prefix/worker/cache/save/offline divergence, catalog/store dependency leakage, failed Chromium signal, or any claim that Playwright reopening proves OS installation."
+      },
+      {
+        "id": "VG-05-CSP-WASM",
+        "owner": "P05",
+        "expectedEvidence": "The real production artifact embeds the approved meta CSP baseline only for the Chromium P05 proof (no CSP response header), boots `/play`, loads and steps pinned same-origin Rapier WASM under `script-src 'self' 'wasm-unsafe-eval'` with no JS `'unsafe-eval'`/inline script, and serves `.wasm` as `application/wasm`. P05 owns a build-emitted inert same-origin external probe asset at a recorded artifact path with a SHA-256 hash; the allowed external probe records the document-realm `new Function` thrown error plus `securitypolicyviolation`, and a separately inserted nonce-less inline script never sets its marker and emits a violation. Handoff records release-artifact, effective policy, probe asset, and WASM hashes and proves no community WASM is emitted or fetched.",
+        "stopCondition": "Stop if an automation-world `page.evaluate(new Function)` is used as proof, a CSP header is used for the P05 Chromium gate, the probe is inline or un-hashed, Rapier falls back from bad MIME, JS dynamic code is allowed, community WASM is emitted/fetched, or the Koota shim is presented as complete CSP proof."
+      },
+      {
+        "id": "VG-06-CLI",
+        "owner": "P06",
+        "expectedEvidence": "`packages/cli/**` exposes `npx infinite-snowball` and `pnpm dlx infinite-snowball` commands `init`, `validate --strict --json`, `convert`, `build`, `preview`, `pack`, authoring `install <exact-spec>`, `catalog verify`, `submit`, and `publish --dry-run` with a real-publish gate.",
+        "stopCondition": "Stop if the CLI runs lifecycle scripts for community content or publishes without explicit external npm gate approval."
+      },
+      {
+        "id": "VG-06-AUTHOR-JOURNEY",
+        "owner": "P06",
+        "expectedEvidence": "Templates, examples, docs snippets, fixtures, and validation errors let an author create, validate, preview, pack, and dry-run submit a data-only package with exact dependencies and budget/licensing feedback.",
+        "stopCondition": "Stop if examples require private credentials, arbitrary JS, or ambiguous licenses."
+      },
+      {
+        "id": "VG-06-SUBMISSION",
+        "owner": "P06",
+        "expectedEvidence": "Catalog submission fixtures and CI contract record npm provenance, exact version/integrity, per-file hashes, reviewer/date/evidence, budgets, licenses, withdrawal/replacement, and maintainer review status.",
+        "stopCondition": "Stop if the lifecycle silently accepts unreviewed npm search results or lacks transparent rejection reasons."
+      },
+      {
+        "id": "VG-07-REHYDRATE",
+        "owner": "P07",
+        "expectedEvidence": "Dexie tables `catalogSnapshots`, `catalogEntries`, `packages`, `assets`, `packageAssets`, `packageLocks`, `installTransactions`, `saves`, `settings`, and `migrations` rehydrate the last valid catalog instantly while background refresh preserves visible data; `catalogEntries` and `packages` are distinct normalized tables.",
+        "stopCondition": "Stop if refresh blanks the store, loses last-valid data, merges catalog-entry/package identities, or bypasses generated protocol validation."
+      },
+      {
+        "id": "VG-07-INSTALL",
+        "owner": "P07",
+        "expectedEvidence": "Cache Storage, Dexie, and controlled `apps/web/src/sw.ts` extension evidence shows exact acyclic DAG resolution, quota/persistence gesture flow, streamed hash/type/size verification, immutable cache writes, reference counts, active pointer commit, side-by-side updates, and offline install only for already verified cached objects while preserving the P05 starter precache.",
+        "stopCondition": "Stop if install commits before every file verifies, if uninstall removes a file still referenced by another package, or if the service-worker change replaces the P05 baseline instead of extending it."
+      },
+      {
+        "id": "VG-07-RECOVERY",
+        "owner": "P07",
+        "expectedEvidence": "Failure/cancel/migration/quota/save-portability tests show staging-byte deletion only, retained failed/canceled transaction rows with error/verified set/rollback actions/reconciliation status, prior lock preservation, atomic/idempotent migration of P05 Dexie v1 `saves`/`settings`, cache/DB reconciliation, one retained known-good shell, versioned SaveExport round-trip, corrupt/oversize/incompatible import fail-closed behavior, rollback, privacy/non-egress checks, and a rerun of `VG-05-OFFLINE-RUN` after P07 service-worker/catalog changes.",
+        "stopCondition": "Stop if an update can destroy previous usable data, storage persistence is promised instead of observed, failed transaction audit evidence is deleted, save import/export can leak private/local-audio data, or the P05 starter offline regression fails."
+      },
+      {
+        "id": "VG-08-SPLASH",
+        "owner": "P08",
+        "expectedEvidence": "Splash route shows original logo, snow-paper/cut-paper/toy-block identity, semantic Press Start button, disabled boot progress until ready, Enter/Space/gamepad Confirm/tap support, audio gesture unlock, explicit offline starter readiness, and Retry on fatal boot.",
+        "stopCondition": "Stop if identity copies trade dress or if splash is non-semantic or keyboard/gamepad inaccessible."
+      },
+      {
+        "id": "VG-08-GAME-UI",
+        "owner": "P08",
+        "expectedEvidence": "HUD, pause, store, and Settings Save Data states render from throttled snapshots/view models; pause stops simulation and traps/restores focus; store shows cached-refresh, offline timestamp, no-cache, error, quota, downloading, verifying, installed, update, canceled, and failed states; Save Data export/import gives accessible success, error, and recovery copy.",
+        "stopCondition": "Stop if DOM UI reads raw input/IndexedDB APIs, if pause only hides UI while simulation keeps ticking, or if save import/export feedback is ambiguous or inaccessible."
+      },
+      {
+        "id": "VG-08-LANDING",
+        "owner": "P08",
+        "expectedEvidence": "Landing includes the truthful required IA/CTAs plus paired pre/post proof that only start/description/theme/background changed while exact name/short_name/standalone/id/scope, absent `prefer_related_applications`, real 192/512 PNG purpose-any icons, icon responses, and SW behavior persisted.",
+        "stopCondition": "Stop on misleading/trade-dress/unverified UI or any unauthorized manifest/icon/SW change."
+      },
+      {
+        "id": "VG-08-A11Y",
+        "owner": "P08",
+        "expectedEvidence": "Responsive and accessibility evidence covers 375, 768, 1024, 1440, 375 landscape-safe gameplay, WCAG 2.2 AA contrast, >=2px focus, semantic names/states/live regions, accessible Save Data controls/messages, no color-only state, >=44x44 targets, no >3 flashes/sec, and reduced motion <=100ms fades without parallax/rolling decoration/count-ups/large transforms.",
+        "stopCondition": "Stop if a P0/P1 accessibility, responsive, motion, save-control, or touch-target defect remains."
+      },
+      {
+        "id": "VG-09-DOCS",
+        "owner": "P09",
+        "expectedEvidence": "Mintlify source implements Start Here, Create Packs, Reference, Contribute, and Project IA; player, creator, and contributor journeys each reach prerequisites, expected result, recovery, and next step in <=3 navigation choices.",
+        "stopCondition": "Stop if docs depend on hosted-only content not stored in the repo or contradict protocol/security/licensing contracts."
+      },
+      {
+        "id": "VG-09-CONTRIBUTING",
+        "owner": "P09",
+        "expectedEvidence": "Contributor contracts, policies, issue/PR templates, examples, code/content review requirements, license/provenance instructions, and community guidance align with no-code content, curated catalog, and original identity.",
+        "stopCondition": "Stop if contribution docs invite arbitrary browser JS, unverified assets, backend requirements, or soundtrack redistribution."
+      },
+      {
+        "id": "VG-09-README",
+        "owner": "P09",
+        "expectedEvidence": "README includes truthful screenshots, badges, instructions, local development, CLI/package workflow, offline/store behavior, accessibility, security/provenance, no-backend-v1, deployment notes, and exact unsupported external gates.",
+        "stopCondition": "Stop if README claims live deployment, badges, screenshots, npm, or account setup before evidence exists."
+      },
+      {
+        "id": "VG-09-SCREENSHOTS",
+        "owner": "P09",
+        "expectedEvidence": "Screenshot manifest maps real captured assets to routes, viewport/device, commit SHA, capture command, alt text, and allowed README/docs placement.",
+        "stopCondition": "Stop if any screenshot is mocked, stale, untraceable, or implies unavailable app-store/native support."
+      },
+      {
+        "id": "VG-10-DEVICES",
+        "owner": "P10",
+        "expectedEvidence": "Cross-engine/device QA first defines and freezes a matrix schema, then executes automated Chromium, Firefox, Playwright-WebKit, `mobile-chromium`, and `mobile-webkit` rows against the latest post-P08 CSP/manifest proof. Each Chromium project uses a fresh candidate/project/origin profile proving manifest/document/SW/icon/cache bytes, Playwright version, full Browser/empty installability response, and same-profile offline relaunch. Distinct manual rows validate shipping macOS Safari and real-iPhone Safari on real devices; capable shipping rows separately prove native lifecycle and unsupported rows name capability/reason.",
+        "stopCondition": "Stop on an unapproved/unfrozen matrix, missing latest post-P08 CSP proof, manifest/icon mismatch, stale/reused/off-record/mocked Chromium evidence, `IN_INCOGNITO`, supported lifecycle failure, missing shipping Safari/real iPhone rows, vague unsupported row, substitution, or unresolved P0/P1 defect."
+      },
+      {
+        "id": "VG-10-PERF",
+        "owner": "P10",
+        "expectedEvidence": "Performance traces for low/mobile, mid, and high tiers report p95 frame budgets, draw calls, triangles, bodies, heap, long tasks, input latency, physics p95, and three-run heap trend.",
+        "stopCondition": "Stop if profile data misses a tier or any initial budget fails without an explicit owner-approved fix or documented stop."
+      },
+      {
+        "id": "VG-10-REVIEWS",
+        "owner": "P10",
+        "expectedEvidence": "Mandatory code review, security review, license/provenance review, accessibility review, matrix-schema review, and release-candidate signoff are recorded with issue links, findings, fixes, remaining risk, and explicit approval of `VG-10-DEVICES` matrix completeness before execution evidence is accepted.",
+        "stopCondition": "Stop if any mandatory review is skipped, self-approved without evidence, leaves unresolved release-blocking findings, or signs a matrix that lacks an owned schema/project/manual-validator definition."
+      },
+      {
+        "id": "VG-11-PUBLIC-REPO",
+        "owner": "P11",
+        "expectedEvidence": "All external gates and previews are green; CODEOWNERS, pinned workflows, ruleset/protection, required checks, and security settings are active before visibility/tagging or preconfigured where GitHub requires visibility, then immediately reverified after conversion before tag creation.",
+        "stopCondition": "Stop on unresolved authority/evidence, any unprotected public window, failed post-conversion control, exact P01/final-SHA audit gap, or private/generated leak; remove/hold tag and restore reversible state."
+      },
+      {
+        "id": "VG-11-NPM",
+        "owner": "P11",
+        "expectedEvidence": "Local tarball preflight passes; inert tag and live repo/web/docs are green; then local orchestration explicitly dispatches/monitors the protected-CI trusted OIDC publisher last, with integrity/provenance/dist-tags and clean-room CLI verification.",
+        "stopCondition": "Stop on tag auto-trigger, local publish/token, early npm dispatch, unresolved authority, failed live gate/verification, or unusable deprecation/dist-tag restoration; deprecate/restore and rollback reversible state."
+      },
+      {
+        "id": "VG-11-WEB",
+        "owner": "P11",
+        "expectedEvidence": "Hosts use fresh `{artifact hash, project, origin, purpose: web-check}` Chromium evidence only for live delivery reruns, not the full P10 matrix. Cloudflare proves the approved CSP header and embedded meta intersect without weakening the approved policy; GitHub Pages proves the approved meta-only fallback. Both hosts bind release SHA, artifact hash, effective policy hash, P05 probe hash, and Rapier WASM hash, then pass manifest/icon/SW/CDP/offline/CSP/WASM/document-probe checks. The selected live-primary native lifecycle uses a distinct clean purpose/profile.",
+        "stopCondition": "Stop on host failure; stale/reused/unbound profile; missing release/policy/probe/WASM hash; Cloudflare header/meta conflict; GitHub Pages header requirement; missing purpose; cross-use; dirty native start; document/cache byte mismatch; lifecycle failure; checksum-only proof; one-host proof; or full-P10-matrix substitution."
+      },
+      {
+        "id": "VG-11-DOCS-LIVE",
+        "owner": "P11",
+        "expectedEvidence": "Mintlify project/domain external gate is resolved; live docs match repo source, navigation works, links pass, and release URL is recorded.",
+        "stopCondition": "Stop if Mintlify credentials/domain are missing or live docs diverge from repo source."
+      },
+      {
+        "id": "VG-11-CHECKS",
+        "owner": "P11",
+        "expectedEvidence": "After every release push, all eleven named required repository checks (`lockfile`, `types`, `unit`, `build`, `content-policy`, `license-provenance`, `package-pack`, `e2e-offline`, `dependency-review`, `codeql`, `secret-scan`) reach terminal green; no-check is allowed only for explicitly non-required surfaces; failures are fixed and re-pushed; rollback commands and bad npm deprecation/dist-tag restoration are documented.",
+        "stopCondition": "Stop if any required check is pending, missing, failing, or incorrectly marked no-check, or if rollback is untested/undocumented."
+      },
+      {
+        "id": "VG-11-README-LIVE",
+        "owner": "P11",
+        "expectedEvidence": "Live README images, links, badges, screenshots, npm references, site/docs URLs, fallback URLs, and final-SHA review evidence are opened/verified after public release.",
+        "stopCondition": "Stop if any public-facing link, badge, image, instruction, or final-SHA review reference is stale, broken, or unsupported by live evidence."
+      },
+      {
+        "id": "VG-11-AUDIT",
+        "owner": "P11",
+        "expectedEvidence": "Final audit maps every primary D001-D042 deliverable row, the supplemental `VG-05-CSP-WASM` stop gate, each phase gate, external cutover gate, public artifact, and rollback path to evidence; it confirms no orphan gate references, duplicate owners/gates, forbidden scaffold/source/config, or historical/current repo-state conflation.",
+        "stopCondition": "Stop if any D001-D042 row or supplemental gate is missing evidence, has multiple owners/gates, is orphaned, contradicts security/licensing/offline/input/performance/UI/no-backend boundaries, or erases the historical public-repo initialization facts while reporting current state."
+      }
+    ],
+    "orphanRefs": []
+  },
+  "phases": {
+    "order": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11"
+    ],
+    "actualFiles": [
+      "Infinite-Snowball-Phase-01-Foundation.md",
+      "Infinite-Snowball-Phase-02-Protocol-Security-Offline-Design.md",
+      "Infinite-Snowball-Phase-03-Assets-Music-Starter-Content.md",
+      "Infinite-Snowball-Phase-04-Runtime-Input-Simulation.md",
+      "Infinite-Snowball-Phase-05-First-Playable-Vertical-Slice.md",
+      "Infinite-Snowball-Phase-06-Creator-CLI-Package-Workflow.md",
+      "Infinite-Snowball-Phase-07-Secure-Offline-Catalog-Store.md",
+      "Infinite-Snowball-Phase-08-Product-UI-PWA-Landing.md",
+      "Infinite-Snowball-Phase-09-Docs-Community-Release-Collateral.md",
+      "Infinite-Snowball-Phase-10-Cross-Device-QA-Performance-Review.md",
+      "Infinite-Snowball-Phase-11-Public-Release-Deployment-Audit.md"
+    ],
+    "expectedFiles": [
+      "Infinite-Snowball-Phase-01-Foundation.md",
+      "Infinite-Snowball-Phase-02-Protocol-Security-Offline-Design.md",
+      "Infinite-Snowball-Phase-03-Assets-Music-Starter-Content.md",
+      "Infinite-Snowball-Phase-04-Runtime-Input-Simulation.md",
+      "Infinite-Snowball-Phase-05-First-Playable-Vertical-Slice.md",
+      "Infinite-Snowball-Phase-06-Creator-CLI-Package-Workflow.md",
+      "Infinite-Snowball-Phase-07-Secure-Offline-Catalog-Store.md",
+      "Infinite-Snowball-Phase-08-Product-UI-PWA-Landing.md",
+      "Infinite-Snowball-Phase-09-Docs-Community-Release-Collateral.md",
+      "Infinite-Snowball-Phase-10-Cross-Device-QA-Performance-Review.md",
+      "Infinite-Snowball-Phase-11-Public-Release-Deployment-Audit.md"
+    ],
+    "missingFiles": [],
+    "extraFiles": [],
+    "documents": [
+      {
+        "phase": "P01",
+        "file": "Infinite-Snowball-Phase-01-Foundation.md",
+        "exists": true,
+        "phaseId": "P01",
+        "dependencies": [],
+        "expectedDependencies": [],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P02",
+        "file": "Infinite-Snowball-Phase-02-Protocol-Security-Offline-Design.md",
+        "exists": true,
+        "phaseId": "P02",
+        "dependencies": [
+          "P01"
+        ],
+        "expectedDependencies": [
+          "P01"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P03",
+        "file": "Infinite-Snowball-Phase-03-Assets-Music-Starter-Content.md",
+        "exists": true,
+        "phaseId": "P03",
+        "dependencies": [
+          "P02"
+        ],
+        "expectedDependencies": [
+          "P02"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P04",
+        "file": "Infinite-Snowball-Phase-04-Runtime-Input-Simulation.md",
+        "exists": true,
+        "phaseId": "P04",
+        "dependencies": [
+          "P01",
+          "P02"
+        ],
+        "expectedDependencies": [
+          "P01",
+          "P02"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P05",
+        "file": "Infinite-Snowball-Phase-05-First-Playable-Vertical-Slice.md",
+        "exists": true,
+        "phaseId": "P05",
+        "dependencies": [
+          "P03",
+          "P04"
+        ],
+        "expectedDependencies": [
+          "P03",
+          "P04"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P06",
+        "file": "Infinite-Snowball-Phase-06-Creator-CLI-Package-Workflow.md",
+        "exists": true,
+        "phaseId": "P06",
+        "dependencies": [
+          "P02",
+          "P03"
+        ],
+        "expectedDependencies": [
+          "P02",
+          "P03"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P07",
+        "file": "Infinite-Snowball-Phase-07-Secure-Offline-Catalog-Store.md",
+        "exists": true,
+        "phaseId": "P07",
+        "dependencies": [
+          "P05",
+          "P06"
+        ],
+        "expectedDependencies": [
+          "P05",
+          "P06"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P08",
+        "file": "Infinite-Snowball-Phase-08-Product-UI-PWA-Landing.md",
+        "exists": true,
+        "phaseId": "P08",
+        "dependencies": [
+          "P05",
+          "P07"
+        ],
+        "expectedDependencies": [
+          "P05",
+          "P07"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P09",
+        "file": "Infinite-Snowball-Phase-09-Docs-Community-Release-Collateral.md",
+        "exists": true,
+        "phaseId": "P09",
+        "dependencies": [
+          "P06",
+          "P07",
+          "P08"
+        ],
+        "expectedDependencies": [
+          "P06",
+          "P07",
+          "P08"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P10",
+        "file": "Infinite-Snowball-Phase-10-Cross-Device-QA-Performance-Review.md",
+        "exists": true,
+        "phaseId": "P10",
+        "dependencies": [
+          "P09"
+        ],
+        "expectedDependencies": [
+          "P09"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      },
+      {
+        "phase": "P11",
+        "file": "Infinite-Snowball-Phase-11-Public-Release-Deployment-Audit.md",
+        "exists": true,
+        "phaseId": "P11",
+        "dependencies": [
+          "P10"
+        ],
+        "expectedDependencies": [
+          "P10"
+        ],
+        "statusPlanned": true,
+        "ownerRole": true,
+        "markdownFenceBalanced": true,
+        "requiredHeadings": []
+      }
+    ]
+  },
+  "commandOwnership": {
+    "registryMissing": [],
+    "registryOwnerMismatches": [],
+    "projectMissing": [],
+    "projectOwnerMismatches": [],
+    "requiredRegistryNames": [
+      "node tools/planning/validate-contracts.mjs --write .planning/validation-report.json",
+      "apps/web/playwright.release-candidate.config.ts",
+      "reports/qa/phase-10-device-matrix.schema.json",
+      "reports/qa/phase-10-device-matrix.json",
+      "node tools/qa/release-candidate/validate-manual-matrix.mjs",
+      "node tools/qa/release-candidate/profile-performance.mjs",
+      "node tools/qa/release-candidate/run-review-checks.mjs",
+      "node tools/release/assert-clean-cutover-state.mjs",
+      "node tools/release/preflight.mjs",
+      "node tools/release/verify-checks.mjs",
+      "node tools/release/cutover-repo.mjs",
+      "node tools/release/promote-web.mjs",
+      "node tools/release/verify-web.mjs",
+      "node tools/release/promote-docs.mjs",
+      "node tools/release/verify-docs.mjs",
+      "node tools/release/dispatch-npm-publisher.mjs",
+      "node tools/release/verify-npm.mjs",
+      "node tools/release/verify-readme.mjs",
+      "node tools/release/audit-deliverables.mjs"
+    ],
+    "requiredReleaseProjects": [
+      "chromium",
+      "firefox",
+      "playwright-webkit",
+      "mobile-chromium",
+      "mobile-webkit",
+      "shipping macOS Safari",
+      "real iPhone Safari"
+    ],
+    "staleRefs": [],
+    "owned": true
+  },
+  "forbiddenTrackedPaths": {
+    "pathspecs": [
+      ":(exclude,glob)**/.env.example",
+      ":(exclude,glob)**/.env.schema",
+      ":(glob)**/*.credentials",
+      ":(glob)**/*.jks",
+      ":(glob)**/*.kdbx",
+      ":(glob)**/*.key",
+      ":(glob)**/*.keystore",
+      ":(glob)**/*.log",
+      ":(glob)**/*.log.*",
+      ":(glob)**/*.p12",
+      ":(glob)**/*.pem",
+      ":(glob)**/*.pfx",
+      ":(glob)**/*.tsbuildinfo",
+      ":(glob)**/.DS_Store",
+      ":(glob)**/.aws/**",
+      ":(glob)**/.credentials/**",
+      ":(glob)**/.docker/**",
+      ":(glob)**/.env",
+      ":(glob)**/.env.*",
+      ":(glob)**/.gnupg/**",
+      ":(glob)**/.logs/**",
+      ":(glob)**/.netrc",
+      ":(glob)**/.npmrc.local",
+      ":(glob)**/.omp-runs/**",
+      ":(glob)**/.omp-sessions/**",
+      ":(glob)**/.omp-workarounds/**",
+      ":(glob)**/.planning/ultra-root-exit.json",
+      ":(glob)**/.planning/ultra-root-output.jsonl",
+      ":(glob)**/.planning/ultra-root-prompt.md",
+      ":(glob)**/.pnpm-store/**",
+      ":(glob)**/.pypirc",
+      ":(glob)**/.ssh/**",
+      ":(glob)**/.tmp/**",
+      ":(glob)**/coverage/**",
+      ":(glob)**/credentials.*",
+      ":(glob)**/credentials/**",
+      ":(glob)**/dist/**",
+      ":(glob)**/id_dsa*",
+      ":(glob)**/id_ecdsa*",
+      ":(glob)**/id_ed25519*",
+      ":(glob)**/id_rsa*",
+      ":(glob)**/logs/**",
+      ":(glob)**/node_modules/**",
+      ":(glob)**/playwright-report/**",
+      ":(glob)**/secrets.*",
+      ":(glob)**/test-results/**",
+      ":(glob)**/tmp/**",
+      ":(glob).omp-status.md"
+    ],
+    "missing": [],
+    "complete": true
+  },
+  "sourceHashes": [
+    {
+      "path": ".planning/architecture-decisions.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 17879,
+      "sha256": "2af2da35e7463e009a92740c5ff7bd8e7d5c199434cf7636c21681f84fe1bb62"
+    },
+    {
+      "path": ".planning/system-contracts.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 47679,
+      "sha256": "d0c30a5358bd64f3fccc92be96ce07ff6445d495dc0e264b640361c4cdc5075c"
+    },
+    {
+      "path": ".planning/deliverable-traceability.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 30644,
+      "sha256": "b2e07af8d7737cdd51b12c57183d452a97127c7171d19a570a66645ce4179ab3"
+    },
+    {
+      "path": ".maestro/playbooks/README.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 12633,
+      "sha256": "2c1cdfe6a6580048924e6ffc4064d0102604c395a51ff3e45962f2c8f0fafe01"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-01-Foundation.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 25213,
+      "sha256": "cdeb03f8c376e276b0fa100530ae08487f43b7f95aed3463ce33a29d9363bff1"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-02-Protocol-Security-Offline-Design.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 16297,
+      "sha256": "e15b075dcc6c55f4610ba227a1685fcdd9c348930fbecc896439c455ef04762a"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-03-Assets-Music-Starter-Content.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 15447,
+      "sha256": "317d11099de2d7104074f2ce0aa41e37b96bb7854552892df1ce26a9636601a9"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-04-Runtime-Input-Simulation.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 18430,
+      "sha256": "0d0d27f9cb0a26b5e543b7cb63f2e4a78d94c0ac34e03b9b439c28ffba15841b"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-05-First-Playable-Vertical-Slice.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 31604,
+      "sha256": "2d36dd3ab785f36cf4aeb73ec4a4ae08d544fbad0df531e263ab62ccb50097dc"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-06-Creator-CLI-Package-Workflow.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 16802,
+      "sha256": "7d31cbed09bb3ed5937fd1a97930bdcc2f161441fb4e4c880350d643e67008e5"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-07-Secure-Offline-Catalog-Store.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 30893,
+      "sha256": "518e83e248f3a006c8326f41deac1a4426dcdc775fc6ab88a75dea1f176b3582"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-08-Product-UI-PWA-Landing.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 25898,
+      "sha256": "6822872cd487f7087e4f1c92ae680c65b9f938073b8dbc14e4eaa9bd2e9de6c7"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-09-Docs-Community-Release-Collateral.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 15292,
+      "sha256": "812c4a53d5ac0a87f24b6a80ee60f9f338e908b4ced7e17f1a38898c2d48168a"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-10-Cross-Device-QA-Performance-Review.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 24634,
+      "sha256": "80f9db6e6fa8ee919cfbacc242aae7fbc860a973e1ebfc2141fc5a642aa486d2"
+    },
+    {
+      "path": ".maestro/playbooks/Infinite-Snowball-Phase-11-Public-Release-Deployment-Audit.md",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 29040,
+      "sha256": "f223122754c160cfe3db9a5f0736782a64eff22752396bf40d41026c64047771"
+    },
+    {
+      "path": "tools/planning/validate-contracts.mjs",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 22855,
+      "sha256": "480d26793352d3be572793234c0413a09b978a0ca16f25e3d2a48d5525d30b42"
+    },
+    {
+      "path": "tools/quality/forbidden-tracked-paths.mjs",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 2356,
+      "sha256": "35fda9adae771ed2057824158288ddc12e9413e049076078c2834b910cbb7b3b"
+    },
+    {
+      "path": "tests/meta/planning-contracts.test.ts",
+      "exists": true,
+      "role": "source",
+      "sizeBytes": 7448,
+      "sha256": "0776db1e306b92c7aad28b608f2665d41cda7895b47bb77b1cde5a2b4a7d3c3c"
+    }
+  ],
+  "repoState": {
+    "current": {
+      "head": "729335357db9eaef5f6293a19fe72b903e7eed33",
+      "branch": "main",
+      "detachedHead": false,
+      "remoteOrigin": "https://github.com/jeffscottward/infinite-snowball.git",
+      "status": {
+        "staged": 22,
+        "unstaged": 0,
+        "untracked": 0,
+        "total": 22,
+        "dirty": true
+      }
+    },
+    "history": {
+      "sourcePath": ".planning/architecture-decisions.md",
+      "publicRepositoryLine": "Historical repository fact for validators and handoffs: the public repository is <https://github.com/jeffscottward/infinite-snowball> (`PUBLIC`, default branch `main`), and only the existing Phase 01 commit was pushed when that public repository was initialized; later planning/implementation work remains local until explicitly reviewed and released.",
+      "publicationBoundaryLine": "Historical repository fact for validators and handoffs: the public repository is <https://github.com/jeffscottward/infinite-snowball> (`PUBLIC`, default branch `main`), and only the existing Phase 01 commit was pushed when that public repository was initialized; later planning/implementation work remains local until explicitly reviewed and released.",
+      "preservesPublicInitialization": true
+    },
+    "separatedHistoricalAndCurrent": true
+  }
+}

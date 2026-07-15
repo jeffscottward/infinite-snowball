@@ -1,0 +1,145 @@
+# Infinite Snowball Phase 11 — Public Repo, Packages, Deployment, Audit
+
+Phase ID: P11
+Status: Planned
+Owner role: Release, deployment, package publication, and final audit lead
+Depends on: P10
+
+## Goal and user value
+
+Promote the approved release candidate to public, verifiable distribution without changing the artifact after QA. Players can reach the live game and docs, creators can run the public CLI in a clean room, contributors can inspect the public repository, and maintainers have terminal CI evidence, rollback procedures, public license/provenance paperwork, and a final deliverable audit.
+
+## Prerequisites and dependencies
+
+- P10 must provide an approved release-candidate SHA, immutable build artifact, QA matrix, performance evidence, mandatory code/security/license/accessibility/brand review sign-offs, accepted risks, and proceed decision.
+- GitHub account/org/repo admin, visibility, branch protection, and protected-environment permissions must be available and recorded by the release owner.
+- npm unscoped-name recheck, organization scope ownership if used, 2FA, and trusted-publishing/OIDC setup must be complete before any publish.
+- Cloudflare account/project/DNS credentials and Mintlify project/domain credentials must be available before their deployment steps.
+- P01 required checks must be configured, action pins must use full commit SHAs, and release workflows must use least-privilege permissions.
+- Any P11 change to workflows, deployment config, package allowlists, package metadata, or README release links must land before a new final freeze, receive mandatory code/security/license/accessibility reviews, and have renewed P10 approval tied to the final release SHA before any external action.
+- No P11 step may mutate source or release configuration to make release pass outside the pre-freeze review loop above; failures go back to the owning phase and require a new P10 approval if the artifact changes.
+
+## In scope
+
+- VG-11-PUBLIC-REPO: public repository readiness, preserve-public versus convert-private mode decision, visibility conversion only when needed, branch protection, CODEOWNERS, required checks, security settings, release tags, and public collateral.
+- VG-11-NPM: public package allowlists, protected-CI trusted publishing/OIDC dispatch and monitoring, packed tarball checks, npm name/scope recheck, clean-room `npx infinite-snowball` and `pnpm dlx infinite-snowball` CLI verification, integrity/provenance/dist-tag verification, and bad-version deprecation plan.
+- VG-11-WEB: both hosts independently pass frozen manifest/icons/SW/CSP/WASM/physics plus fresh-artifact-project-origin-purpose-profile Chromium host-delivery automation. Cloudflare proves approved header+meta intersection; GitHub Pages proves approved meta-only fallback. The live primary separately passes one selected supported native OS-surface install/full-termination/external-network-off/OS-relaunch/offline play-save lifecycle.
+- VG-11-DOCS-LIVE: Mintlify live documentation deployment from repository source without changing P09-authored docs except release URL/link insertions approved before freeze.
+- VG-11-CHECKS: terminal CI/check monitoring until all eleven named required repository checks are terminal green for the P10-approved release SHA; no-check may apply only to an explicitly non-required surface and never satisfies a required repository check.
+- VG-11-README-LIVE: live README image, link, badge, screenshot, command, license, package, and URL verification after publication/deployment; source edits are release-link-only and require renewed pre-freeze review.
+- VG-11-AUDIT: final requested-deliverable audit covering D001-D042 plus supplemental `VG-05-CSP-WASM` with owner, gate ID, evidence, SHA/artifact/policy/probe/WASM hashes, URL where applicable, rollback status, and final traceability status.
+
+## Non-goals
+
+- No gameplay/UI/docs feature work, performance tuning, source refactors, package redesign, backend/accounts/cloud saves/leaderboards, D1, new content, credential guessing, or release of unapproved artifacts.
+- No overwriting npm versions, force-publishing, disabling checks, weakening branch protection, uploading secrets, modifying unrelated public agents, or attaching unknown Maestro agent IDs.
+- No deployment from a different build than the P10-approved artifact.
+
+## File and directory ownership boundaries
+
+Own future release and deployment paths only for this phase:
+
+- `.github/workflows/release*.yml`, `.github/workflows/deploy*.yml`, `.github/environments/**`, and `.github/CODEOWNERS` only for release/deployment ownership additions that do not weaken P01 CI.
+- `tools/release/**`, `release/**`, `docs/release/**`, `reports/release/**`, `reports/deployment/**`, and `reports/final-audit/**` for concrete cutover tools, release records, and evidence.
+- `deploy/cloudflare/**`, `deploy/github-pages/**`, and deployment-specific static-site config needed for Cloudflare Pages, GitHub Pages, and Mintlify.
+- Package publication allowlists and public package metadata in `packages/*/package.json` and `packages/*/files` only after P10 approval and package-owner review.
+- README badge/link updates only where needed for live release verification; P09 keeps docs/release authorship unless a release URL or package version link is being inserted.
+
+Do not modify app/game/docs behavior, catalog content, package source, lockfiles except through an approved release fix that returns to P10, `.omp-status.md`, or any external account outside the four approved credential gates.
+
+Any edit inside the workflow, deployment, package allowlist, package metadata, or README release-link ownership above is a P11 release change. It must be completed before a new final freeze, reviewed by code/security/license/accessibility owners, and re-approved by P10 against the final release SHA before visibility conversion, tagging, npm publication, deployment, README live-link mutation, announcement, or any other external action.
+
+## Stable inputs and contracts
+
+- Promote the exact P10-approved static artifact to Cloudflare Pages and GitHub Pages; do not rebuild differently for production. Bind every automated and native lifecycle row to release SHA, artifact hash, effective policy hash, P05 probe hash, and Rapier WASM hash, never a URL or prior installed copy alone.
+- Current public-repo state is an input, not a conclusion: if the repository is already public, run in `preserve-public` mode and verify protections before tagging; if it is private at release time, run `convert-private` mode and prove controls before/after conversion. Do not erase historical public-initialization facts while reporting current state.
+- Required GitHub repository checks are exactly `lockfile`, `types`, `unit`, `build`, `content-policy`, `license-provenance`, `package-pack`, `e2e-offline`, `dependency-review`, `codeql`, and `secret-scan`; all eleven must reach terminal green on the final release SHA.
+- Before every cutover mutation, `tools/release/assert-clean-cutover-state.mjs` must prove HEAD equals the P10-approved SHA, HEAD/index/worktree are clean for tracked files, `node tools/quality/forbidden-tracked-paths.mjs` exits 0, and CI `secret-scan` is terminal green for that SHA. `corepack pnpm run secret-scan` / `secret-scan --staged` is used only immediately before committing pre-freeze release-owned edits, never as a substitute for release-SHA CI evidence.
+- Public packages use explicit allowlists and a protected CI publisher with npm trusted publishing/OIDC; local release tools may only dispatch and monitor that gated job, never hold a publish token or run `npm publish`. Tag creation must not auto-trigger npm, web, docs, or announcements; each later stage needs explicit orchestrator dispatch after its prerequisites pass.
+- Cloudflare Pages is primary and must prove approved CSP header plus embedded meta intersection. GitHub Pages serves the same static artifact as fallback and must prove approved meta-only CSP, base path, and service-worker scope. Mintlify source stays in the repo.
+- External credential gates are only GitHub, npm, Cloudflare, and Mintlify, and they scope to P11 cutover mutations rather than normal reviewed pushes. Any missing or unresolved required gate blocks public mutation; local dry-runs may continue and completed local evidence is preserved.
+
+## Outputs and handoffs
+
+- Public repository URL, preserve-public/convert-private mode record, release tag, all-eleven-required-checks terminal-green report, branch protection/CODEOWNERS evidence, and security-setting evidence.
+- npm package names, versions, tarball integrity, provenance, dist-tags, protected-CI dispatch/monitor evidence, clean-room `npx` and `pnpm dlx` evidence, and deprecation/rollback notes.
+- Cloudflare/GitHub Pages URLs, Mintlify URL, deployment artifact SHA, policy/probe/WASM hashes, per-host live/offline/probe evidence, and rollback target. Cloudflare output records approved header+meta intersection; GitHub Pages output records meta-only policy. Also output a selected native-primary lifecycle record with clean/no-prior-install proof, dedicated `{release artifact hash, project, Cloudflare origin, purpose: native-install}` profile, pre-install document/manifest/icon/SW/required-cache per-file response hashes/MIME/dimensions bound to the release artifact, exact live install source, platform/browser/app identity, install/OS-launch evidence, full app+browser termination, failed external-network probe, OS relaunch, and offline play/save result.
+- Final audit report mapping every deliverable D001-D042 plus supplemental `VG-05-CSP-WASM` to owner phase, gate ID, evidence path/URL, release SHA/artifact/policy/probe/WASM hashes, and pass/block status.
+
+## Ordered checklist
+
+1. [ ] **IS-11-001 — Create release audit and rollback records first.** Record D001-D042 plus supplemental `VG-05-CSP-WASM`, candidate SHA/artifact/policy/probe/WASM hashes, current public/private repo state, historical public-initialization facts, prior deployment/npm/tag state, exact rollback/deprecation actions, owners, and stop rules before any public action.
+2. [ ] **IS-11-002 — Stage and preverify every release surface.** Dry-run repo controls/tagging in preserve-public or convert-private mode, pack and clean-room-run local tarballs, deploy artifact-identical web/docs previews, run preview smoke/offline/policy/docs checks, rehearse rollback, and keep P09 docs ownership intact except approved release-link insertions.
+3. [ ] **IS-11-003 — Verify all external gates.** Confirm GitHub admin/visibility/protection, npm scope/2FA/trusted publishing, Cloudflare project/DNS, and Mintlify project/domain authority; any unresolved gate blocks cutover actions but not ordinary reviewed pushes.
+4. [ ] **IS-11-004 — Prepare VG-11-PUBLIC-REPO.** Verify public-safe README/licenses/CODEOWNERS, pinned least-privilege workflows, required checks, protection/security settings, visibility current/target state, tag plan, exact P01 tracked-file audit, and any pre-freeze staged secret-scan evidence for release-owned edits.
+5. [ ] **IS-11-005 — Monitor required checks to terminal green.** All eleven named checks, including CI `secret-scan`, must pass on the release SHA; failures return to the owner and artifact changes require renewed P10 approval.
+6. [ ] **IS-11-006 — Pass the final no-mutation cutover preflight.** Before each cutover mutation require all four external gates, previews, rollback rehearsals, repo plan, local tarball allowlists/integrity and clean-room CLI, exact artifact/policy/probe/WASM hashes, final P10/P01 evidence, HEAD/index clean at the P10-approved SHA, forbidden tracked paths clean, and terminal-green CI `secret-scan`. Freeze the cutover ledger and stop if any item is missing.
+7. [ ] **IS-11-007 — Execute VG-11-PUBLIC-REPO cutover.** In preserve-public mode, reverify controls before tagging; in convert-private mode, preconfigure controls where GitHub permits, flip visibility last, and immediately reverify controls active. Then create the approved inert tag. Confirm tag workflows cannot auto-publish npm/deploy/announce. Any gap removes/holds the tag, restores reversible state, blocks later steps, and leaves no knowingly unprotected release window.
+8. [ ] **IS-11-008 — Promote and verify VG-11-WEB.** Promote the exact artifact to Cloudflare and GitHub Pages, then run per-host `{artifact hash, project, origin, purpose: web-check}` Chromium evidence. Cloudflare must pass approved header+meta intersection; GitHub Pages must pass meta-only CSP. Run the distinct clean Cloudflare `purpose: native-install` lifecycle selected from P10-approved rows. On failure, restore both prior deployments, remove/hold the release tag, and stop.
+9. [ ] **IS-11-009 — Promote and verify VG-11-DOCS-LIVE.** Publish Mintlify from approved repo source and verify live navigation, journeys, search, links, and release references. On failure, restore prior docs/web deployments, remove/hold the release tag, and stop.
+10. [ ] **IS-11-010 — Publish and verify VG-11-NPM last.** After IS-11-007 through IS-11-009 are green, rerun cutover preflight and npm name check, explicitly dispatch the protected CI trusted-publisher and monitor it terminal; never publish locally. Verify integrity/provenance/version/dist-tags and clean-room `npx`/`pnpm dlx`. On failure, deprecate the bad version, restore prior dist-tag and reversible web/docs/tag state, then stop.
+11. [ ] **IS-11-011 — Verify VG-11-README-LIVE.** Check badges, screenshots, licenses, packages, commands, game/fallback/docs links, and public rendering. Any release-link source edit requires renewed pre-freeze/P10 approval; otherwise rollback the cutover and stop.
+12. [ ] **IS-11-012 — Run public provenance/license/music/brand audit.** Verify package ledgers, shipped licenses, screenshot provenance, music paperwork, original identity, disputes, and trade-dress review.
+13. [ ] **IS-11-013 — Complete VG-11-AUDIT.** Fill D001-D042 plus supplemental `VG-05-CSP-WASM` with owner, gate, SHA/artifact/policy/probe/WASM hashes, evidence, result, risk, and rollback owner; any gap triggers cutover rollback/block.
+14. [ ] **IS-11-014 — Announce only after audit passes.** Announce/mark done only after every gate and live verification passes. A failure at any cutover step immediately invokes recorded rollback/deprecation; never continue through a partial release.
+
+## Test-first acceptance criteria
+
+- Release audit, rollback plan, dry-run deployment checks, package packing checks, live URL verification scripts, README live checks, provenance/license/music paperwork checks, pre-freeze release-change review records, renewed P10 final-SHA approval, last-responsible P01 tracked-file audit plus pre-freeze staged secret-scan evidence where applicable, release-SHA CI `secret-scan` evidence, and final deliverable/supplemental audit template exist before irreversible public actions.
+- Cutover order is mandatory: preverify/freeze rollback; assert clean HEAD/index at the P10-approved SHA with forbidden tracked paths and terminal-green CI `secret-scan`; execute controls and inert tag; explicitly promote/verify web then docs; only then dispatch and monitor protected-CI npm publish; verify README/audits last. Tags never auto-trigger later stages. Any failure rolls back/deprecates and stops.
+- VG-11-PUBLIC-REPO passes only when preserve-public or convert-private mode is explicit, controls are active before tagging (or preconfigured target-state is proved and immediately active after GitHub-gated conversion), then post-conversion/active verification records public state, tag, CODEOWNERS, protection/ruleset, required checks, security settings, pinned actions, and no exposed private/secret material. Preparation alone is not evidence.
+- VG-11-NPM passes only after live repo/web/docs gates are green and an explicit protected-CI OIDC publisher dispatch runs npm last; no local publish or tag trigger is allowed. Allowlists, integrity/provenance/dist-tags, clean-room CLI, and deprecation/dist-tag restoration must pass.
+- VG-11-WEB passes only when each host/project independently uses a fresh `{artifact hash, project, origin, purpose: web-check}` Chromium profile to pass frozen manifest/icon/URL/SW/CDP/offline and live CSP/WASM/physics/document-probe checks; Cloudflare proves header+meta intersection, GitHub Pages proves meta-only fallback, automation/native profile cross-use is forbidden, and the selected live primary native row starts clean/no-prior-install, binds install source plus pre-install document/manifest/icon/SW/required-cache per-file responses to the release artifact, then passes supported native OS-install/full-termination/external-network-off/OS-relaunch/offline-play-save. Automation is not native lifecycle evidence. VG-11-DOCS-LIVE separately requires approved Mintlify source and live journeys/links.
+- VG-11-CHECKS passes only when every one of the eleven named required repository checks reaches terminal green on the final release SHA; no-check may appear only for an explicitly non-required surface and never satisfies a required check.
+- VG-11-README-LIVE and VG-11-AUDIT pass only when public README images/links/badges/commands work and every requested deliverable D001-D042 plus supplemental `VG-05-CSP-WASM` has one owner, one gate ID, and evidence.
+
+## Smallest meaningful verification
+
+Future implementation must verify release surfaces with focused commands tied to the approved release SHA:
+
+If pre-freeze release-owned edits are staged for commit, run `corepack pnpm run secret-scan` once immediately before that commit. For cutover mutations, do not rely on staged scanning; require clean HEAD/index at the P10-approved SHA, a clean forbidden-tracked-path audit, and terminal-green CI `secret-scan` for that SHA.
+
+```bash
+export RELEASE_SHA="$(git rev-parse HEAD)"
+node tools/release/assert-clean-cutover-state.mjs --sha "$RELEASE_SHA" --mode preserve-public-or-convert-private --require-clean-head --require-clean-index --require-forbidden-tracked-paths --require-terminal-ci-check secret-scan
+node tools/release/preflight.mjs --sha "$RELEASE_SHA" --stage-web-preview --stage-docs-preview --rehearse-rollback --record-policy-probe-wasm-hashes
+node tools/release/verify-checks.mjs --sha "$RELEASE_SHA" --required lockfile,types,unit,build,content-policy,license-provenance,package-pack,e2e-offline,dependency-review,codeql,secret-scan
+node tools/release/verify-package-preflight.mjs --sha "$RELEASE_SHA" --package infinite-snowball --local-tarballs --allowlists --clean-room
+node tools/release/cutover-repo.mjs --sha "$RELEASE_SHA" --mode preserve-public-or-convert-private --preconfigure-controls --visibility-last --reverify-controls --inert-tag
+node tools/release/promote-web.mjs --sha "$RELEASE_SHA" --cloudflare --github-pages
+node tools/release/verify-web.mjs --sha "$RELEASE_SHA" --cloudflare-header-meta-intersection --github-pages-meta-only --fresh-artifact-project-origin-profiles --separate-profile-purposes --manifest-floor --prefer-related-applications-absent --icon-integrity --service-worker-scope --chromium-installability --live-csp-wasm --document-policy-probes --offline --selected-native-lifecycle
+node tools/release/promote-docs.mjs --sha "$RELEASE_SHA" --mintlify
+node tools/release/verify-docs.mjs --sha "$RELEASE_SHA" --mintlify --journeys player,creator,contributor
+node tools/release/dispatch-npm-publisher.mjs --sha "$RELEASE_SHA" --package infinite-snowball --trusted-publishing --provenance --monitor-terminal --no-local-publish
+node tools/release/verify-npm.mjs --sha "$RELEASE_SHA" --published --package infinite-snowball --integrity --provenance --dist-tags --clean-room --npx --pnpm-dlx
+node tools/release/verify-readme.mjs --sha "$RELEASE_SHA" --live
+node tools/release/audit-deliverables.mjs --sha "$RELEASE_SHA" --deliverables D001-D042 --supplemental VG-05-CSP-WASM --output reports/final-audit/deliverables.md
+```
+
+Expected result: all commands/checks pass. Each host/project records a fresh `{artifact hash, project, origin, purpose: web-check}` Chromium profile with exact manifest/icon/SW/full Browser+empty installability/offline evidence and effective CSP/Rapier MIME+hash/step/document probes. Cloudflare records approved header+meta intersection; GitHub Pages records approved meta-only fallback. There is no cross-host/project/purpose/rerun reuse and no web-check/native cross-use. A separate selected supported Cloudflare-primary native record proves no prior install, a dedicated fresh `{release artifact hash, project, Cloudflare origin, purpose: native-install}` profile, release-bound install source and pre-install document/manifest/icon/SW/required-cache per-file response hashes/MIME/dimensions, OS install/launch, full app+browser termination, failed external-network probe, OS relaunch, and offline play/save. Protected-CI npm dispatch/monitoring is last and no local publish occurs.
+
+## Quality gates
+
+| Area | Gate ID | Required evidence | Stop or rollback trigger |
+|---|---|---|---|
+| Release safety | VG-11-PUBLIC-REPO; VG-11-NPM; VG-11-WEB; VG-11-DOCS-LIVE; VG-11-README-LIVE; VG-11-CHECKS | Any workflow, deployment, package allowlist, package metadata, or README release-link change is completed before a new final freeze, reviewed by code/security/license/accessibility owners, re-approved by P10 against the final release SHA, and all GitHub/npm/Cloudflare/Mintlify gates are resolved before cutover mutation. Preserve-public/convert-private mode is explicit. | Unreviewed release change, missing renewed P10 approval, unresolved required external gate, partial public release attempt, local publish, or cutover mutation before final-SHA evidence. |
+| Performance | VG-11-WEB | Both live hosts serve the P10 artifact; manifest/icon/SW/installability/offline checks pass and hash-matched same-origin Rapier boots and steps under effective production policy without a new regression. | Either host differs, fails any live web/physics check, or invalidates P10 evidence. |
+| Accessibility | VG-11-DOCS-LIVE; VG-11-README-LIVE | Live game, docs, README images, badges, screenshots, and links preserve P10 accessibility and P09 alt-text/navigation evidence. | Live pages or collateral introduce inaccessible navigation, missing alt text, low contrast, keyboard blockers, or stale screenshots. |
+| Security | VG-11-PUBLIC-REPO; VG-11-WEB; VG-11-CHECKS | Public controls/audits remain required. Before each cutover mutation, clean HEAD/index at the P10-approved SHA, forbidden tracked paths, and terminal-green CI `secret-scan` are required. Each live host records effective CSP, only `'wasm-unsafe-eval'` for WASM, no JS `'unsafe-eval'`/`'unsafe-inline'`, hash-matched same-origin Rapier bytes with `application/wasm`, successful step, and valid external-document `new Function` plus nonce-less-inline blocking/violation evidence. Cloudflare proves header+meta intersection; GitHub Pages proves meta-only. | Any secret/control failure or host with missing/weakened policy, bad/cross-origin/mismatched WASM, wrong MIME/fallback, failed step, executable inline/dynamic JS, automation-world false probe, missing violation evidence, staged-scan substitution for CI secret-scan, dirty index, or unresolved external cutover gate. |
+| Licensing | VG-11-NPM; VG-11-AUDIT | Published tarballs include required licenses/ledgers, exclude unapproved files, verify SPDX/provenance/music paperwork, preserve original identity/trade-dress review, and final audit confirms no soundtrack or unlicensed asset ships. | Tarball contains unapproved content, missing license/provenance, ambiguous music, Katamari soundtrack reference, copied trade dress, or audit gap. |
+| Offline/recovery | VG-11-WEB; VG-11-CHECKS | Per host/project, a fresh `{artifact hash, project, origin, purpose: web-check}` Chromium profile proves frozen manifest/icons/SW/empty Chromium installability then same-run/same-profile offline starter; no cross-host/project/purpose/rerun reuse and no automation/native cross-use. Separately, selected supported live primary starts with no prior install and a dedicated fresh `{release artifact hash, project, Cloudflare origin, purpose: native-install}` profile, binds its install source and pre-install document/manifest/icon/SW/required-cache per-file response bytes to the release artifact, then proves native install -> OS launch -> full standalone+browser termination -> external network-off with failed live probe -> OS relaunch -> offline play/save. | Any live host mismatch, stale/reused profile, full-P10-matrix substitution, one-host proof, missing clean native lifecycle, or rollback gap. |
+
+## Completion and stop condition
+
+P11 is complete only when VG-11-PUBLIC-REPO, VG-11-NPM, VG-11-WEB, VG-11-DOCS-LIVE, VG-11-CHECKS, VG-11-README-LIVE, and VG-11-AUDIT all have release-SHA evidence tied to renewed P10 final approval where P11 changed release-owned files. Do not declare the release complete or perform a partial public release until preserve-public/convert-private mode is explicit, all eleven named required repository checks are terminal green, all required GitHub/npm/Cloudflare/Mintlify gates are resolved for cutover actions, clean HEAD/index at the P10-approved SHA is proven before each mutation, forbidden tracked paths are clean, CI `secret-scan` is terminal green for the SHA, public packages are verified from a clean room through `npx` and `pnpm dlx`, live URLs pass, README links/images/badges pass, rollback records are complete, public provenance/license/music/brand audit passes, and `VG-11-AUDIT` maps D001-D042 plus supplemental `VG-05-CSP-WASM` without orphan gates.
+VG-11-WEB remains blocked unless both hosts/projects independently pass fresh `{artifact hash, project, origin, purpose: web-check}` Chromium normal-profile manifest/icon/SW/CDP/offline and live CSP/WASM/physics/document-probe checks without cross-project or cross-purpose reuse. Cloudflare must prove approved header+meta intersection; GitHub Pages must prove meta-only fallback. A separate selected live-Cloudflare native row begins with no prior install, binds install source plus pre-install document/manifest/icon/SW/required-cache per-file responses to the release artifact, then passes OS install/launch/full app+browser termination/external-network-off/OS-relaunch/offline play-save. Artifact checksum alone, one host, stale install, profile reuse, full-P10-matrix rerun in place of host proof, or automation-as-native-install cannot satisfy the gate.
+
+## Rollback and recovery notes
+
+If any required GitHub/npm/Cloudflare/Mintlify gate is missing or unresolved, block P11 cutover mutations, including visibility conversion, release tagging, npm publication, deployment, README live-link mutation, and announcements; continue only normal reviewed pushes, local dry-runs, and evidence capture that do not depend on that external gate.
+
+If a P11 workflow, deployment, package allowlist, package metadata, or README release-link change is needed after final freeze or lacks mandatory code/security/license/accessibility review plus renewed P10 approval tied to the final release SHA, cancel the external action, make the change before a new final freeze, run staged secret scan only before committing that pre-freeze edit, rerun required reviews/checks, and obtain renewed P10 approval before continuing.
+
+If the last-responsible P01 tracked-file audit, clean HEAD/index requirement, forbidden-tracked-path audit, or terminal-green CI `secret-scan` fails immediately before visibility conversion, release tagging, npm publication, or deployment, stop before public mutation, untrack or remove forbidden private/session/log/credential material, rotate any exposed credentials, wait for the release-SHA CI scan to pass, and rerun the exact cutover preflight before continuing.
+
+If checks fail before publication, stop and return to the owning phase; do not publish. If Cloudflare deployment fails or regresses, roll back to the prior Cloudflare Pages deployment and keep GitHub Pages pointing at the last known-good artifact. If GitHub Pages fallback fails, disable the fallback link until the same approved artifact is restored. If Mintlify deployment fails, roll back to the previous docs deployment and keep the public README pointed to the last verified docs URL. If npm publication is bad, deprecate the bad version with a clear warning and restore the prior dist-tag; never overwrite the version. If public repo conversion exposes private material, immediately remove the material, rotate affected secrets, document the exposure, and require a new security review before continuing. If a catalog dispute appears after release, block fresh installs for the disputed package, preserve saves/history and audit records, and restore availability only through reviewed replacement mapping. If final audit finds any deliverable gap, leave the release in blocked state until the owning phase supplies evidence and P10/P11 reverify affected surfaces.

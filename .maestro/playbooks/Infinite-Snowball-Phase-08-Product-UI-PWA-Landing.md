@@ -1,0 +1,133 @@
+# Infinite Snowball Phase 08 — Product UI, PWA, Landing
+
+Phase ID: P08
+Status: Planned
+Owner role: Product UI and PWA presentation engineer
+Depends on: P05, P07
+
+## Goal and user value
+
+Turn the verified playable and secure store into a polished, original, installable web product. Players get a clear Press Start boot, readable HUD, real pause flow, trustworthy store states, PWA install/offline cues, and a responsive landing page that explains the original rolling-collection arcade game without copying Katamari naming, trade dress, UI, music, art, logo, or story.
+
+## Prerequisites and dependencies
+
+- P05 supplies two-origin fresh-profile artifact/SW/cache/CDP/offline evidence plus supplemental meta-only Chromium CSP/Rapier proof with artifact/policy/probe/WASM hashes; neither proves OS installation. P08 reruns the observable separately before and after its manifest change with new/proven-empty profiles keyed to `{pre-or-post artifact hash, project, origin}`; profiles are never reused across pre/post states, projects, origins, or reruns. Any package, route, manifest, asset, or other build-affecting P08 change reruns the P05 CSP/probe proof and records the latest post-P08 hash set for P10.
+- P07 must provide tested content-runtime ports, prefix-local `./catalog/`/recovery evidence, preserved P05 offline/CSP regressions, and passing inherited `web-package-contract.test.ts` plus `runtime-boundary.test.ts`: all permanent P05 assertions intact, content-runtime added only after existence, no UI yet, and no browser/SW reachability to the Node-only catalog materializer/filesystem modules.
+- Use the settled design identity: snow-paper fields, cut-paper labels, toy-block controls, hand-drawn route lines, collectible stickers, restrained shadows, snow `#F8FAFC`, ink `#1E293B`, action `#2563EB`, accent `#F97316`, orange with ink text, Baloo 2 display, and Atkinson Hyperlegible body.
+- Preserve WCAG 2.2 AA, 44 px general and 48 px coarse-pointer gameplay targets, 150/220/300 ms motion, zero flashing, reduced-motion/forced-colors behavior, width gates at 375, 768, 1024, 1440, 375 landscape-safe gameplay, and 320 CSS px/400% reflow with 200% text and text-spacing overrides.
+
+## In scope
+
+- VG-08-SPLASH: colorful original logo treatment, boot status, semantic Press Start button, disabled/ready/error states, gesture audio unlock, explicit offline starter readiness, Retry on fatal boot.
+- VG-08-GAME-UI: HUD snapshots, pause and win/time-out result dialogs, focus trap/restore, settings shell, accessible Settings Save Data export/import UI, restart confirmation, store presentation states, PWA install/update prompts, typed command transitions, and status/error copy.
+- VG-08-LANDING: responsive landing IA with real capture hero, Play -> `/start`, Browse Packs -> `/packs`, Create a Pack -> `/create`, mechanic explanation, curated packs, offline/save portability, creator path, controls/accessibility, contribution/docs, and footer.
+- VG-08-A11Y: responsive, keyboard, standards-based gamepad, pointer, touch, screen-reader, contrast, dual-contrast focus, reduced-motion, forced-colors, no-color-only, and zero-flash behavior across every product UI surface, including Save Data controls and messages.
+- Shared UI tokens/primitives needed by the above screens when those primitives are used only for product presentation.
+- Controlled `apps/web/package.json` dependency/script handoff needed to add/use `@infinite-snowball/ui` after `packages/ui/**` exists, preserving `private: true`, P05/P07 scripts, and prior behavior.
+- Controlled `apps/web/src/app/router.tsx` registration for `/`, `/start`, `/packs`, `/settings`, `/create`, and an offline-safe Not Found surface without rewriting the existing P05 `/play` behavior.
+
+## Non-goals
+
+- No physics, camera, scoring, streaming, input adapter, catalog installer, service-worker, Dexie, CLI, asset pipeline, package validation, docs, screenshot release collateral, deployment, backend, accounts, leaderboards, or cloud saves.
+- No fake ratings, fake reviews, App Store or Play Store badges, QR conversion patterns, CRT/cyberpunk styling, Comic Neue adoption without a documented readability comparison, or any direct Katamari trade dress.
+- No UI reads raw keyboard, gamepad, pointer, package, cache, or IndexedDB APIs directly; it consumes contracts from P04, P05, and P07.
+- No broad `apps/web/package.json` ownership: P08 may change dependencies/scripts only for `@infinite-snowball/ui`, must preserve `private: true`, and must not predeclare any later package.
+
+## File and directory ownership boundaries
+
+Own future implementation paths only for this phase:
+
+- `packages/ui/src/tokens/**`, `packages/ui/src/primitives/**`, `packages/ui/src/a11y/**`, and `packages/ui/src/contracts/**` for shared accessible presentation primitives and P08-owned narrow adapter interfaces.
+- `apps/web/package.json` plus only the phase-current allowlist expectation in inherited `apps/web/tests/web-package-contract.test.ts`: after `packages/ui/**` exists, add/use UI, preserve permanent private/existing-only/script/boundary assertions and P05/P07 behavior, and add only UI to the P07-current allowlist.
+- `apps/web/src/styles/**` for product theme CSS and reduced-motion rules.
+- `apps/web/src/features/splash/**`, `apps/web/src/features/hud/**`, `apps/web/src/features/pause/**`, `apps/web/src/features/result/**`, `apps/web/src/features/store-ui/**`, `apps/web/src/features/settings/**`, `apps/web/src/features/pwa-prompts/**`, `apps/web/src/features/landing/**`, and `apps/web/src/features/creator-gateway/**`.
+- Exact `apps/web/src/app/router.tsx` only to register `/`, `/start`, `/packs`, `/settings`, `/create`, and Not Found; preserve the P05 `/play` route and route-level gameplay behavior.
+- `apps/web/public/manifest.webmanifest` and only its inherited test expectation: after `/start` exists, switch only `start_url` plus approved `description`, `theme_color`, `background_color`. Preserve exact name/short_name/standalone, absent `prefer_related_applications`, real relative 192x192/512x512 PNG purpose-any declarations/bytes, id/scope, relative resolution, SW/precache, MIME/dimensions/hashes. Record paired pre/post dual-prefix evidence and Chromium signal, never a real-install claim.
+- `apps/web/tests/web-package-contract.test.ts` allowlist expectation only, `apps/web/tests/web-manifest.test.ts`, `apps/web/src/app/router.test.tsx`, `apps/web/tests/ui/**`, `apps/web/tests/a11y/**`, `apps/web/tests/e2e/pwa-ui.spec.ts`, and inherited `base-neutral-hosting.spec.ts` manifest expectation only. P08 runs but does not weaken/otherwise edit inherited `runtime-boundary.test.ts`.
+
+Do not modify content-runtime, protocol, gameplay, runtime-r3f, input, engine, catalog materializer/data, service-worker internals/precache, Dexie migrations, content, docs, release files, or other P01-P07 logic without handoff. P08 may add UI plus exact presentation routes and approved manifest/test expectations only; it never takes runtime adapters, worker, DB, installer, SaveExport parser, catalog, or boundary-test ownership.
+
+## Stable inputs and contracts
+
+- `InputFrame` active-source labels plus normalized `up`, `down`, `left`, `right`, `confirm`, `back`, and `pause` UI actions from P04/P05. UI never samples raw device APIs; gamepad actions drive deterministic DOM focus navigation.
+- Low-frequency HUD snapshots from P05 containing objective, size band/radius label, integer score, timer, win/time-out state, active input prompt, and offline/connection status.
+- Pause and result authority comes from P05's public `GameplayUiPort`. The HUD Pause control and normalized `pause` action both call `PauseUiController.pause(reason)`; opening pause stops simulation ticks, closing pause resumes only after focus restoration and release-edge cleanup, and win/time-out opens a named result dialog with final status, **Restart Same Seed**, and **Quit to Landing**.
+- Boot/retry/start plus run pause/resume/restart/quit capabilities remain owned by P05. P08 defines `BootUiController`, `PauseUiController`, and `ResultUiController` adapters under `packages/ui/src/contracts/**` plus route adapters under phase-owned feature paths. They delegate only to documented P05 `BootUiPort`/`GameplayUiPort` methods: Pause maps `pause(reason)` to `pauseRun(reason)`, `resume()` to `resumeRun()`, restart confirmation to `restartSameSeed()`, and quit to `quitRun()` before navigation. Controls/Settings keep the run paused. Adapters never import P05 internals.
+- Store view models and installer capabilities come from P07. P08 wraps only documented P07 public methods in a P08-owned `StoreUiController` adapter exposing cached, refreshing, offline-with-timestamp, no-cache, error, quota-warning, downloading, verifying, installed, update-available, canceled, failed, and unavailable states plus `refreshCatalog`, `install`, `update`, `cancel`, and `retry` commands with stable error codes.
+- Save Data view models/export-import capabilities come from P07. P08 wraps only documented P07 public methods in a P08-owned `SaveDataUiController` adapter exposing export-ready, exporting, export-success, export-error, import-pending, import-confirmation-required, importing, import-success, corrupt-import-error, oversize-import-error, incompatible-import-error, rollback-running, rollback-complete, rollback-failed, rollback-canceled, and privacy-blocked states plus `beginExport`, `chooseImport`, `confirmImport`, `cancelImport`, and `retryRollback` commands.
+- PWA readiness/commands come from the P05/P07 service-worker boundary. P08 wraps only documented public methods in a P08-owned `PwaUiController` adapter exposing shell/starter precache health, offline starter availability, persistence granted/denied/unknown, known-good fallback, and `eligible`, `prompting`, `accepted`, `dismissed`, `already-installed`, `unsupported`, `applying`, `deferred`, and `failed` states plus request/dismiss/apply/defer/retry commands.
+- Web package handoff from P07: `apps/web/package.json` is already `private: true`, keeps P05 scripts, uses `@infinite-snowball/content-runtime`, and still omits `@infinite-snowball/ui`; P08 may add `@infinite-snowball/ui` only after `packages/ui/**` exists.
+- Router handoff from P05/P07: `/play` retains exact P05 gameplay behavior. P08 registers `/` landing, `/start` splash, `/packs` store, `/settings`, `/create` creator gateway, and offline-safe Not Found. Play goes to `/start`, Press Start to `/play`, Browse Packs to `/packs`, Create a Pack to `/create`, and Quit to `/`. Known offline deep links retain their route and render typed unavailable state rather than redirecting.
+- Accessibility contract: named controls, role/state semantics, deduplicated live regions for boot/install/save status, logical focus order, dual-contrast focus over the 3D scene, 44 px general and 48 px coarse-pointer gameplay targets, no color-only state, zero flashing, reduced-motion and forced-colors alternatives, 320 CSS px/400% reflow, 200% text/text-spacing resilience, and screen-reader traversal/announcement evidence.
+
+Typed commands never declare optimistic success or call raw APIs. Components render the next authoritative view-model transition, suppress duplicate commands while busy, preserve the previous known-good state on cancel, and require `import-confirmation-required` before destructive import. Blocking fatal/integrity/rollback failures use an assertive alert; non-blocking progress is polite and announced once.
+If a required transition cannot be composed from a documented P05/P07 public method, P08 stops and requests an owner handoff; it does not reach into prior-phase internals or invent success.
+- Unified package/boundary invariant: first add UI only after its package exists, then update only the phase-current allowlist in `web-package-contract.test.ts`. All permanent package assertions and the inherited runtime-boundary exclusion of raw/deep 3D, the build-only materializer, and Node/filesystem imports must continue to pass.
+- Chromium reuses P05 exactly: every `{stage hash, project, origin}` gets a fresh/proven-empty normal profile; verify exact manifest floor and online document/SW/icon/cache/probe/WASM responses against stage hashes/MIME/dimensions; send full Browser/empty installability CDP; then close and reuse only that profile for the same run's offline relaunch. Record key/options/version/responses/hashes. Cross-stage/project/origin/rerun reuse, stale/off-record/incognito/mock/synthetic evidence blocks; not OS-install proof.
+
+## Outputs and handoffs
+
+- Handoff to P09: approved UI IA/copy/captures/routes, unified package-test evidence, and frozen web-manifest evidence for exact name/short_name/standalone/real 192+512 purpose-any icons/id/scope with `start_url: "./#/start"`.
+- Handoff to P10: accessibility/responsive/PWA/Save Data, router/package/boundary, frozen manifest/icon bytes and criteria, prefix-local catalog, checksum-identical two-origin profile-offline evidence, matching pre/post P05-defined Chromium reports, and the latest post-P08 artifact/policy/probe/WASM hashes. P10 separately obtains supported headed/manual install -> full quit -> network-off relaunch and explicit unsupported rows.
+- Handoff to P11: installable shell copy, live hash routes, unified package/runtime-boundary evidence, frozen manifest name/short_name/standalone/real 192+512 purpose-any icons/id/start/scope, prefix-local resources, latest policy/probe/WASM hashes, and checksum-identical dual-prefix bytes deployment may not rewrite.
+- Evidence artifacts should be written by future implementation to `reports/phase-08/ui-a11y.md`, `reports/phase-08/responsive-matrix.json`, and `reports/phase-08/pwa-ui-playwright/`.
+
+## Ordered checklist
+
+1. [ ] **IS-08-001 — Write failing UI/package/router/manifest/installability/CSP checks first.** Assert the P05 floor including absent `prefer_related_applications`, icon bytes/MIME/dimensions/hashes, and build-emitted CSP probe/WASM hashes before/after authorized edits. Every `{stage hash, project, origin}` gets a fresh profile with document/SW/icon/cache/probe/WASM hashes, full Browser/empty installability responses, and same-run same-profile offline relaunch; cross-stage/project/origin/rerun stale/off-record/synthetic evidence fails.
+2. [ ] **IS-08-002 — Write failing accessibility and viewport checks first.** Add axe, contrast, keyboard/gamepad/pointer/touch traversal, dual-contrast focus, 44/48 px targets, reduced-motion, forced-colors, screen-reader announcement, no-horizontal-overflow, zero-flash, 320 CSS px/400% reflow, 200% text/text-spacing, 375/768/1024/1440, and 375 landscape-safe gameplay checks.
+3. [ ] **IS-08-003 — Implement refined original design tokens and primitives.** Use the snow/toybox identity, 4/8 spacing, 8/12/16 radii, Baloo 2 display, Atkinson Hyperlegible body, and semantic color tokens; reject generated CRT/app-store/fake-rating suggestions.
+4. [ ] **IS-08-004 — Implement VG-08-SPLASH.** Build the semantic Press Start flow with boot progress, disabled-until-ready behavior, Enter/Space/gamepad Confirm/tap activation, gesture audio unlock, explicit offline starter readiness, fatal error copy, and Retry.
+5. [ ] **IS-08-005 — Implement VG-08-GAME-UI HUD, pause, result, and settings Save Data.** Render throttled HUD snapshots only; route both the semantic Pause control and normalized `pause` action through `PauseUiController.pause(reason)`; trap/restore pause and result focus; expose Resume, Controls, Settings, Restart confirmation/cancel, Quit cleanup-before-navigation, result Restart Same Seed/Quit to Landing, Export, Import, destructive-import confirmation, cancel, success, fail-closed errors, rollback, and recovery solely through typed controllers.
+6. [ ] **IS-08-006 — Implement VG-08-GAME-UI store presentation.** Cover cached-refresh, offline timestamp, no-cache empty, catalog error, quota warning, downloading, verifying, installed, update, canceled, failed, unavailable, confirmation/retry/cancel, and recovery transitions from `StoreUiController`.
+7. [ ] **IS-08-007 — Implement VG-08-LANDING, exact routes, and staged manifest handoff.** Build landing/creator routes without rewriting `/play`; after `/start` passes, change only start/description/theme/background. Preserve exact name/short_name/standalone, absent `prefer_related_applications`, real 192+512 purpose-any icon declarations/bytes, id/scope, relative paths, and all SW code.
+8. [ ] **IS-08-008 — Implement PWA install and update prompts.** Render eligible, prompting, accepted, dismissed, already-installed, unsupported, applying, deferred, failed, persistence, offline shell, and known-good fallback states through `PwaUiController` without promising storage permanence.
+9. [ ] **IS-08-009 — Verify no source-boundary leaks.** UI uses only approved typed surfaces and the controlled UI package handoff. Diff manifest/E2E changes to prove only start/description/theme/background changed while name/short_name/standalone/icons/id/scope, absence of `prefer_related_applications`, and SW/precache bytes stayed fixed.
+10. [ ] **IS-08-010 — Record gates/handoffs.** Save pre/post two-origin reports with distinct fresh `{stage hash, project, origin}` profile keys, exact manifest criteria, stage document/SW/icon/cache/probe/WASM hash bindings, icon MIME/dimensions, options, Playwright version, full Browser/installability responses, same-run same-profile offline relaunch, and latest post-P08 CSP proof. Reject cross-stage/project/origin/rerun reuse, stale/changed bytes, impossible lookup, nonempty/mocked/unsupported/off-record evidence, or missing post-build-affecting CSP rerun.
+
+## Test-first acceptance criteria
+
+- Tests for every UI/command/accessibility/input/viewport requirement and staged manifest edit exist first; manifest tests assert exact name/short_name/standalone/192+512 purpose-any icons/id/scope, absent `prefer_related_applications`, and icon responses before and after only authorized start/description/color changes.
+- VG-08-SPLASH passes only when Press Start is a semantic button, disabled while booting, reachable by keyboard/gamepad/pointer/touch, unlocks audio from the user gesture, distinguishes ready/offline/fatal, and uses `BootUiController.retryBoot()` after fatal boot.
+- VG-08-GAME-UI passes only when HUD data comes from throttled snapshots; HUD control and normalized-input pause both invoke `PauseUiController.pause(reason)`; pause stops simulation through `GameplayUiPort.pauseRun`, resume/restart/quit use the matching public P05 methods; restart requires confirmation/cancel; quit cleanup/save preservation completes before landing navigation; pause/result focus is trapped/restored; win/time-out announces once and exposes Restart Same Seed/Quit; and every P07 store/save state has typed confirmation/cancel/retry/rollback behavior with distinct accessible copy.
+- VG-08-LANDING passes only when original truthful routes/CTAs and every responsive/offline deep-link gate pass; manifest `start_url` switches to existing `./#/start`, while exact name/short_name/standalone/real 192+512 purpose-any icons/id/scope/relative resolution and SW behavior remain unchanged.
+- VG-08-A11Y passes only when WCAG 2.2 AA, 320 CSS px/400% reflow, 200% text/text spacing, forced colors, screen-reader traversal/announcements, dual-contrast focus, 44/48 px targets, zero flashing, reduced motion, no-color-only state, and the per-surface keyboard/gamepad/pointer/touch matrix are evidenced.
+- Package/router/manifest/CSP passes only when boundaries/routes and two-prefix artifacts survive. Every pre/post manifest satisfies exact required fields/icons and omits `prefer_related_applications`; icon responses match bytes/MIME/dimensions/hashes. Each `{stage hash, project, origin}` gets a fresh profile binding document/SW/icon/cache/probe/WASM, full Browser/empty installability CDP, and offline relaunch. Cross-stage/project/origin/rerun reuse or stale/off-record/synthetic/unsupported evidence fails.
+
+## Smallest meaningful verification
+
+Future implementation must run the smallest checks that cover this phase before asking for broader CI:
+
+```bash
+pnpm --filter @infinite-snowball/ui exec vitest run src/tokens/**/*.test.ts src/primitives/**/*.test.tsx src/a11y/**/*.test.tsx src/contracts/**/*.test.ts
+pnpm --filter @infinite-snowball/web exec vitest run tests/web-package-contract.test.ts tests/web-manifest.test.ts src/app/router.test.tsx src/app/runtime-boundary.test.ts
+pnpm --filter @infinite-snowball/web exec vitest run src/features/splash/**/*.test.tsx src/features/hud/**/*.test.tsx src/features/pause/**/*.test.tsx src/features/result/**/*.test.tsx src/features/store-ui/**/*.test.tsx src/features/settings/**/*.test.tsx src/features/pwa-prompts/**/*.test.tsx src/features/landing/**/*.test.tsx src/features/creator-gateway/**/*.test.tsx
+pnpm --filter @infinite-snowball/web exec playwright test tests/e2e/pwa-ui.spec.ts --project=chromium
+pnpm --filter @infinite-snowball/web exec playwright test tests/e2e/base-neutral-hosting.spec.ts --project=chromium
+pnpm --filter @infinite-snowball/web exec playwright test tests/a11y/responsive-a11y.spec.ts --project=chromium-320-reflow --project=chromium-375 --project=chromium-375-landscape --project=chromium-768 --project=chromium-1024 --project=chromium-1440
+pnpm --filter @infinite-snowball/web exec playwright test tests/a11y/input-parity.spec.ts --project=chromium
+```
+
+Expected result: all commands pass for routes; only the authorized staged start/description/colors change; exact name/short_name/standalone/real hashed 192+512 purpose-any icons/id/scope remain; dual-prefix fresh-profile Chromium installability, offline behavior, and post-build-affecting CSP/probe/WASM proof pass without an OS-install claim; and UI/accessibility/input gates pass.
+
+## Quality gates
+
+| Area | Gate ID | Required evidence | Stop or rollback trigger |
+|---|---|---|---|
+| Performance | VG-08-GAME-UI | HUD updates are throttled; UI does not call React state from the frame loop; no steady UI interaction creates a long task over 50 ms in the P08 smoke run; landing avoids autoplay high-resolution video loops. | Any product UI path adds frame-loop allocations, unthrottled state churn, or blocks the playable frame budget. |
+| Accessibility | VG-08-A11Y | WCAG 2.2 AA contrast, dual-contrast focus, semantic names/states, deduplicated live regions, logical focus, 44 px general/48 px coarse gameplay targets, reduced motion, forced colors, zero flashing, four-input parity, 320 CSS px/400% reflow, 200% text/text spacing, screen-reader, and viewport evidence. | Any P0/P1 accessibility defect, hidden focus, input-specific dead end, low contrast, inaccessible state, lost reflow content/action, or motion/flash violation. |
+| Security | VG-08-GAME-UI / VG-08-A11Y | UI uses typed view models; boundaries persist; manifest edits are only start/description/colors while exact name/short_name/standalone/icons/id/scope and absent `prefer_related_applications` persist; no SW change, arbitrary code, raw HTML, untrusted navigation, metadata leak, or `/play` rewrite. | Any boundary/dependency/privacy/manifest/icon/SW/play regression or untrusted execution/navigation. |
+| Licensing | VG-08-SPLASH / VG-08-LANDING | Landing and splash use original identity, cleared fonts/assets, approved real captures, and no Katamari trade dress, soundtrack, fake ratings, reviews, or store badges. | Any unverified asset, copied trade dress, misleading claim, or uncleared capture. |
+| Offline/recovery | VG-08-GAME-UI / VG-08-LANDING | Distinct fresh `{pre/post hash, project, origin}` profiles prove exact manifest criteria and document/SW/icon/cache/probe/WASM hashes/MIME/dimensions, full Browser/CDP-empty, then same-run same-profile offline relaunch. Not OS-install proof. | Cross-stage/project/origin/rerun reuse; stale/mismatched bytes; changed manifest/icon/probe/WASM fields; impossible lookup; off-record/incognito/nonempty/mocked/unsupported CDP; synthetic prompt; skipped post-build-affecting CSP rerun; or install claim. |
+
+## Completion and stop condition
+
+P08 is complete only when all four VG-08 gates have recorded evidence; all phase tests pass; Save Data UI is verified; the unified package test passes every permanent assertion plus the P08-current allowlist with content-runtime preserved and UI added only after existence; inherited runtime-boundary assertions remain intact; and presentation routes are added without changing `/play`.
+
+Completion requires paired route/manifest evidence showing only authorized fields changed and exact manifest/icon/CSP criteria persisted; every `{pre/post artifact hash, project, origin}` has a distinct fresh normal profile with matching document/SW/icon/cache/probe/WASM evidence, full Browser/empty installability responses, same-run offline relaunch, and a latest post-P08 CSP proof for P10. Cross-stage/project/origin/rerun reuse or stale/off-record/unsupported/synthetic/screenshot/profile-as-install evidence blocks.
+
+## Rollback and recovery notes
+
+P08 performs no migrations, raw SaveExport parsing, cache/SW/catalog/materializer changes, or package ownership beyond UI. Rollback reverts phase UI/style, UI package allowlist, exact routes, only authorized manifest start/description/color fields, and phase tests while preserving the P05 manifest/icon floor and every P05/P07 package/runtime/catalog/recovery contract.
+
+A rollback restores its paired start route without changing required manifest/icon fields or bytes, then uses fresh `{rollback hash, project, origin}` profiles to re-prove manifest/document/SW/icon/cache hashes/MIME/dimensions, full Browser/empty installability responses, and same-run same-profile offline relaunch. Cross-project/origin/rerun reuse or stale/off-record/nonempty/unsupported evidence blocks; hide misleading UI and preserve P07.
