@@ -1,0 +1,23 @@
+{
+	"name": "@infinite-snowball/input",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"test": "pnpm --dir ../.. run runtime:build && vitest run --root ../.. tests/input/input-frame.test.ts tests/input/ui-navigation.test.ts",
+		"typecheck": "tsc -p tsconfig.json --noEmit"
+	}
+}

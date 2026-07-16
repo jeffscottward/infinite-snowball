@@ -1,8 +1,16 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "types": ["node"]
-  },
-  "include": ["../**/*.ts", "../../tools/**/*.ts", "../../*.config.ts"],
-  "exclude": ["../../node_modules", "../../dist", "../../coverage", "../../playwright-report", "../../test-results", "../fixtures/protocol/browser-boundary"]
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"types": ["node"],
+		"jsx": "react-jsx"
+	},
+	"include": ["../**/*.ts", "../../tools/**/*.ts", "../../*.config.ts"],
+	"exclude": [
+		"../../node_modules",
+		"../../dist",
+		"../../coverage",
+		"../../playwright-report",
+		"../../test-results",
+		"../fixtures/protocol/browser-boundary"
+	]
 }

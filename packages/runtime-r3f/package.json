@@ -1,0 +1,36 @@
+{
+	"name": "@infinite-snowball/runtime-r3f",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"test": "pnpm --dir ../.. run runtime:build && vitest run --root ../.. tests/runtime-r3f/runtime-bridge.test.ts tests/runtime-r3f/package-boundary.test.ts",
+		"typecheck": "tsc -p tsconfig.json --noEmit"
+	},
+	"dependencies": {
+		"@infinite-snowball/engine": "workspace:*",
+		"@infinite-snowball/gameplay": "workspace:*",
+		"@infinite-snowball/input": "workspace:*",
+		"@react-three/fiber": "9.6.1",
+		"@react-three/rapier": "2.2.0",
+		"ecctrl": "2.0.0",
+		"react": "19.2.7",
+		"three": "0.185.1"
+	},
+	"devDependencies": {
+		"@types/three": "0.183.1"
+	}
+}

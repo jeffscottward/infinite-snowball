@@ -48,8 +48,15 @@ jobs:
           run_install: false
       - name: Install exact dependencies
         run: pnpm install --frozen-lockfile
-      - name: Type-check the owned test and tool surfaces
-        run: pnpm tsc -p tests/meta/tsconfig.json --noEmit
+      - name: Type-check protocol, runtime packages, tests, and tools
+        run: |
+          pnpm run runtime:build
+          pnpm tsc -p packages/protocol/tsconfig.json --noEmit
+          pnpm tsc -p packages/engine/tsconfig.json --noEmit
+          pnpm tsc -p packages/input/tsconfig.json --noEmit
+          pnpm tsc -p packages/gameplay/tsconfig.json --noEmit
+          pnpm tsc -p packages/runtime-r3f/tsconfig.json --noEmit
+          pnpm tsc -p tests/meta/tsconfig.json --noEmit
 
   unit:
     name: unit

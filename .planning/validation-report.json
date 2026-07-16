@@ -88,19 +88,19 @@
       },
       {
         "id": "D012",
-        "title": "R3F/Koota/Rapier ownership and custom sphere",
+        "title": "public R3F/Drei/Three presentation allowance, exclusive runtime-r3f Rapier ownership, Koota, and custom sphere",
         "owner": "P04",
         "gate": "VG-04-RUNTIME"
       },
       {
         "id": "D013",
-        "title": "Ecctrl limited boundary",
+        "title": "Ecctrl limited to runtime-r3f translation",
         "owner": "P04",
         "gate": "VG-04-ECCTRL"
       },
       {
         "id": "D014",
-        "title": "normalized keyboard/gamepad/touch contract",
+        "title": "browser-free keyboard/gamepad/touch normalization, mapping, arbitration, and frame contract",
         "owner": "P04",
         "gate": "VG-04-INPUT-CONTRACT"
       },
@@ -112,13 +112,13 @@
       },
       {
         "id": "D016",
-        "title": "playable growth/collection/scoring/camera/restart",
+        "title": "web Canvas/visible GLB presentation plus playable growth/collection/scoring/camera/restart",
         "owner": "P05",
         "gate": "VG-05-PLAYABLE"
       },
       {
         "id": "D017",
-        "title": "keyboard/gamepad/touch playable parity",
+        "title": "P05 keyboard/gamepad/touch browser adapters feeding normalized playable parity",
         "owner": "P05",
         "gate": "VG-05-INPUT-PARITY"
       },
@@ -392,20 +392,20 @@
       {
         "id": "VG-04-RUNTIME",
         "owner": "P04",
-        "expectedEvidence": "Engine/gameplay/runtime-r3f tests prove tag/AoS Koota with `Function` blocked as a JS dynamic-code guard, stable-ID ordered systems/lifecycle, one paused raw Rapier step/event queue, physics-only proxies, plain poses, and one visible-transform writer. P04 explicitly hands off the pinned-WASM CSP/MIME browser gate to P05/P10/P11 rather than claiming full CSP coverage.",
-        "stopCondition": "Stop on JS `unsafe-eval`, SoA accessors, implicit query order, duplicate clocks/event queues/transform writers, visible physics children, or Ecctrl snowball authority; do not block required pinned Rapier WASM accidentally."
+        "expectedEvidence": "Engine/gameplay/runtime-r3f tests prove tag/AoS Koota with `Function` blocked as a JS dynamic-code guard, stable-ID ordered systems/lifecycle, and a real integration against the pinned Rapier provider with one paused raw step/event queue, physics-only proxies, plain poses, and one visible-transform writer. The contract permits future P05 presentation imports from public R3F/Drei/Three while reserving React Three Rapier/Ecctrl imports and use, manual stepping, Rapier handles, and physics lifecycle to `runtime-r3f`. P04 explicitly hands off actual web `Canvas`/visible-GLB browser E2E and the pinned-WASM CSP/MIME browser gate to P05/P10/P11 rather than claiming P05 implementation or full CSP coverage.",
+        "stopCondition": "Stop on JS `unsafe-eval`, SoA accessors, implicit query order, duplicate clocks/event queues/transform writers, visible physics children, Rapier/Ecctrl/physics ownership outside `runtime-r3f`, a false rejection of public presentation imports, Ecctrl snowball authority, or accidental blocking of required pinned Rapier WASM."
       },
       {
         "id": "VG-04-ECCTRL",
         "owner": "P04",
-        "expectedEvidence": "Installed-API contract and adapter tests prove Ecctrl 2.0.0 `setMovement` receives complete normalized state including releases, stays optional for humanoid/on-foot/touch modes, and never owns snowball physics or deterministic stepping.",
-        "stopCondition": "Stop if the snowball depends on an Ecctrl capsule/frame loop, incomplete sticky movement state, or undocumented/deep Ecctrl imports."
+        "expectedEvidence": "Installed-API contract and adapter tests prove Ecctrl 2.0.0 `setMovement` receives complete normalized state including releases only inside `runtime-r3f`, stays optional for humanoid/on-foot/touch modes, and never owns snowball physics or deterministic stepping.",
+        "stopCondition": "Stop if Ecctrl is imported/used outside `runtime-r3f`, the snowball depends on an Ecctrl capsule/frame loop, movement state is incomplete/sticky, or an undocumented/deep Ecctrl import appears."
       },
       {
         "id": "VG-04-INPUT-CONTRACT",
         "owner": "P04",
-        "expectedEvidence": "`packages/input/**` tests cover movement plus semantic `up/down/left/right/pause/confirm/back`, keyboard normalization/no repeat edges, gamepad movement deadzone and UI direction activation/release hysteresis, touch direct activation/pointer cancel, one edge per transition, arbitration, and synthetic releases.",
-        "stopCondition": "Stop if UI/gameplay reads raw devices, focus navigation steals gameplay source, or device/browser repeat produces duplicate edges."
+        "expectedEvidence": "Pure `packages/input/**` tests feed explicit plain keyboard transitions, gamepad snapshots, touch samples, and lifecycle signals and prove movement plus semantic `up/down/left/right/pause/confirm/back`, repeat suppression, movement deadzone, UI direction activation/release hysteresis, touch activation intent, one edge per transition, arbitration, synthetic releases, and normalized `InputFrame` generation. Tests prove no DOM listener, device polling, pointer/touch capture, or ambient `window`/`document`/`navigator` read; those real-browser bindings belong to P05.",
+        "stopCondition": "Stop if `packages/input` reads ambient browser globals or owns capture/polling, normalization/arbitration/frame generation moves into P05/UI/gameplay, gameplay/UI consume raw devices, focus navigation steals gameplay source, or repeat produces duplicate edges."
       },
       {
         "id": "VG-04-PERFORMANCE",
@@ -416,14 +416,14 @@
       {
         "id": "VG-05-PLAYABLE",
         "owner": "P05",
-        "expectedEvidence": "90-second one-arena run proves three authored size bands, final goal object, authored integer score, win/time-out, pause, restart on same level version/seed, growth volume formula, collection threshold, camera reset/options, and collected-body disappearance by next tick.",
-        "stopCondition": "Stop if four of five fresh playtesters cannot finish within three attempts or median fun/control is below 4/5."
+        "expectedEvidence": "Browser E2E creates the web R3F `Canvas`, visible scene, and GLB presentation through public R3F/Drei/Three APIs while consuming physics only through `runtime-r3f`; the 90-second one-arena run proves three authored size bands, final goal object, authored integer score, win/time-out, pause, restart on the same level version/seed, growth volume formula, collection threshold, camera reset/options, and collected-body disappearance by the next tick.",
+        "stopCondition": "Stop if app code imports/uses Rapier or Ecctrl, steps physics, retains handles, owns physics lifecycle, lacks visible GLB composition, four of five fresh playtesters cannot finish within three attempts, or median fun/control is below 4/5."
       },
       {
         "id": "VG-05-INPUT-PARITY",
         "owner": "P05",
-        "expectedEvidence": "Keyboard, standard gamepad, and touch runs complete the same starter objective with equivalent pause/restart/camera/action behavior and no P0/P1 gameplay, input parity, accessibility, or offline defects.",
-        "stopCondition": "Stop if any input source is required to finish but cannot, or if pause/confirm/back conflicts with source arbitration."
+        "expectedEvidence": "Real-browser keyboard listeners, standards-based `navigator.getGamepads()` polling, and pointer/touch capture/cancel adapters feed plain public `packages/input` ingress. Keyboard, standard gamepad, and touch runs complete the same starter objective with equivalent normalized pause/restart/camera/action behavior; `packages/input` retains normalization/action mapping/arbitration/frame generation without ambient reads, and gameplay/UI consume normalized frames only.",
+        "stopCondition": "Stop if any adapter bypasses input ingress, input owns ambient browser reads, normalization/arbitration moves into the app, gameplay/UI consume raw device data, any input source cannot finish, or pause/confirm/back conflicts with source arbitration."
       },
       {
         "id": "VG-05-OFFLINE-RUN",
@@ -434,8 +434,8 @@
       {
         "id": "VG-05-CSP-WASM",
         "owner": "P05",
-        "expectedEvidence": "The real production artifact embeds the approved meta CSP baseline only for the Chromium P05 proof (no CSP response header), boots `/play`, loads and steps pinned same-origin Rapier WASM under `script-src 'self' 'wasm-unsafe-eval'` with no JS `'unsafe-eval'`/inline script, and serves `.wasm` as `application/wasm`. P05 owns a build-emitted inert same-origin external probe asset at a recorded artifact path with a SHA-256 hash; the allowed external probe records the document-realm `new Function` thrown error plus `securitypolicyviolation`, and a separately inserted nonce-less inline script never sets its marker and emits a violation. Handoff records release-artifact, effective policy, probe asset, and WASM hashes and proves no community WASM is emitted or fetched.",
-        "stopCondition": "Stop if an automation-world `page.evaluate(new Function)` is used as proof, a CSP header is used for the P05 Chromium gate, the probe is inline or un-hashed, Rapier falls back from bad MIME, JS dynamic code is allowed, community WASM is emitted/fetched, or the Koota shim is presented as complete CSP proof."
+        "expectedEvidence": "The real production artifact embeds the approved meta CSP baseline only for the Chromium P05 proof (no CSP response header), boots `/play`, initializes the pinned `@dimforge/rapier3d-compat@0.19.2` base64-inlined WASM bytes under `script-src 'self' 'wasm-unsafe-eval'` with no JS `'unsafe-eval'`/inline script, and performs a real physics step. P05 records the decoded embedded-WASM SHA-256 plus containing-JS chunk/artifact hashes, inventories zero emitted standalone `.wasm` files, and observes zero runtime `.wasm` requests. P05 also owns a build-emitted inert same-origin external probe asset at a recorded artifact path with a SHA-256 hash; the allowed external probe records the document-realm `new Function` thrown error plus `securitypolicyviolation`, and a separately inserted nonce-less inline script never sets its marker and emits a violation. Handoff records release-artifact, effective policy, probe asset, and Rapier-lineage hashes and proves no community WASM is emitted or fetched.",
+        "stopCondition": "Stop if an automation-world `page.evaluate(new Function)` is used as proof, a CSP header is used for the P05 Chromium gate, the probe is inline or un-hashed, the decoded embedded-WASM or containing-JS lineage is missing, a standalone Rapier `.wasm` is emitted/requested, JS dynamic code is allowed, community WASM is emitted/fetched, or the Koota shim is presented as complete CSP proof."
       },
       {
         "id": "VG-06-CLI",
@@ -482,8 +482,8 @@
       {
         "id": "VG-08-GAME-UI",
         "owner": "P08",
-        "expectedEvidence": "HUD, pause, store, and Settings Save Data states render from throttled snapshots/view models; pause stops simulation and traps/restores focus; store shows cached-refresh, offline timestamp, no-cache, error, quota, downloading, verifying, installed, update, canceled, and failed states; Save Data export/import gives accessible success, error, and recovery copy.",
-        "stopCondition": "Stop if DOM UI reads raw input/IndexedDB APIs, if pause only hides UI while simulation keeps ticking, or if save import/export feedback is ambiguous or inaccessible."
+        "expectedEvidence": "HUD, pause, store, and Settings Save Data states render from throttled snapshots/view models and normalized input frames only; pause stops simulation and traps/restores focus; store shows cached-refresh, offline timestamp, no-cache, error, quota, downloading, verifying, installed, update, canceled, and failed states; Save Data export/import gives accessible success, error, and recovery copy. Inherited tests still allow public R3F/Drei/Three presentation imports and confine physics to `runtime-r3f`, browser reads to P05 bindings, and normalization/arbitration/frame generation to browser-free `packages/input`.",
+        "stopCondition": "Stop if DOM UI reads raw input/IndexedDB APIs, takes browser-adapter or physics ownership, weakens inherited boundary tests, pause only hides UI while simulation keeps ticking, or save import/export feedback is ambiguous or inaccessible."
       },
       {
         "id": "VG-08-LANDING",
@@ -524,8 +524,8 @@
       {
         "id": "VG-10-DEVICES",
         "owner": "P10",
-        "expectedEvidence": "Cross-engine/device QA first defines and freezes a matrix schema, then executes automated Chromium, Firefox, Playwright-WebKit, `mobile-chromium`, and `mobile-webkit` rows against the latest post-P08 CSP/manifest proof. Each Chromium project uses a fresh candidate/project/origin profile proving manifest/document/SW/icon/cache bytes, Playwright version, full Browser/empty installability response, and same-profile offline relaunch. Distinct manual rows validate shipping macOS Safari and real-iPhone Safari on real devices; capable shipping rows separately prove native lifecycle and unsupported rows name capability/reason.",
-        "stopCondition": "Stop on an unapproved/unfrozen matrix, missing latest post-P08 CSP proof, manifest/icon mismatch, stale/reused/off-record/mocked Chromium evidence, `IN_INCOGNITO`, supported lifecycle failure, missing shipping Safari/real iPhone rows, vague unsupported row, substitution, or unresolved P0/P1 defect."
+        "expectedEvidence": "Cross-engine/device QA first defines and freezes a matrix schema, then executes automated Chromium, Firefox, Playwright-WebKit, `mobile-chromium`, and `mobile-webkit` rows against the latest post-P08 CSP/manifest proof. Static boundary tests preserve allowed public R3F/Drei/Three presentation imports, exclusive `runtime-r3f` Rapier/Ecctrl/manual-step/handle/lifecycle ownership, P05-only ambient browser bindings, browser-free input normalization/arbitration/frame generation, and normalized-frame-only gameplay/UI; device rows exercise the inherited P05 keyboard/gamepad/touch adapters through declared input ingress. Each Chromium project uses a fresh candidate/project/origin profile proving manifest/document/SW/icon/cache bytes, Playwright version, full Browser/empty installability response, and same-profile offline relaunch. Distinct manual rows validate shipping macOS Safari and real-iPhone Safari on real devices; capable shipping rows separately prove native lifecycle and unsupported rows name capability/reason.",
+        "stopCondition": "Stop on any ownership-boundary regression or adapter bypass, an unapproved/unfrozen matrix, missing latest post-P08 CSP proof, manifest/icon mismatch, stale/reused/off-record/mocked Chromium evidence, `IN_INCOGNITO`, supported lifecycle failure, missing shipping Safari/real iPhone rows, vague unsupported row, substitution, or unresolved P0/P1 defect."
       },
       {
         "id": "VG-10-PERF",
@@ -554,8 +554,8 @@
       {
         "id": "VG-11-WEB",
         "owner": "P11",
-        "expectedEvidence": "Hosts use fresh `{artifact hash, project, origin, purpose: web-check}` Chromium evidence only for live delivery reruns, not the full P10 matrix. Cloudflare proves the approved CSP header and embedded meta intersect without weakening the approved policy; GitHub Pages proves the approved meta-only fallback. Both hosts bind release SHA, artifact hash, effective policy hash, P05 probe hash, and Rapier WASM hash, then pass manifest/icon/SW/CDP/offline/CSP/WASM/document-probe checks. The selected live-primary native lifecycle uses a distinct clean purpose/profile.",
-        "stopCondition": "Stop on host failure; stale/reused/unbound profile; missing release/policy/probe/WASM hash; Cloudflare header/meta conflict; GitHub Pages header requirement; missing purpose; cross-use; dirty native start; document/cache byte mismatch; lifecycle failure; checksum-only proof; one-host proof; or full-P10-matrix substitution."
+        "expectedEvidence": "Frozen-SHA package/runtime-boundary evidence preserves allowed P05 public R3F/Drei/Three presentation imports, exclusive `runtime-r3f` Rapier/Ecctrl/manual-step/handle/lifecycle ownership, P05-only ambient browser bindings, browser-free input normalization/arbitration/frame generation, and normalized-frame-only gameplay/UI. Hosts then use fresh `{artifact hash, project, origin, purpose: web-check}` Chromium evidence only for live delivery reruns, not the full P10 matrix. Cloudflare proves the approved CSP header and embedded meta intersect without weakening the approved policy; GitHub Pages proves the approved meta-only fallback. Both hosts bind release SHA, artifact hash, effective policy hash, P05 probe hash, and Rapier WASM hash, then pass manifest/icon/SW/CDP/offline/CSP/WASM/document-probe checks. The selected live-primary native lifecycle uses a distinct clean purpose/profile.",
+        "stopCondition": "Stop on contradictory/failing boundary evidence, rebuilt or rewritten artifact, host failure, stale/reused/unbound profile, missing release/policy/probe/WASM hash, Cloudflare header/meta conflict, GitHub Pages header requirement, missing purpose, cross-use, dirty native start, document/cache byte mismatch, lifecycle failure, checksum-only proof, one-host proof, or full-P10-matrix substitution."
       },
       {
         "id": "VG-11-DOCS-LIVE",
@@ -578,8 +578,8 @@
       {
         "id": "VG-11-AUDIT",
         "owner": "P11",
-        "expectedEvidence": "Final audit maps every primary D001-D042 deliverable row, the supplemental `VG-05-CSP-WASM` stop gate, each phase gate, external cutover gate, public artifact, and rollback path to evidence; it confirms no orphan gate references, duplicate owners/gates, forbidden scaffold/source/config, or historical/current repo-state conflation.",
-        "stopCondition": "Stop if any D001-D042 row or supplemental gate is missing evidence, has multiple owners/gates, is orphaned, contradicts security/licensing/offline/input/performance/UI/no-backend boundaries, or erases the historical public-repo initialization facts while reporting current state."
+        "expectedEvidence": "Final audit maps every primary D001-D042 deliverable row, the supplemental `VG-05-CSP-WASM` stop gate, each phase gate, external cutover gate, public artifact, and rollback path to evidence; it confirms no orphan gate references, duplicate owners/gates, forbidden scaffold/source/config, historical/current repo-state conflation, or ownership drift. D012/D014/D017 must state that P05 owns public R3F/Drei/Three presentation and thin browser bindings, `runtime-r3f` alone owns Rapier/Ecctrl/manual stepping/handles/physics lifecycle, `packages/input` alone owns normalization/action mapping/arbitration/frame generation without ambient reads, and gameplay/UI consume normalized frames.",
+        "stopCondition": "Stop if any D001-D042 row or supplemental gate is missing evidence, has multiple owners/gates, is orphaned, bans permitted public presentation imports, assigns browser adapters to `packages/input`, contradicts security/licensing/offline/input/performance/UI/no-backend boundaries, or erases historical public-repo initialization facts while reporting current state."
       }
     ],
     "orphanRefs": []
@@ -912,8 +912,8 @@
       "path": ".planning/architecture-decisions.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 17879,
-      "sha256": "2af2da35e7463e009a92740c5ff7bd8e7d5c199434cf7636c21681f84fe1bb62"
+      "sizeBytes": 19214,
+      "sha256": "9d7669bb0572303351a1cca76a6f155ead147cbaeb89943e77a329e470af86b4"
     },
     {
       "path": ".planning/system-contracts.md",
@@ -926,8 +926,8 @@
       "path": ".planning/deliverable-traceability.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 30644,
-      "sha256": "b2e07af8d7737cdd51b12c57183d452a97127c7171d19a570a66645ce4179ab3"
+      "sizeBytes": 35501,
+      "sha256": "90080d183e887db64d0ea400c8cd8d7ba704167318417e0e12c48504bd63ab2b"
     },
     {
       "path": ".maestro/playbooks/README.md",
@@ -961,15 +961,15 @@
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-04-Runtime-Input-Simulation.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 18430,
-      "sha256": "0d0d27f9cb0a26b5e543b7cb63f2e4a78d94c0ac34e03b9b439c28ffba15841b"
+      "sizeBytes": 23140,
+      "sha256": "ab11dc57f1b6628b2398e47a5f5827639aa3ff7677bf4246378cfe35926166c9"
     },
     {
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-05-First-Playable-Vertical-Slice.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 31604,
-      "sha256": "2d36dd3ab785f36cf4aeb73ec4a4ae08d544fbad0df531e263ab62ccb50097dc"
+      "sizeBytes": 38928,
+      "sha256": "fb9b571f046557dcbb950d66c7cc4c772fc067e39e9d83d098e29036ed9005c9"
     },
     {
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-06-Creator-CLI-Package-Workflow.md",
@@ -982,15 +982,15 @@
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-07-Secure-Offline-Catalog-Store.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 30893,
-      "sha256": "518e83e248f3a006c8326f41deac1a4426dcdc775fc6ab88a75dea1f176b3582"
+      "sizeBytes": 30967,
+      "sha256": "a2fc2c645cb7f9cda7683aeb8474af5a4d7cc0efb75f6e4a8a5056a6a5dfcb81"
     },
     {
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-08-Product-UI-PWA-Landing.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 25898,
-      "sha256": "6822872cd487f7087e4f1c92ae680c65b9f938073b8dbc14e4eaa9bd2e9de6c7"
+      "sizeBytes": 28859,
+      "sha256": "811eaf12c29ec8aaccd5c9f9734a803d987291acb91c995a5301d323f21d1fe8"
     },
     {
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-09-Docs-Community-Release-Collateral.md",
@@ -1003,15 +1003,15 @@
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-10-Cross-Device-QA-Performance-Review.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 24634,
-      "sha256": "80f9db6e6fa8ee919cfbacc242aae7fbc860a973e1ebfc2141fc5a642aa486d2"
+      "sizeBytes": 28362,
+      "sha256": "1068a76c566127aa3c1432e36eee90cd9277a0b36109b9a5284d15b3624be133"
     },
     {
       "path": ".maestro/playbooks/Infinite-Snowball-Phase-11-Public-Release-Deployment-Audit.md",
       "exists": true,
       "role": "source",
-      "sizeBytes": 29040,
-      "sha256": "f223122754c160cfe3db9a5f0736782a64eff22752396bf40d41026c64047771"
+      "sizeBytes": 32752,
+      "sha256": "090d3b80041825d4e4a28976ac1fef5d0dc801dd03f5933f41d87b69a13ae0fa"
     },
     {
       "path": "tools/planning/validate-contracts.mjs",
@@ -1037,15 +1037,15 @@
   ],
   "repoState": {
     "current": {
-      "head": "729335357db9eaef5f6293a19fe72b903e7eed33",
+      "head": "ffcf23f87a470016a0a20a5ce71fe896c99dcb13",
       "branch": "main",
       "detachedHead": false,
       "remoteOrigin": "https://github.com/jeffscottward/infinite-snowball.git",
       "status": {
-        "staged": 22,
-        "unstaged": 0,
-        "untracked": 0,
-        "total": 22,
+        "staged": 0,
+        "unstaged": 15,
+        "untracked": 11,
+        "total": 26,
         "dirty": true
       }
     },
